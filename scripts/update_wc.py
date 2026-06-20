@@ -237,7 +237,7 @@ def team_md(tla: str, name: str, matches: list[dict], status: str = "") -> str:
     return "\n".join(lines) + "\n"
 
 
-def readme_md(matches: list[dict], state: dict) -> str:
+def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     finished = [m for m in matches if m["status"] == "FINISHED"]
     updated = state.get("updated", "N/A")[:16].replace("T", " ")
     active_stages = sorted({m["stage"] for m in finished})
@@ -288,6 +288,14 @@ def readme_md(matches: list[dict], state: dict) -> str:
                     f"- {tname(m['homeTeam'])} {fmt_score(m)} {tname(m['awayTeam'])}{adv}"
                 )
             lines.append("")
+
+    if git_log:
+        lines += [
+            "\n## Git Log\n",
+            "```text",
+            git_log.rstrip(),
+            "```",
+        ]
 
     return "\n".join(lines)
 
@@ -512,7 +520,8 @@ def main():
     # Update README + state on main
     print("\n💾 Saving state and updating README...")
     checkout("main")
-    (REPO_ROOT / "README.md").write_text(readme_md(matches, state))
+    git_log = git(["log", "--graph", "--oneline", "--all"])
+    (REPO_ROOT / "README.md").write_text(readme_md(matches, state, git_log))
     save_state(state, extra_files=["README.md"])
 
     print("\n✅ Done!")
