@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 32 / 104
-- **Last updated**: N/A UTC
+- **Last updated**: 2026-06-20 12:12 UTC
 
 ## Groups
 
