@@ -19,8 +19,8 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 32 / 104
-- **Last updated**: 2026-06-20 14:52 UTC
+- **Matches played**: 33 / 104
+- **Last updated**: 2026-06-20 16:38 UTC
 
 ## Groups
 
@@ -29,7 +29,7 @@ git log --graph --oneline --all
 - **Group C**: 4/6 played → `group/C`
 - **Group D**: 4/6 played → `group/D`
 - **Group E**: 2/6 played → `group/E`
-- **Group F**: 2/6 played → `group/F`
+- **Group F**: 3/6 played → `group/F`
 - **Group G**: 2/6 played → `group/G`
 - **Group H**: 2/6 played → `group/H`
 - **Group I**: 2/6 played → `group/I`
@@ -40,15 +40,22 @@ git log --graph --oneline --all
 ## Git Log
 
 ```text
-* a30ddc2 chore: update results (2026-06-20)
-* f4276fa chore: update results (2026-06-20)
-*   86d6c89 Merge pull request #2 from metaodi/copilot/add-git-log-to-readme
-|\  
-| * 112093a feat: add git log output to README when regenerating
+* 107697b Group F, MD2: Netherlands 5-1 Sweden (2026-06-20)
+* 862025f Group F, MD1: Sweden 5-1 Tunisia (2026-06-15)
+* 52628d1 Group F, MD1: Netherlands 2-2 Japan (2026-06-14)
+* fd92970 feat: initialize Group F
+| * 3dcb2ca Update update-results.yml
+| * 9fc6ab4 chore: update results (2026-06-20)
+| * a30ddc2 chore: update results (2026-06-20)
+| * f4276fa chore: update results (2026-06-20)
+| *   86d6c89 Merge pull request #2 from metaodi/copilot/add-git-log-to-readme
+| |\  
+| | * 112093a feat: add git log output to README when regenerating
+| |/  
+| * 9e81f0b Update update-results.yml
+| * 6c75851 chore: update results (2026-06-20)
+| * 4489135 chore: update results (2026-06-20)
 |/  
-* 9e81f0b Update update-results.yml
-* 6c75851 chore: update results (2026-06-20)
-* 4489135 chore: update results (2026-06-20)
 | * dd95a20 Group D, MD2: Turkey 0-1 Paraguay (2026-06-20)
 | * 4167627 Group D, MD2: USA 2-0 Australia (2026-06-19)
 | * 113f996 Group D, MD1: Australia 2-0 Turkey (2026-06-14)
@@ -91,10 +98,6 @@ git log --graph --oneline --all
 |/  
 | * 8a8a343 Group H, MD1: Spain 0-0 Cape Verde (2026-06-15)
 | * 3325c9d feat: initialize Group H
-|/  
-| * 862025f Group F, MD1: Sweden 5-1 Tunisia (2026-06-15)
-| * 52628d1 Group F, MD1: Netherlands 2-2 Japan (2026-06-14)
-| * fd92970 feat: initialize Group F
 |/  
 | * 4e6728c Group E, MD1: Germany 7-1 Curaçao (2026-06-14)
 | * 774420e feat: initialize Group E
