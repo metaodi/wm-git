@@ -5,11 +5,6 @@ on:
     # Run every 2 hours — matches last ~2 h so this catches each result promptly
     - cron: "0 */2 * * *"
   workflow_dispatch:
-    inputs:
-      debug:
-        description: "Print extra git log after run"
-        type: boolean
-        default: false
 
 permissions:
   contents: write  # allows pushing group/teams/main branches
@@ -21,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout repository (full history + all branches)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
           # GITHUB_TOKEN is automatically available; persist-credentials lets
@@ -32,7 +27,7 @@ jobs:
         run: git fetch --all --prune
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -46,5 +41,4 @@ jobs:
         run: python scripts/update_wc.py
 
       - name: Show git graph (debug)
-        if: ${{ inputs.debug == true }}
         run: git log --graph --oneline --all | head -80
