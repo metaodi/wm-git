@@ -3,7 +3,7 @@ name: Update World Cup Results
 on:
   schedule:
     # Run every 2 hours — matches last ~2 h so this catches each result promptly
-    - cron: "0 */2 * * *"
+    - cron: "0 0-9/2,18-23/2 * * *"
   workflow_dispatch:
 
 permissions:
