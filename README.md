@@ -19,8 +19,8 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 37 / 104
-- **Last updated**: 2026-06-21 18:29 UTC
+- **Matches played**: 38 / 104
+- **Last updated**: 2026-06-21 20:30 UTC
 
 ## Groups
 
@@ -30,7 +30,7 @@ git log --graph --oneline --all
 - **Group D**: 4/6 played → `group/D`
 - **Group E**: 4/6 played → `group/E`
 - **Group F**: 4/6 played → `group/F`
-- **Group G**: 2/6 played → `group/G`
+- **Group G**: 3/6 played → `group/G`
 - **Group H**: 3/6 played → `group/H`
 - **Group I**: 2/6 played → `group/I`
 - **Group J**: 2/6 played → `group/J`
@@ -40,27 +40,33 @@ git log --graph --oneline --all
 ## Git Log
 
 ```text
-* f1f3203 chore: update results (2026-06-21)
-* 66acebe chore: update results (2026-06-21)
-* 61d63b9 chore: update results (2026-06-21)
-* 3188ba6 chore: update results (2026-06-21)
-* 58eaf13 chore: update results (2026-06-21)
-* dbb2a8b chore: update results (2026-06-21)
-* e978bc3 chore: update results (2026-06-21)
-* edc9f58 chore: update results (2026-06-20)
-* 69e4845 chore: update results (2026-06-20)
-* 368c0a4 chore: update results (2026-06-20)
-* 3dcb2ca Update update-results.yml
-* 9fc6ab4 chore: update results (2026-06-20)
-* a30ddc2 chore: update results (2026-06-20)
-* f4276fa chore: update results (2026-06-20)
-*   86d6c89 Merge pull request #2 from metaodi/copilot/add-git-log-to-readme
-|\  
-| * 112093a feat: add git log output to README when regenerating
+* d3b69fe Group G, MD2: Belgium 0-0 Iran (2026-06-21)
+* 41c7043 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
+* 2272ecc Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
+* 91b73f4 feat: initialize Group G
+| * 6290273 chore: update results (2026-06-21)
+| * f1f3203 chore: update results (2026-06-21)
+| * 66acebe chore: update results (2026-06-21)
+| * 61d63b9 chore: update results (2026-06-21)
+| * 3188ba6 chore: update results (2026-06-21)
+| * 58eaf13 chore: update results (2026-06-21)
+| * dbb2a8b chore: update results (2026-06-21)
+| * e978bc3 chore: update results (2026-06-21)
+| * edc9f58 chore: update results (2026-06-20)
+| * 69e4845 chore: update results (2026-06-20)
+| * 368c0a4 chore: update results (2026-06-20)
+| * 3dcb2ca Update update-results.yml
+| * 9fc6ab4 chore: update results (2026-06-20)
+| * a30ddc2 chore: update results (2026-06-20)
+| * f4276fa chore: update results (2026-06-20)
+| *   86d6c89 Merge pull request #2 from metaodi/copilot/add-git-log-to-readme
+| |\  
+| | * 112093a feat: add git log output to README when regenerating
+| |/  
+| * 9e81f0b Update update-results.yml
+| * 6c75851 chore: update results (2026-06-20)
+| * 4489135 chore: update results (2026-06-20)
 |/  
-* 9e81f0b Update update-results.yml
-* 6c75851 chore: update results (2026-06-20)
-* 4489135 chore: update results (2026-06-20)
 | * 52742cd Group H, MD2: Spain 5-0 Saudi Arabia (2026-06-21)
 | * 8a8a343 Group H, MD1: Spain 0-0 Cape Verde (2026-06-15)
 | * 3325c9d feat: initialize Group H
@@ -111,10 +117,6 @@ git log --graph --oneline --all
 |/  
 | * 6fe31c2 Group I, MD1: France 3-1 Senegal (2026-06-16)
 | * c483c0f feat: initialize Group I
-|/  
-| * 41c7043 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
-| * 2272ecc Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
-| * 91b73f4 feat: initialize Group G
 |/  
 *   b5c7791 Merge pull request #1 from metaodi/claude/world-cup-git-structure-mc792b
 |\  
