@@ -12,7 +12,7 @@ Usage:
 """
 
 import argparse
-import json
+import jsonst
 import logging
 import os
 import subprocess
@@ -513,7 +513,7 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     groups_html_parts: list[str] = []
     for letter in sorted(groups):
         gm = sorted(groups[letter], key=lambda x: x["utcDate"])
-        stand = standings.get(letter, [])
+        stand = standings.get(f"Group {letter}", [])
         done = sum(1 for m in gm if m["status"] == "FINISHED")
 
         table_rows = ""
@@ -711,7 +711,7 @@ def process_group_match(m: dict, state: dict, all_group: list[dict], standings: 
 
     path = REPO_ROOT / "groups" / f"group_{g}.md"
     path.parent.mkdir(exist_ok=True)
-    path.write_text(group_md(g, visible, standings.get(g)))
+    path.write_text(group_md(g, visible, standings.get(f"Group {g}")))
 
     md = m.get("matchday", "?")
     h, a, s = tname(m["homeTeam"]), tname(m["awayTeam"]), fmt_score(m)
@@ -1001,7 +1001,7 @@ def main():
         checkout("main")
         for letter in groups_to_merge:
             log.debug("Merging group/%s into main", letter)
-            merge_group_branch_to_main(letter, standings.get(letter, []), matches, state)
+            merge_group_branch_to_main(letter, standings.get(f"Group {letter}", []), matches, state)
 
     # KO stage
     new_ko = [m for m in new_matches if m["stage"] in KO_STAGES]
