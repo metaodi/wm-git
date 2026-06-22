@@ -3,3 +3,4 @@
 ## Matches
 
 - ✅ **Germany 7-1 Curaçao** (2026-06-14)
+- ✅ **Ivory Coast 1-0 Ecuador** (2026-06-14)
