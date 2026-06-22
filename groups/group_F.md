@@ -1,3 +1,5 @@
 # Group F — 2026 FIFA World Cup
 
-No matches played yet.
+## Matches
+
+- ✅ **Netherlands 2-2 Japan** (2026-06-14)
