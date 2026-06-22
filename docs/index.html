@@ -49,7 +49,7 @@
 
   <div class="status">
     <span class="stat">⚽ <strong>40</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-06-22 06:19 UTC</span>
+    <span class="last-updated">Updated: 2026-06-22 06:23 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
@@ -62,69 +62,69 @@ gitGraph TB:
   commit id: "Initial commit"
   commit id: "feat: World Cup 2026 git structure with auto-"
   commit id: "Merge pull request #1 from metaodi/claude/wor"
-  branch group/I
+  branch group/I order: 9
   commit id: "feat: initialize Group I"
   commit id: "Group I, MD1: France 3-1 Senegal (2026-06-16)"
   checkout main
-  branch group/J
+  branch group/J order: 10
   commit id: "feat: initialize Group J"
   commit id: "Group J, MD1: Argentina 3-0 Algeria (2026-06-"
   checkout main
-  branch group/L
+  branch group/L order: 12
   commit id: "feat: initialize Group L"
   commit id: "Group L, MD1: England 4-2 Croatia (2026-06-17"
   checkout main
-  branch group/K
+  branch group/K order: 11
   commit id: "feat: initialize Group K"
   commit id: "Group K, MD1: Portugal 1-1 Congo DR (2026-06-"
   commit id: "Group K, MD1: Uzbekistan 1-3 Colombia (2026-0"
   checkout main
-  branch group/B
+  branch group/B order: 2
   commit id: "feat: initialize Group B"
   commit id: "Group B, MD1: Canada 1-1 Bosnia-H. (2026-06-1"
   commit id: "Group B, MD1: Qatar 1-1 Switzerland (2026-06-"
   commit id: "Group B, MD2: Switzerland 4-1 Bosnia-H. (2026"
   checkout main
-  branch group/A
+  branch group/A order: 1
   commit id: "feat: initialize Group A"
   commit id: "Group A, MD1: Mexico 2-0 South Africa (2026-0"
   commit id: "Group A, MD1: Korea Republic 2-1 Czechia (202"
   commit id: "Group A, MD2: Czechia 1-1 South Africa (2026-"
   commit id: "Group A, MD2: Mexico 1-0 Korea Republic (2026"
   checkout main
-  branch group/C
+  branch group/C order: 3
   commit id: "feat: initialize Group C"
   commit id: "Group C, MD1: Brazil 1-1 Morocco (2026-06-13)"
   commit id: "Group C, MD1: Haiti 0-1 Scotland (2026-06-14)"
   commit id: "Group C, MD2: Scotland 0-1 Morocco (2026-06-1"
   commit id: "Group C, MD2: Brazil 3-0 Haiti (2026-06-20)"
   checkout main
-  branch group/D
+  branch group/D order: 4
   commit id: "feat: initialize Group D"
   commit id: "Group D, MD1: USA 4-1 Paraguay (2026-06-13)"
   commit id: "Group D, MD1: Australia 2-0 Turkey (2026-06-1"
   commit id: "Group D, MD2: USA 2-0 Australia (2026-06-19)"
   commit id: "Group D, MD2: Turkey 0-1 Paraguay (2026-06-20"
   checkout main
-  branch group/E
+  branch group/E order: 5
   commit id: "feat: initialize Group E"
   commit id: "Group E, MD1: Germany 7-1 Curaçao (2026-06-14"
   commit id: "Group E, MD2: Germany 2-1 Ivory Coast (2026-0"
   commit id: "Group E, MD2: Ecuador 0-0 Curaçao (2026-06-21"
   checkout main
-  branch group/F
+  branch group/F order: 6
   commit id: "feat: initialize Group F"
   commit id: "Group F, MD1: Netherlands 2-2 Japan (2026-06-"
   commit id: "Group F, MD1: Sweden 5-1 Tunisia (2026-06-15)"
   commit id: "Group F, MD2: Netherlands 5-1 Sweden (2026-06"
   commit id: "Group F, MD2: Tunisia 0-4 Japan (2026-06-21)"
   checkout main
-  branch group/H
+  branch group/H order: 8
   commit id: "feat: initialize Group H"
   commit id: "Group H, MD1: Spain 0-0 Cape Verde (2026-06-1"
   commit id: "Group H, MD2: Spain 5-0 Saudi Arabia (2026-06"
   checkout main
-  branch group/G
+  branch group/G order: 7
   commit id: "feat: initialize Group G"
   commit id: "Group G, MD1: Belgium 1-1 Egypt (2026-06-15)"
   commit id: "Group G, MD1: Iran 2-2 New Zealand (2026-06-1"
@@ -141,12 +141,21 @@ gitGraph TB:
   commit id: "Update update-results.yml"
   commit id: "Update upload-pages-artifact action version"
   commit id: "Exclude specific commit message from display"
+  commit id: "fix: order group/* branches alphabetically in"
+  commit id: "fix: clarify _branch_order docstring (1-12, n"
+  commit id: "Merge pull request #4 from metaodi/copilot/or"
       </div>
     </div>
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">* 8cf3d8c Update update_wc.py
+    <pre class="git-log">*   5b1799d Merge pull request #4 from metaodi/copilot/order-group-branches-alphabetically
+|\  
+| * 79be4b5 fix: clarify _branch_order docstring (1-12, not 1-26, explain fallback 99)
+| * 357f930 fix: order group/* branches alphabetically in Mermaid gitGraph
+|/  
+* a2e32a7 chore: update results (2026-06-22)
+* 8cf3d8c Update update_wc.py
 * 62f9d92 Update update_wc.py
 * 73eee9f chore: update results (2026-06-22)
 * 2979e64 Exclude specific commit message from display
