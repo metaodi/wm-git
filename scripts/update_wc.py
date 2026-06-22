@@ -168,7 +168,7 @@ def fetch_standings() -> dict[str, list]:
             if s.get("type") == "TOTAL":
                 letter = s.get("group", "").replace("GROUP_", "")
                 result[letter] = s.get("table", [])
-        log.debug("Fetched standings for %d group(s): %s", len(result), sorted(result.keys()))
+        log.debug("Fetched standings for %d group(s): %s", len(result), result))
         return result
     except Exception:
         log.debug("Failed to fetch standings", exc_info=True)
