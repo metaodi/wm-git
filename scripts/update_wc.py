@@ -323,13 +323,16 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
 _MERMAID_SUBJECT_LEN = 50  # max chars of commit subject kept in Mermaid commit IDs
 
 
-def generate_mermaid_gitgraph() -> str:
+def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
     """Parse the git DAG and produce Mermaid gitGraph syntax."""
     sep = "\x1f"
     try:
+        cmd = ["git", "log", "--all", "--topo-order", "--reverse",
+               f"--pretty=format:%H{sep}%P{sep}%D{sep}%s"]
+        if starting_commit:
+            cmd.append(f"{starting_commit}^..")
         raw = subprocess.check_output(
-            ["git", "log", "--all", "--topo-order", "--reverse",
-             f"--pretty=format:%H{sep}%P{sep}%D{sep}%s"],
+            cmd,
             cwd=REPO_ROOT, text=True, stderr=subprocess.DEVNULL,
         ).strip()
     except subprocess.CalledProcessError:
@@ -480,10 +483,14 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     total_count = len(matches)
 
     # ── Mermaid gitGraph ──────────────────────────────────────────────────────
-    mermaid_graph = generate_mermaid_gitgraph()
+    starting_commit = state.get("starting_commit")
+    mermaid_graph = generate_mermaid_gitgraph(starting_commit)
 
     # ── ASCII git log (capped to avoid huge pages as history grows) ────────────
-    git_log_ascii = git(["log", "--graph", "--oneline", "--all", "--max-count=150"])
+    git_log_cmd = ["log", "--graph", "--oneline", "--all", "--max-count=150"]
+    if starting_commit:
+        git_log_cmd.append(f"{starting_commit}^..")
+    git_log_ascii = git(git_log_cmd)
 
     # ── Groups ────────────────────────────────────────────────────────────────
     groups: dict[str, list] = {}
@@ -889,7 +896,11 @@ def main():
     # Update README, site, and state on main
     print("\n💾 Saving state, updating README, and generating site...")
     checkout("main")
-    git_log = git(["log", "--graph", "--oneline", "--all"])
+    starting_commit = state.get("starting_commit")
+    git_log_cmd = ["log", "--graph", "--oneline", "--all"]
+    if starting_commit:
+        git_log_cmd.append(f"{starting_commit}^..")
+    git_log = git(git_log_cmd)
     (REPO_ROOT / "README.md").write_text(readme_md(matches, state, git_log))
     docs_dir = REPO_ROOT / "docs"
     docs_dir.mkdir(exist_ok=True)
