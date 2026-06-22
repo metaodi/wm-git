@@ -692,7 +692,7 @@ def process_group_match(m: dict, state: dict, all_group: list[dict], standings: 
     date = m["utcDate"][:10]
 
     # Idempotency: skip if commit already exists for this match
-    if commit_already_exists(branch, f"Group {g}.*{date}"):
+    if commit_already_exists(branch, f"Group {g}.*{tname(m["homeTeam"])}.*{tname(m["awayTeam"])}.*{date}"):
         return
 
     checkout(branch, create_from="main")
