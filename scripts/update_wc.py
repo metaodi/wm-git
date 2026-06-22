@@ -12,7 +12,7 @@ Usage:
 """
 
 import argparse
-import jsonst
+import json
 import logging
 import os
 import subprocess
