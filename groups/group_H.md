@@ -1,3 +1,5 @@
 # Group H — 2026 FIFA World Cup
 
-No matches played yet.
+## Matches
+
+- ✅ **Spain 0-0 Cape Verde** (2026-06-15)
