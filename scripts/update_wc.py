@@ -599,7 +599,7 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     mermaid.initialize({{
       startOnLoad: true,
       theme: 'dark',
-      gitGraph: {{ rotateCommitLabel: true, showBranches: true }}
+      gitGraph: {{ rotateCommitLabel: true, parallelCommits: true, showBranches: true }}
     }});
   </script>
 
