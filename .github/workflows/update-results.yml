@@ -46,7 +46,12 @@ jobs:
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python scripts/update_wc.py${{ inputs.dry_run && ' --dry-run' || '' }}
+        run: |
+          EXTRA_FLAGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            EXTRA_FLAGS="--dry-run"
+          fi
+          python scripts/update_wc.py $EXTRA_FLAGS
 
       - name: Show git graph (debug)
         run: git log --graph --oneline --all | head -80
