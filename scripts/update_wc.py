@@ -632,7 +632,7 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
   </style>
 </head>
 <body>
-  <h1>🏆 2026 FIFA World Cup in Git</h1>
+  <h1>🏆 2026 FIFA World Cup in Git <a href="https://github.com/{repo}" style="font-size:.6em;font-weight:400;vertical-align:middle" title="View on GitHub">GitHub</a></h1>
 
   <div class="status">
     <span class="stat">⚽ <strong>{finished_count}</strong> / <strong>{total_count}</strong> matches played</span>
