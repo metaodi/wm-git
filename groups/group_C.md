@@ -1,3 +1,5 @@
 # Group C — 2026 FIFA World Cup
 
-No matches played yet.
+## Matches
+
+- ✅ **Brazil 1-1 Morocco** (2026-06-13)
