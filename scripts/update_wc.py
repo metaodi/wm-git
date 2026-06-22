@@ -726,6 +726,8 @@ def group_merge_commit_msg(letter: str, group_standings: list, qualified_tlas: s
     ``qualified_tlas`` should contain only TLAs from this group that are known to
     have qualified; pass an empty set when the best-third-place draw hasn't happened yet.
     """
+    if not group_standings:
+        return f"merge: Group {letter} complete"
     advancing = [tname(e["team"]) for e in group_standings if e["team"]["tla"] in qualified_tlas]
     summary = f" — {' & '.join(advancing)} advance" if advancing else ""
     lines = [f"merge: Group {letter} complete{summary}\n", "Final standings:"]
@@ -774,7 +776,7 @@ def merge_group_branch_to_main(letter: str, group_standings: list, matches: list
     )
     if r.returncode != 0:
         log.debug("Merge conflict for %s, falling back to ours strategy: %s", branch, r.stderr)
-        subprocess.run(["git", "merge", "--abort"], cwd=REPO_ROOT)
+        subprocess.run(["git", "merge", "--abort"], cwd=REPO_ROOT, check=False)
         subprocess.run(
             ["git", "merge", "--no-ff", "-s", "ours", branch, "-m", msg],
             cwd=REPO_ROOT, check=True,
