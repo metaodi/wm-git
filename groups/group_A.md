@@ -3,3 +3,4 @@
 ## Matches
 
 - ✅ **Mexico 2-0 South Africa** (2026-06-11)
+- ✅ **Korea Republic 2-1 Czechia** (2026-06-12)
