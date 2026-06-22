@@ -583,6 +583,7 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
         ko_html = "\n".join(ko_parts)
 
     clone_cmd = f"git clone https://github.com/{repo}.git && git log --graph --oneline --all" if repo else "git log --graph --oneline --all"
+    github_link = f'<a href="https://github.com/{repo}" style="font-size:.6em;font-weight:400;vertical-align:middle" title="View on GitHub">GitHub</a>' if repo else ""
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -632,7 +633,7 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
   </style>
 </head>
 <body>
-  <h1>🏆 2026 FIFA World Cup in Git</h1>
+  <h1>🏆 2026 FIFA World Cup in Git {github_link}</h1>
 
   <div class="status">
     <span class="stat">⚽ <strong>{finished_count}</strong> / <strong>{total_count}</strong> matches played</span>
