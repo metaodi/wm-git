@@ -383,7 +383,7 @@ def generate_mermaid_gitgraph() -> str:
                         stack.append(p)
 
     # Emit gitGraph commands
-    lines = ["gitGraph TD:"]
+    lines = ["gitGraph TB:"]
     cur: str | None = None
     created: set[str] = set()
 
@@ -408,6 +408,10 @@ def generate_mermaid_gitgraph() -> str:
         subject = c["subject"]
         short = sha[:7]
 
+        # do not display the chore commits
+        if subject.startswith("chore:"):
+            continue
+
         # Bootstrap: first commit implicitly starts on main
         if not created:
             created.add("main")
@@ -419,11 +423,11 @@ def generate_mermaid_gitgraph() -> str:
         if len(parents) > 1:
             mb = sha_to_branch.get(parents[1])
             if mb and mb in created and mb != branch:
-                lines.append(f'  merge {mb} id: "{short}: {subject}"')
+                lines.append(f'  merge {mb} id: "{subject}"')
             else:
-                lines.append(f'  commit id: "{short}: {subject}"')
+                lines.append(f'  commit id: "{subject}"')
         else:
-            lines.append(f'  commit id: "{short}: {subject}"')
+            lines.append(f'  commit id: "{subject}"')
 
     return "\n".join(lines)
 
