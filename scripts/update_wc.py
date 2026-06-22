@@ -300,7 +300,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     return "\n".join(lines)
 
 
-_MERMAID_SUBJECT_LEN = 45  # max chars of commit subject kept in Mermaid commit IDs
+_MERMAID_SUBJECT_LEN = 50  # max chars of commit subject kept in Mermaid commit IDs
 
 
 def generate_mermaid_gitgraph() -> str:
@@ -428,6 +428,9 @@ def generate_mermaid_gitgraph() -> str:
         # do not display the chore commits
         if subject.startswith("chore:") or subject == "Update update_wc.py":
             continue
+          
+        _, _, result = subject.partition(":")
+        subject = result.strip()
 
         # Bootstrap: first commit implicitly starts on main
         if not created:
