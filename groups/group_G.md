@@ -1,3 +1,5 @@
 # Group G — 2026 FIFA World Cup
 
-No matches played yet.
+## Matches
+
+- ✅ **Belgium 1-1 Egypt** (2026-06-15)
