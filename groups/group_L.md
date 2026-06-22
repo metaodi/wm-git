@@ -1,3 +1,5 @@
 # Group L — 2026 FIFA World Cup
 
-No matches played yet.
+## Matches
+
+- ✅ **England 4-2 Croatia** (2026-06-17)
