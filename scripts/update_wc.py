@@ -16,6 +16,7 @@ import logging
 import os
 import subprocess
 import sys
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -848,7 +849,8 @@ def main():
         sys.exit(1)
 
     print(f"  {len(matches)} total matches")
-    log.debug("Match statuses: %s", {s: sum(1 for m in matches if m["status"] == s) for s in {m["status"] for m in matches}})
+    if log.isEnabledFor(logging.DEBUG):
+        log.debug("Match statuses: %s", dict(Counter(m["status"] for m in matches)))
 
     processed_ids = set(state.get("processed_ids", []))
     finished = [m for m in matches if m["status"] == "FINISHED"]
@@ -857,7 +859,8 @@ def main():
         key=lambda m: m["utcDate"],
     )
     print(f"  {len(finished)} finished, {len(new_matches)} new to process")
-    log.debug("New matches to process: %s", [f"{m['homeTeam']['tla']} vs {m['awayTeam']['tla']} ({m['utcDate'][:10]})" for m in new_matches])
+    if log.isEnabledFor(logging.DEBUG):
+        log.debug("New matches to process: %s", [f"{m['homeTeam']['tla']} vs {m['awayTeam']['tla']} ({m['utcDate'][:10]})" for m in new_matches])
 
     all_group = [m for m in matches if m["stage"] == "GROUP_STAGE"]
 
