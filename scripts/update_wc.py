@@ -392,13 +392,13 @@ def generate_mermaid_gitgraph() -> str:
         if branch not in created:
             pb = parent_branch if (parent_branch and parent_branch in created) else "main"
             if pb in created and pb != cur:
-                lines.append(f'  checkout "{pb}"')
+                lines.append(f'  checkout {pb}')
                 cur = pb
-            lines.append(f'  branch "{branch}"')
+            lines.append(f'  branch {branch}')
             created.add(branch)
             cur = branch
         elif branch != cur:
-            lines.append(f'  checkout "{branch}"')
+            lines.append(f'  checkout {branch}')
             cur = branch
 
     for c in commits:
@@ -419,7 +419,7 @@ def generate_mermaid_gitgraph() -> str:
         if len(parents) > 1:
             mb = sha_to_branch.get(parents[1])
             if mb and mb in created and mb != branch:
-                lines.append(f'  merge "{mb}" id: "{short}: {subject}"')
+                lines.append(f'  merge {mb} id: "{short}: {subject}"')
             else:
                 lines.append(f'  commit id: "{short}: {subject}"')
         else:
