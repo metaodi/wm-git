@@ -524,15 +524,13 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
             table_rows += (
                 f"<tr><td>{e['position']}</td><td><strong>{t}</strong></td>"
                 f"<td>{e['playedGames']}</td><td>{e['won']}</td><td>{e['draw']}</td>"
-                f"<td>{e['lost']}</td><td>{e['goalsFor']}</td><td>{e['goalsAgainst']}</td>"
-                f"<td>{gd:+d}</td><td><strong>{e['points']}</strong></td></tr>"
+                f"<td>{e['lost']}</td><td>{gd:+d}</td><td><strong>{e['points']}</strong></td></tr>"
             )
         table_html = (
             f"<table aria-label='Group {letter} standings'><thead><tr>"
             "<th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th>"
             "<th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th>"
-            "<th scope='col'>GF</th><th scope='col'>GA</th><th scope='col'>GD</th>"
-            "<th scope='col'>Pts</th>"
+            "<th scope='col'>GD</th><th scope='col'>Pts</th>"
             f"</tr></thead><tbody>{table_rows}</tbody></table>"
             if table_rows else ""
         )
