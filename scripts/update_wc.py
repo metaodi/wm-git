@@ -300,6 +300,9 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     return "\n".join(lines)
 
 
+_MERMAID_SUBJECT_LEN = 45  # max chars of commit subject kept in Mermaid commit IDs
+
+
 def generate_mermaid_gitgraph() -> str:
     """Parse the git DAG and produce Mermaid gitGraph syntax."""
     sep = "\x1f"
@@ -342,7 +345,7 @@ def generate_mermaid_gitgraph() -> str:
             sha=sha,
             parents=parents,
             branch_refs=branch_refs,
-            subject=subject[:45].replace('"', "'"),
+            subject=subject[:_MERMAID_SUBJECT_LEN].replace('"', "'"),
         )
         commits.append(c)
         sha_to_commit[sha] = c
@@ -435,8 +438,8 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     # ── Mermaid gitGraph ──────────────────────────────────────────────────────
     mermaid_graph = generate_mermaid_gitgraph()
 
-    # ── ASCII git log ─────────────────────────────────────────────────────────
-    git_log_ascii = git(["log", "--graph", "--oneline", "--all"])
+    # ── ASCII git log (capped to avoid huge pages as history grows) ────────────
+    git_log_ascii = git(["log", "--graph", "--oneline", "--all", "--max-count=150"])
 
     # ── Groups ────────────────────────────────────────────────────────────────
     groups: dict[str, list] = {}
@@ -463,9 +466,11 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
                 f"<td>{gd:+d}</td><td><strong>{e['points']}</strong></td></tr>"
             )
         table_html = (
-            "<table><thead><tr>"
-            "<th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th>"
-            "<th>L</th><th>GF</th><th>GA</th><th>GD</th><th>Pts</th>"
+            f"<table aria-label='Group {letter} standings'><thead><tr>"
+            "<th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th>"
+            "<th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th>"
+            "<th scope='col'>GF</th><th scope='col'>GA</th><th scope='col'>GD</th>"
+            "<th scope='col'>Pts</th>"
             f"</tr></thead><tbody>{table_rows}</tbody></table>"
             if table_rows else ""
         )
