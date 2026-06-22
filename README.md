@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 40 / 104
-- **Last updated**: 2026-06-22 07:23 UTC
+- **Last updated**: 2026-06-22 07:45 UTC
 
 ## Groups
 
@@ -40,11 +40,22 @@ git log --graph --oneline --all
 ## Git Log
 
 ```text
-* 7ea974f Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
-* 0292d06 Group G, MD2: Belgium 0-0 Iran (2026-06-21)
-* 9fe5679 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
-* 4bcb958 Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
-* 4fa6992 feat: initialize Group G
+*   b91b150 Merge pull request #7 from metaodi/copilot/define-starting-commit
+|\  
+| * 9a765ee feat: add starting_commit to state.json and use it for git log and GitGraph
+|/  
+*   13359cd Merge pull request #6 from metaodi/copilot/add-logging-to-update-wc-script
+|\  
+| * 454ac12 Address code review: use Counter and lazy debug evaluation
+| * 1d0aec4 Add logging to update_wc.py at DEBUG level
+|/  
+* 7e590a1 chore: update results (2026-06-22)
+| * 7ea974f Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
+| * 0292d06 Group G, MD2: Belgium 0-0 Iran (2026-06-21)
+| * 9fe5679 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
+| * 4bcb958 Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
+| * 4fa6992 feat: initialize Group G
+|/  
 | * 1effce9 Group H, MD2: Spain 4-0 Saudi Arabia (2026-06-21)
 | * 3b60b61 Group H, MD1: Spain 0-0 Cape Verde (2026-06-15)
 | * 8d519b9 feat: initialize Group H
@@ -97,66 +108,4 @@ git log --graph --oneline --all
 | * ba69374 feat: initialize Group I
 |/  
 * 235fda3 Clear processed_ids and update group_branches
-* caaa883 chore: update results (2026-06-22)
-*   29dfaaa Merge pull request #5 from metaodi/copilot/set-favicon-to-trophy-emoji
-|\  
-| * 32578bb feat: add 🏆 emoji favicon for GitHub Pages
-|/  
-* 1ba51f6 Disable scheduled updates for World Cup results
-* c9440fe chore: update results (2026-06-22)
-* 80ceaaa Update update_wc.py
-* e7623a1 chore: update results (2026-06-22)
-*   5b1799d Merge pull request #4 from metaodi/copilot/order-group-branches-alphabetically
-|\  
-| * 79be4b5 fix: clarify _branch_order docstring (1-12, not 1-26, explain fallback 99)
-| * 357f930 fix: order group/* branches alphabetically in Mermaid gitGraph
-|/  
-* a2e32a7 chore: update results (2026-06-22)
-* 8cf3d8c Update update_wc.py
-* 62f9d92 Update update_wc.py
-* 73eee9f chore: update results (2026-06-22)
-* 2979e64 Exclude specific commit message from display
-* 9209ac7 Update update_wc.py
-* f72b0ed chore: update results (2026-06-22)
-* e7b47e4 Update upload-pages-artifact action version
-* 8eb4272 Update update_wc.py
-* c4a8c62 Update update-results.yml
-* 26edf89 chore: update results (2026-06-22)
-* 6e9dfc7 Update update_wc.py
-* 52b048d chore: update results (2026-06-22)
-*   390c892 Merge pull request #3 from metaodi/copilot/build-github-pages-website
-|\  
-| * f2dc49f fix: address code review comments (constant, accessibility, log cap)
-| * 0b9b3a1 feat: add GitHub Pages site with groups, standings, and Mermaid GitGraph
-|/  
-* 10dbea3 chore: update results (2026-06-22)
-* 5bd1536 chore: update results (2026-06-22)
-* ea050b0 chore: update results (2026-06-21)
-* 6290273 chore: update results (2026-06-21)
-* f1f3203 chore: update results (2026-06-21)
-* 66acebe chore: update results (2026-06-21)
-* 61d63b9 chore: update results (2026-06-21)
-* 3188ba6 chore: update results (2026-06-21)
-* 58eaf13 chore: update results (2026-06-21)
-* dbb2a8b chore: update results (2026-06-21)
-* e978bc3 chore: update results (2026-06-21)
-* edc9f58 chore: update results (2026-06-20)
-* 69e4845 chore: update results (2026-06-20)
-* 368c0a4 chore: update results (2026-06-20)
-* 3dcb2ca Update update-results.yml
-* 9fc6ab4 chore: update results (2026-06-20)
-* a30ddc2 chore: update results (2026-06-20)
-* f4276fa chore: update results (2026-06-20)
-*   86d6c89 Merge pull request #2 from metaodi/copilot/add-git-log-to-readme
-|\  
-| * 112093a feat: add git log output to README when regenerating
-|/  
-* 9e81f0b Update update-results.yml
-* 6c75851 chore: update results (2026-06-20)
-* 4489135 chore: update results (2026-06-20)
-*   b5c7791 Merge pull request #1 from metaodi/claude/world-cup-git-structure-mc792b
-|\  
-| * 7989c0a feat: World Cup 2026 git structure with auto-updating GitHub Action
-|/  
-* 6cb78b6 Initial commit
 ```
