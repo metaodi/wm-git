@@ -1,3 +1,5 @@
 # Group K — 2026 FIFA World Cup
 
-No matches played yet.
+## Matches
+
+- ✅ **Portugal 1-1 Congo DR** (2026-06-17)
