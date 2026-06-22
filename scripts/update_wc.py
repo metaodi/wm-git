@@ -385,8 +385,9 @@ def generate_mermaid_gitgraph() -> str:
     def _branch_order(name: str) -> int:
         """Return a numeric order for Mermaid branch declarations.
 
-        main is the implicit base (order 0); group/* branches get order 1-26
-        sorted alphabetically; teams/* and others follow after.
+        main is the implicit base (order 0); group/* branches get order 1-12
+        sorted alphabetically (A=1 … L=12); teams/* and others follow after.
+        An empty group suffix falls back to 99.
         """
         if name == "main":
             return 0
