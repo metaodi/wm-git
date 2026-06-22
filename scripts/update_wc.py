@@ -300,6 +300,316 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     return "\n".join(lines)
 
 
+_MERMAID_SUBJECT_LEN = 45  # max chars of commit subject kept in Mermaid commit IDs
+
+
+def generate_mermaid_gitgraph() -> str:
+    """Parse the git DAG and produce Mermaid gitGraph syntax."""
+    sep = "\x1f"
+    try:
+        raw = subprocess.check_output(
+            ["git", "log", "--all", "--topo-order", "--reverse",
+             f"--pretty=format:%H{sep}%P{sep}%D{sep}%s"],
+            cwd=REPO_ROOT, text=True, stderr=subprocess.DEVNULL,
+        ).strip()
+    except subprocess.CalledProcessError:
+        return 'gitGraph\n  commit id: "init"'
+
+    if not raw:
+        return 'gitGraph\n  commit id: "init"'
+
+    commits: list[dict] = []
+    sha_to_commit: dict[str, dict] = {}
+    for line in raw.split("\n"):
+        if not line:
+            continue
+        parts = line.split(sep, 3)
+        if len(parts) < 4:
+            continue
+        sha, parents_raw, refs_raw, subject = parts
+        parents = [p for p in parents_raw.split() if p]
+
+        branch_refs: list[str] = []
+        for ref in refs_raw.split(","):
+            r = ref.strip()
+            if not r or r == "HEAD":
+                continue
+            if " -> " in r:
+                r = r.split(" -> ")[-1].strip()
+            if r.startswith("origin/"):
+                r = r[7:]
+            if r and r != "HEAD":
+                branch_refs.append(r)
+
+        c: dict = dict(
+            sha=sha,
+            parents=parents,
+            branch_refs=branch_refs,
+            subject=subject[:_MERMAID_SUBJECT_LEN].replace('"', "'"),
+        )
+        commits.append(c)
+        sha_to_commit[sha] = c
+
+    # Assign each commit to a branch by walking backwards from tips.
+    # Priority: main first (0), then group/* (1), then teams/* (2), other (3).
+    sha_to_branch: dict[str, str] = {}
+
+    tip_pairs: list[tuple[str, str]] = [
+        (ref, c["sha"]) for c in commits for ref in c["branch_refs"]
+    ]
+
+    def _prio(name: str) -> int:
+        if name == "main":
+            return 0
+        if name.startswith("group/"):
+            return 1
+        if name.startswith("teams/"):
+            return 2
+        return 3
+
+    tip_pairs.sort(key=lambda x: _prio(x[0]))
+
+    for branch, tip_sha in tip_pairs:
+        stack = [tip_sha]
+        while stack:
+            sha = stack.pop()
+            if sha in sha_to_branch:
+                continue
+            sha_to_branch[sha] = branch
+            c = sha_to_commit.get(sha)
+            if c:
+                for p in c["parents"]:
+                    if p not in sha_to_branch:
+                        stack.append(p)
+
+    # Emit gitGraph commands
+    lines = ["gitGraph LR:"]
+    cur: str | None = None
+    created: set[str] = set()
+
+    def ensure_on(branch: str, parent_branch: str | None = None) -> None:
+        nonlocal cur
+        if branch not in created:
+            pb = parent_branch if (parent_branch and parent_branch in created) else "main"
+            if pb in created and pb != cur:
+                lines.append(f'  checkout "{pb}"')
+                cur = pb
+            lines.append(f'  branch "{branch}"')
+            created.add(branch)
+            cur = branch
+        elif branch != cur:
+            lines.append(f'  checkout "{branch}"')
+            cur = branch
+
+    for c in commits:
+        sha = c["sha"]
+        branch = sha_to_branch.get(sha, "main")
+        parents = c["parents"]
+        subject = c["subject"]
+        short = sha[:7]
+
+        # Bootstrap: first commit implicitly starts on main
+        if not created:
+            created.add("main")
+            cur = "main"
+
+        par_branch = sha_to_branch.get(parents[0]) if parents else None
+        ensure_on(branch, par_branch)
+
+        if len(parents) > 1:
+            mb = sha_to_branch.get(parents[1])
+            if mb and mb in created and mb != branch:
+                lines.append(f'  merge "{mb}" id: "{short}: {subject}"')
+            else:
+                lines.append(f'  commit id: "{short}: {subject}"')
+        else:
+            lines.append(f'  commit id: "{short}: {subject}"')
+
+    return "\n".join(lines)
+
+
+def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> str:
+    """Generate the full GitHub Pages HTML for the tournament."""
+    repo = os.environ.get("GITHUB_REPOSITORY", "")
+    updated = state.get("updated", "")[:16].replace("T", " ")
+    finished_count = sum(1 for m in matches if m["status"] == "FINISHED")
+    total_count = len(matches)
+
+    # ── Mermaid gitGraph ──────────────────────────────────────────────────────
+    mermaid_graph = generate_mermaid_gitgraph()
+
+    # ── ASCII git log (capped to avoid huge pages as history grows) ────────────
+    git_log_ascii = git(["log", "--graph", "--oneline", "--all", "--max-count=150"])
+
+    # ── Groups ────────────────────────────────────────────────────────────────
+    groups: dict[str, list] = {}
+    for m in matches:
+        if m["stage"] == "GROUP_STAGE":
+            g = m.get("group", "").replace("GROUP_", "")
+            if g:
+                groups.setdefault(g, []).append(m)
+
+    groups_html_parts: list[str] = []
+    for letter in sorted(groups):
+        gm = sorted(groups[letter], key=lambda x: x["utcDate"])
+        stand = standings.get(letter, [])
+        done = sum(1 for m in gm if m["status"] == "FINISHED")
+
+        table_rows = ""
+        for e in stand:
+            t = tname(e["team"])
+            gd = e["goalDifference"]
+            table_rows += (
+                f"<tr><td>{e['position']}</td><td><strong>{t}</strong></td>"
+                f"<td>{e['playedGames']}</td><td>{e['won']}</td><td>{e['draw']}</td>"
+                f"<td>{e['lost']}</td><td>{e['goalsFor']}</td><td>{e['goalsAgainst']}</td>"
+                f"<td>{gd:+d}</td><td><strong>{e['points']}</strong></td></tr>"
+            )
+        table_html = (
+            f"<table aria-label='Group {letter} standings'><thead><tr>"
+            "<th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th>"
+            "<th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th>"
+            "<th scope='col'>GF</th><th scope='col'>GA</th><th scope='col'>GD</th>"
+            "<th scope='col'>Pts</th>"
+            f"</tr></thead><tbody>{table_rows}</tbody></table>"
+            if table_rows else ""
+        )
+
+        match_items = ""
+        for m in gm:
+            date = m["utcDate"][:10]
+            icon = "✅" if m["status"] == "FINISHED" else "📅"
+            match_items += (
+                f"<li>{icon} <strong>{tname(m['homeTeam'])} {fmt_score(m)} "
+                f"{tname(m['awayTeam'])}</strong> "
+                f"<span class='date'>({date})</span></li>"
+            )
+
+        groups_html_parts.append(
+            f"<section class='group' id='group-{letter}'>"
+            f"<h3>Group {letter} <span class='branch-tag'>group/{letter}</span></h3>"
+            f"<p class='played'>{done}/{len(gm)} played</p>"
+            f"{table_html}"
+            f"<ul class='matches'>{match_items}</ul>"
+            f"</section>"
+        )
+    groups_html = "\n".join(groups_html_parts)
+
+    # ── Knockout stage ────────────────────────────────────────────────────────
+    ko_matches = [m for m in matches if m["stage"] in KO_STAGES and m["status"] == "FINISHED"]
+    ko_html = ""
+    if ko_matches:
+        ko_parts: list[str] = ["<section class='knockout'><h2>Knockout Stage</h2>"]
+        for stage in KO_STAGES:
+            stage_ms = sorted(
+                [m for m in ko_matches if m["stage"] == stage],
+                key=lambda x: x["utcDate"],
+            )
+            if not stage_ms:
+                continue
+            ko_parts.append(f"<h3>{STAGE_LABEL[stage]}</h3><ul class='matches'>")
+            for m in stage_ms:
+                w = winner_tla(m)
+                adv = f" → <strong>{w}</strong>" if w else ""
+                ko_parts.append(
+                    f"<li>✅ <strong>{tname(m['homeTeam'])} {fmt_score(m)} "
+                    f"{tname(m['awayTeam'])}</strong>{adv} "
+                    f"<span class='date'>({m['utcDate'][:10]})</span></li>"
+                )
+            ko_parts.append("</ul>")
+        ko_parts.append("</section>")
+        ko_html = "\n".join(ko_parts)
+
+    clone_cmd = f"git clone https://github.com/{repo}.git && git log --graph --oneline --all" if repo else "git log --graph --oneline --all"
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026 FIFA World Cup in Git</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+  <style>
+    *{{box-sizing:border-box;margin:0;padding:0}}
+    body{{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+         background:#0d1117;color:#c9d1d9;max-width:1400px;margin:0 auto;padding:1.5rem 2rem}}
+    h1{{color:#f0f6fc;border-bottom:2px solid #21262d;padding-bottom:.75rem;margin-bottom:1rem;font-size:1.8rem}}
+    h2{{color:#e6edf3;margin:2rem 0 .75rem;font-size:1.3rem}}
+    h3{{color:#c9d1d9;margin:.75rem 0 .4rem;font-size:1rem}}
+    a{{color:#58a6ff}}
+    .status{{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:1rem 1.25rem;
+             margin-bottom:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center}}
+    .status code{{background:#21262d;padding:2px 6px;border-radius:4px;font-size:.8rem}}
+    .stat{{font-size:.95rem}}
+    .stat strong{{color:#f0f6fc}}
+    .last-updated{{color:#7d8590;font-size:.8rem}}
+    .groups-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(480px,1fr));gap:1.25rem;margin-top:.5rem}}
+    .group{{background:#161b22;border:1px solid #30363d;border-radius:6px;padding:1.25rem}}
+    .branch-tag{{background:#1f6feb22;border:1px solid #1f6feb66;color:#58a6ff;
+                 border-radius:4px;padding:1px 7px;font-size:.72rem;font-family:monospace}}
+    .played{{color:#7d8590;font-size:.8rem;margin-bottom:.5rem}}
+    table{{border-collapse:collapse;width:100%;font-size:.82rem;margin:.4rem 0 .9rem}}
+    th,td{{text-align:left;padding:5px 8px;border-bottom:1px solid #21262d}}
+    th{{background:#21262d;color:#7d8590;font-weight:600}}
+    tr:hover td{{background:#21262d}}
+    ul.matches{{list-style:none;padding:0}}
+    ul.matches li{{padding:3px 0;border-bottom:1px solid #161b22;font-size:.82rem}}
+    .date{{color:#7d8590;font-size:.78rem}}
+    .knockout{{background:#161b22;border:1px solid #30363d;border-radius:6px;
+               padding:1.25rem;margin-bottom:1.5rem}}
+    details{{background:#161b22;border:1px solid #30363d;border-radius:6px;
+             padding:.75rem 1.25rem;margin-top:1rem}}
+    summary{{cursor:pointer;color:#e6edf3;font-weight:600;font-size:.95rem;padding:.25rem 0}}
+    summary:hover{{color:#f0f6fc}}
+    .gitgraph-wrap{{overflow-x:auto;padding-top:.75rem}}
+    .mermaid{{background:transparent!important}}
+    pre.git-log{{background:#0d1117;border:1px solid #21262d;border-radius:4px;
+                 padding:.75rem;overflow-x:auto;font-size:.7rem;line-height:1.45;
+                 color:#7ee787;margin-top:.75rem}}
+  </style>
+</head>
+<body>
+  <h1>🏆 2026 FIFA World Cup in Git</h1>
+
+  <div class="status">
+    <span class="stat">⚽ <strong>{finished_count}</strong> / <strong>{total_count}</strong> matches played</span>
+    <span class="last-updated">Updated: {updated} UTC</span>
+    <span class="stat" style="margin-left:auto"><code>{clone_cmd}</code></span>
+  </div>
+
+  {ko_html}
+
+  <h2>Groups</h2>
+  <div class="groups-grid">
+    {groups_html}
+  </div>
+
+  <h2>Git DAG</h2>
+  <details open>
+    <summary>Mermaid GitGraph</summary>
+    <div class="gitgraph-wrap">
+      <div class="mermaid">
+{mermaid_graph}
+      </div>
+    </div>
+  </details>
+  <details>
+    <summary>ASCII Git Log</summary>
+    <pre class="git-log">{git_log_ascii}</pre>
+  </details>
+
+  <script>
+    mermaid.initialize({{
+      startOnLoad: true,
+      theme: 'dark',
+      gitGraph: {{ rotateCommitLabel: true, showBranches: true }}
+    }});
+  </script>
+</body>
+</html>
+"""
+
+
 # ── Branch management ─────────────────────────────────────────────────────────
 
 def ensure_group_branches(state: dict):
@@ -517,12 +827,15 @@ def main():
             process_ko_match(m, state, matches)
             state["processed_ids"].append(m["id"])
 
-    # Update README + state on main
-    print("\n💾 Saving state and updating README...")
+    # Update README, site, and state on main
+    print("\n💾 Saving state, updating README, and generating site...")
     checkout("main")
     git_log = git(["log", "--graph", "--oneline", "--all"])
     (REPO_ROOT / "README.md").write_text(readme_md(matches, state, git_log))
-    save_state(state, extra_files=["README.md"])
+    docs_dir = REPO_ROOT / "docs"
+    docs_dir.mkdir(exist_ok=True)
+    (docs_dir / "index.html").write_text(html_site(matches, standings, state))
+    save_state(state, extra_files=["README.md", "docs/index.html"])
 
     print("\n✅ Done!")
 
