@@ -5,6 +5,11 @@ on:
     # Run every 2 hours — matches last ~2 h so this catches each result promptly
     #- cron: "0 0-9/2,18-23/2 * * *"
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run (fetch data and log actions, but make no commits or pushes)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write  # allows pushing group/teams/main branches
@@ -41,7 +46,12 @@ jobs:
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python scripts/update_wc.py
+        run: |
+          EXTRA_FLAGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            EXTRA_FLAGS="--dry-run"
+          fi
+          python scripts/update_wc.py $EXTRA_FLAGS
 
       - name: Show git graph (debug)
         run: git log --graph --oneline --all | head -80

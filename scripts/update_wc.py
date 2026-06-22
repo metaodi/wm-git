@@ -11,6 +11,7 @@ Usage:
   FOOTBALL_DATA_API_KEY=<key> python scripts/update_wc.py
 """
 
+import argparse
 import json
 import logging
 import os
@@ -34,6 +35,8 @@ logging.basicConfig(
     datefmt="%Y-%m-%dT%H:%M:%S",
 )
 log = logging.getLogger(__name__)
+
+DRY_RUN = False
 
 REPO_ROOT = Path(
     subprocess.check_output(["git", "rev-parse", "--show-toplevel"], text=True).strip()
@@ -101,6 +104,10 @@ def commit_and_push(branch: str, message: str, files: list[str] | None = None):
     git(["add"] + (files if files else ["-A"]))
     if not has_any_changes():
         return  # nothing staged
+    if DRY_RUN:
+        log.info("[dry-run] would commit on %s: %s", branch, message)
+        git(["reset", "HEAD"])
+        return
     git(["commit", "-m", message])
     git(["push", "-u", "origin", branch])
 
@@ -127,6 +134,9 @@ def load_state() -> dict:
 def save_state(state: dict, extra_files: list[str] | None = None):
     """Write state.json (+ any extra files) and commit on main."""
     state["updated"] = datetime.now(timezone.utc).isoformat()
+    if DRY_RUN:
+        log.info("[dry-run] would save state and commit README/site on main")
+        return
     STATE_FILE.write_text(json.dumps(state, indent=2) + "\n")
     files = ["state.json"] + (extra_files or [])
     checkout("main")
@@ -168,7 +178,7 @@ def fetch_standings() -> dict[str, list]:
             if s.get("type") == "TOTAL":
                 letter = s.get("group", "").replace("GROUP_", "")
                 result[letter] = s.get("table", [])
-        log.debug("Fetched standings for %d group(s): %s", len(result), result))
+        log.debug("Fetched standings for %d group(s): %s", len(result), result)
         return result
     except Exception:
         log.debug("Failed to fetch standings", exc_info=True)
@@ -770,6 +780,11 @@ def merge_group_branch_to_main(letter: str, group_standings: list, matches: list
 
     msg = group_merge_commit_msg(letter, group_standings, qualified_in_group)
     checkout("main")
+    if DRY_RUN:
+        log.info("[dry-run] would merge group/%s → main: %s", letter, msg.splitlines()[0])
+        state.setdefault("merged_groups", []).append(letter)
+        print(f"  [dry-run] would merge group/{letter} → main")
+        return
     r = subprocess.run(
         ["git", "merge", "--no-ff", branch, "-m", msg],
         cwd=REPO_ROOT, capture_output=True, text=True,
@@ -867,6 +882,15 @@ def process_ko_match(m: dict, state: dict, all_matches: list[dict]):
     (REPO_ROOT / "teams" / f"{wtla}.md").write_text(
         team_md(wtla, wteam.get("name", wtla), wmatches, stage)
     )
+
+    if DRY_RUN:
+        log.info("[dry-run] would merge %s → %s: %s", lb, wb, msg)
+        print(f"  [dry-run] would merge: {msg}")
+        if m["stage"] == "FINAL":
+            champion = wteam.get("shortName") or wtla
+            print(f"  [dry-run] would merge {wb} → main: 🏆 World Cup 2026 Champion: {champion}!")
+        return
+
     git(["add", f"teams/{wtla}.md"])
 
     r = subprocess.run(
@@ -901,6 +925,16 @@ def process_ko_match(m: dict, state: dict, all_matches: list[dict]):
 # ── Main ──────────────────────────────────────────────────────────────────────
 
 def main():
+    global DRY_RUN
+    parser = argparse.ArgumentParser(description="World Cup 2026 git repository updater.")
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Fetch data and show what would be done, but make no commits or pushes.",
+    )
+    args = parser.parse_args()
+    DRY_RUN = args.dry_run
+
     if not API_KEY:
         print("Error: FOOTBALL_DATA_API_KEY environment variable is not set.", file=sys.stderr)
         print("Get a free key at https://www.football-data.org/client/register", file=sys.stderr)
@@ -908,7 +942,7 @@ def main():
 
     setup_git()
     log.debug("Git configured for World Cup bot")
-    print("🌍 World Cup 2026 Git Updater")
+    print("🌍 World Cup 2026 Git Updater" + (" [DRY RUN]" if DRY_RUN else ""))
     print("=" * 40)
 
     checkout("main")
