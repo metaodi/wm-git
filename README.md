@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 40 / 104
-- **Last updated**: 2026-06-22 10:59 UTC
+- **Last updated**: 2026-06-22 13:10 UTC
 
 ## Groups
 
@@ -40,6 +40,13 @@ git log --graph --oneline --all
 ## Git Log
 
 ```text
+*   050e8d1 Merge pull request #10 from metaodi/copilot/add-github-repo-link
+|\  
+| * 0c9908e Use github_link variable with fallback for empty repo
+| * a40e6c3 Add GitHub repository link on top of generated site
+|/  
+* d0348d9 Update update-results.yml
+* d0e9e9c chore: update results (2026-06-22)
 * 6a3d6aa Update update_wc.py
 * 6539daa Improve logging of fetched standings
 * 182bb74 Fix group reference in standings and merge logic
