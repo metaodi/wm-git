@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 40 / 104
-- **Last updated**: 2026-06-22 03:05 UTC
+- **Last updated**: 2026-06-22 05:46 UTC
 
 ## Groups
 
@@ -40,41 +40,43 @@ git log --graph --oneline --all
 ## Git Log
 
 ```text
-* 11b8279 Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
-* d3b69fe Group G, MD2: Belgium 0-0 Iran (2026-06-21)
-* 41c7043 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
-* 2272ecc Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
-* 91b73f4 feat: initialize Group G
-| *   390c892 Merge pull request #3 from metaodi/copilot/build-github-pages-website
-| |\  
-| | * f2dc49f fix: address code review comments (constant, accessibility, log cap)
-| | * 0b9b3a1 feat: add GitHub Pages site with groups, standings, and Mermaid GitGraph
-| |/  
-| * 10dbea3 chore: update results (2026-06-22)
-| * 5bd1536 chore: update results (2026-06-22)
-| * ea050b0 chore: update results (2026-06-21)
-| * 6290273 chore: update results (2026-06-21)
-| * f1f3203 chore: update results (2026-06-21)
-| * 66acebe chore: update results (2026-06-21)
-| * 61d63b9 chore: update results (2026-06-21)
-| * 3188ba6 chore: update results (2026-06-21)
-| * 58eaf13 chore: update results (2026-06-21)
-| * dbb2a8b chore: update results (2026-06-21)
-| * e978bc3 chore: update results (2026-06-21)
-| * edc9f58 chore: update results (2026-06-20)
-| * 69e4845 chore: update results (2026-06-20)
-| * 368c0a4 chore: update results (2026-06-20)
-| * 3dcb2ca Update update-results.yml
-| * 9fc6ab4 chore: update results (2026-06-20)
-| * a30ddc2 chore: update results (2026-06-20)
-| * f4276fa chore: update results (2026-06-20)
-| *   86d6c89 Merge pull request #2 from metaodi/copilot/add-git-log-to-readme
-| |\  
-| | * 112093a feat: add git log output to README when regenerating
-| |/  
-| * 9e81f0b Update update-results.yml
-| * 6c75851 chore: update results (2026-06-20)
-| * 4489135 chore: update results (2026-06-20)
+* 6e9dfc7 Update update_wc.py
+* 52b048d chore: update results (2026-06-22)
+*   390c892 Merge pull request #3 from metaodi/copilot/build-github-pages-website
+|\  
+| * f2dc49f fix: address code review comments (constant, accessibility, log cap)
+| * 0b9b3a1 feat: add GitHub Pages site with groups, standings, and Mermaid GitGraph
+|/  
+* 10dbea3 chore: update results (2026-06-22)
+* 5bd1536 chore: update results (2026-06-22)
+* ea050b0 chore: update results (2026-06-21)
+* 6290273 chore: update results (2026-06-21)
+* f1f3203 chore: update results (2026-06-21)
+* 66acebe chore: update results (2026-06-21)
+* 61d63b9 chore: update results (2026-06-21)
+* 3188ba6 chore: update results (2026-06-21)
+* 58eaf13 chore: update results (2026-06-21)
+* dbb2a8b chore: update results (2026-06-21)
+* e978bc3 chore: update results (2026-06-21)
+* edc9f58 chore: update results (2026-06-20)
+* 69e4845 chore: update results (2026-06-20)
+* 368c0a4 chore: update results (2026-06-20)
+* 3dcb2ca Update update-results.yml
+* 9fc6ab4 chore: update results (2026-06-20)
+* a30ddc2 chore: update results (2026-06-20)
+* f4276fa chore: update results (2026-06-20)
+*   86d6c89 Merge pull request #2 from metaodi/copilot/add-git-log-to-readme
+|\  
+| * 112093a feat: add git log output to README when regenerating
+|/  
+* 9e81f0b Update update-results.yml
+* 6c75851 chore: update results (2026-06-20)
+* 4489135 chore: update results (2026-06-20)
+| * 11b8279 Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
+| * d3b69fe Group G, MD2: Belgium 0-0 Iran (2026-06-21)
+| * 41c7043 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
+| * 2272ecc Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
+| * 91b73f4 feat: initialize Group G
 |/  
 | * 52742cd Group H, MD2: Spain 5-0 Saudi Arabia (2026-06-21)
 | * 8a8a343 Group H, MD1: Spain 0-0 Cape Verde (2026-06-15)
