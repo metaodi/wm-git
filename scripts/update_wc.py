@@ -383,7 +383,7 @@ def generate_mermaid_gitgraph() -> str:
                         stack.append(p)
 
     # Emit gitGraph commands
-    lines = ["gitGraph LR:"]
+    lines = ["gitGraph TD:"]
     cur: str | None = None
     created: set[str] = set()
 
