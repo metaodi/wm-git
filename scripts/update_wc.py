@@ -710,6 +710,82 @@ def process_group_match(m: dict, state: dict, all_group: list[dict], standings: 
     print(f"  ✓ {msg}")
 
 
+def group_is_complete(letter: str, matches: list[dict]) -> bool:
+    """Return True when every match in the group is finished."""
+    group_matches = [
+        m for m in matches
+        if m["stage"] == "GROUP_STAGE" and m.get("group", "").replace("GROUP_", "") == letter
+    ]
+    return bool(group_matches) and all(m["status"] == "FINISHED" for m in group_matches)
+
+
+def group_merge_commit_msg(letter: str, group_standings: list, qualified_tlas: set[str]) -> str:
+    """Build a --no-ff merge commit message for the end of a group stage.
+
+    Shows the final standings table and marks which teams advance to the KO round.
+    ``qualified_tlas`` should contain only TLAs from this group that are known to
+    have qualified; pass an empty set when the best-third-place draw hasn't happened yet.
+    """
+    if not group_standings:
+        return f"merge: Group {letter} complete"
+    advancing = [tname(e["team"]) for e in group_standings if e["team"]["tla"] in qualified_tlas]
+    summary = f" — {' & '.join(advancing)} advance" if advancing else ""
+    lines = [f"merge: Group {letter} complete{summary}\n", "Final standings:"]
+    for e in group_standings:
+        t = tname(e["team"])
+        pts, w, d, l = e["points"], e["won"], e["draw"], e["lost"]
+        gd = e["goalDifference"]
+        tla = e["team"]["tla"]
+        if qualified_tlas:
+            icon = "✅" if tla in qualified_tlas else "❌"
+        else:
+            # KO draw hasn't happened yet — top 2 are guaranteed, 3rd is TBD
+            icon = "✅" if e["position"] <= 2 else "⏳"
+        lines.append(f"  {e['position']}. {t:<20} {pts:2d} pts  (W{w} D{d} L{l}, {gd:+d})  {icon}")
+    if advancing:
+        lines.append(f"\nAdvancing to Round of 32: {', '.join(advancing)}")
+    return "\n".join(lines)
+
+
+def merge_group_branch_to_main(letter: str, group_standings: list, matches: list[dict], state: dict):
+    """Merge group/letter into main with a commit message showing the final standings."""
+    branch = f"group/{letter}"
+    if not branch_exists_local(branch) and not branch_exists_remote(branch):
+        log.debug("Group branch %s does not exist, skipping merge", branch)
+        return
+
+    # Determine which teams from this group qualified for the KO stage
+    ko_tlas: set[str] = {
+        t["tla"]
+        for m in matches if m["stage"] in KO_STAGES
+        for t in (m["homeTeam"], m["awayTeam"])
+    }
+    group_tlas: set[str] = {
+        t["tla"]
+        for m in matches
+        if m["stage"] == "GROUP_STAGE" and m.get("group", "").replace("GROUP_", "") == letter
+        for t in (m["homeTeam"], m["awayTeam"])
+    }
+    qualified_in_group = ko_tlas & group_tlas
+
+    msg = group_merge_commit_msg(letter, group_standings, qualified_in_group)
+    checkout("main")
+    r = subprocess.run(
+        ["git", "merge", "--no-ff", branch, "-m", msg],
+        cwd=REPO_ROOT, capture_output=True, text=True,
+    )
+    if r.returncode != 0:
+        log.debug("Merge conflict for %s, falling back to ours strategy: %s", branch, r.stderr)
+        subprocess.run(["git", "merge", "--abort"], cwd=REPO_ROOT, check=False)
+        subprocess.run(
+            ["git", "merge", "--no-ff", "-s", "ours", branch, "-m", msg],
+            cwd=REPO_ROOT, check=True,
+        )
+    git(["push", "origin", "main"])
+    state.setdefault("merged_groups", []).append(letter)
+    print(f"  ✓ merged group/{letter} → main")
+
+
 def ensure_team_branches(matches: list[dict], state: dict):
     """Create teams/TLA branches off their group branch for every team in the KO stage."""
     ko_teams: dict[str, dict] = {}
@@ -879,6 +955,19 @@ def main():
             log.debug("Processing group match id=%s: %s vs %s (%s)", m["id"], m["homeTeam"]["tla"], m["awayTeam"]["tla"], m["utcDate"][:10])
             process_group_match(m, state, all_group, standings)
             state["processed_ids"].append(m["id"])
+
+    # Merge completed group branches into main
+    merged_groups = set(state.get("merged_groups", []))
+    groups_to_merge = [
+        letter for letter in "ABCDEFGHIJKL"
+        if letter not in merged_groups and group_is_complete(letter, matches)
+    ]
+    if groups_to_merge:
+        print(f"\n🔀 Merging {len(groups_to_merge)} completed group branch(es) into main...")
+        checkout("main")
+        for letter in groups_to_merge:
+            log.debug("Merging group/%s into main", letter)
+            merge_group_branch_to_main(letter, standings.get(letter, []), matches, state)
 
     # KO stage
     new_ko = [m for m in new_matches if m["stage"] in KO_STAGES]
