@@ -581,13 +581,6 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     <span class="stat" style="margin-left:auto"><code>{clone_cmd}</code></span>
   </div>
 
-  {ko_html}
-
-  <h2>Groups</h2>
-  <div class="groups-grid">
-    {groups_html}
-  </div>
-
   <h2>Git DAG</h2>
   <details open>
     <summary>Mermaid GitGraph</summary>
@@ -609,6 +602,15 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
       gitGraph: {{ rotateCommitLabel: true, showBranches: true }}
     }});
   </script>
+
+  {ko_html}
+
+  <h2>Groups</h2>
+  <div class="groups-grid">
+    {groups_html}
+  </div>
+
+  
 </body>
 </html>
 """
