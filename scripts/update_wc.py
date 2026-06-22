@@ -409,7 +409,7 @@ def generate_mermaid_gitgraph() -> str:
         short = sha[:7]
 
         # do not display the chore commits
-        if subject.startswith("chore:"):
+        if subject.startswith("chore:") or subject == "Update update_wc.py":
             continue
 
         # Bootstrap: first commit implicitly starts on main
