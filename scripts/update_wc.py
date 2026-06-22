@@ -20,6 +20,7 @@ import sys
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
+from pprint import pformat
 
 import requests
 
@@ -178,7 +179,7 @@ def fetch_standings() -> dict[str, list]:
             if s.get("type") == "TOTAL":
                 letter = s.get("group", "").replace("GROUP_", "")
                 result[letter] = s.get("table", [])
-        log.debug("Fetched standings for %d group(s): %s", len(result), result)
+        log.debug("Fetched standings for %d group(s): %s", len(result), pformat(result))
         return result
     except Exception:
         log.debug("Failed to fetch standings", exc_info=True)
