@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 40 / 104
-- **Last updated**: 2026-06-22 10:46 UTC
+- **Last updated**: 2026-06-22 10:59 UTC
 
 ## Groups
 
@@ -40,11 +40,27 @@ git log --graph --oneline --all
 ## Git Log
 
 ```text
-* 04ffccf Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
-* f7ad2d8 Group G, MD2: Belgium 0-0 Iran (2026-06-21)
-* 1a4358f Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
-* 7a6b90c Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
-* 95bc363 feat: initialize Group G
+* 6a3d6aa Update update_wc.py
+* 6539daa Improve logging of fetched standings
+* 182bb74 Fix group reference in standings and merge logic
+*   11a7899 Merge pull request #9 from metaodi/copilot/add-dry-run-option-update-wc
+|\  
+| * 36045b9 Improve workflow dry_run flag readability
+| * 2a93b70 Add --dry-run option to update_wc.py and workflow_dispatch input
+|/  
+*   3da9dd8 Merge pull request #8 from metaodi/copilot/merge-group-branches-to-main
+|\  
+| * 9266698 fix: guard empty standings in group_merge_commit_msg, use check=False for merge --abort
+| * b047f3d feat: merge completed group branches to main with standings in commit message
+* | 1cb5603 Fix debug log to show complete standings result
+|/  
+* 1891b16 chore: update results (2026-06-22)
+| * 04ffccf Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
+| * f7ad2d8 Group G, MD2: Belgium 0-0 Iran (2026-06-21)
+| * 1a4358f Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
+| * 7a6b90c Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
+| * 95bc363 feat: initialize Group G
+|/  
 | * 353b949 Group H, MD2: Uruguay 2-2 Cape Verde (2026-06-21)
 | * 465d211 Group H, MD2: Spain 4-0 Saudi Arabia (2026-06-21)
 | * 5796282 Group H, MD1: Saudi Arabia 1-1 Uruguay (2026-06-15)
