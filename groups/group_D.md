@@ -1,3 +1,5 @@
 # Group D — 2026 FIFA World Cup
 
-No matches played yet.
+## Matches
+
+- ✅ **USA 4-1 Paraguay** (2026-06-13)
