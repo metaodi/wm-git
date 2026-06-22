@@ -12,6 +12,7 @@ Usage:
 """
 
 import json
+import logging
 import os
 import subprocess
 import sys
@@ -25,6 +26,13 @@ import requests
 API_KEY = os.environ.get("FOOTBALL_DATA_API_KEY", "")
 API_BASE = "https://api.football-data.org/v4"
 COMPETITION = "WC"
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s %(levelname)-8s %(message)s",
+    datefmt="%Y-%m-%dT%H:%M:%S",
+)
+log = logging.getLogger(__name__)
 
 REPO_ROOT = Path(
     subprocess.check_output(["git", "rev-parse", "--show-toplevel"], text=True).strip()
@@ -127,22 +135,31 @@ def save_state(state: dict, extra_files: list[str] | None = None):
 # ── API ───────────────────────────────────────────────────────────────────────
 
 def api_get(path: str, params: dict | None = None) -> dict:
+    url = f"{API_BASE}{path}"
+    log.debug("API request: GET %s params=%s", url, params)
     resp = requests.get(
-        f"{API_BASE}{path}",
+        url,
         headers={"X-Auth-Token": API_KEY},
         params=params,
         timeout=20,
     )
+    log.debug("API response: status=%d url=%s", resp.status_code, resp.url)
     resp.raise_for_status()
-    return resp.json()
+    data = resp.json()
+    log.debug("API response body: %s", json.dumps(data)[:500])
+    return data
 
 
 def fetch_matches() -> list[dict]:
-    return api_get(f"/competitions/{COMPETITION}/matches").get("matches", [])
+    log.debug("Fetching matches for competition %s", COMPETITION)
+    matches = api_get(f"/competitions/{COMPETITION}/matches").get("matches", [])
+    log.debug("Fetched %d matches", len(matches))
+    return matches
 
 
 def fetch_standings() -> dict[str, list]:
     """Returns {group_letter: [table_entry, ...]}."""
+    log.debug("Fetching standings for competition %s", COMPETITION)
     try:
         data = api_get(f"/competitions/{COMPETITION}/standings")
         result: dict[str, list] = {}
@@ -150,8 +167,10 @@ def fetch_standings() -> dict[str, list]:
             if s.get("type") == "TOTAL":
                 letter = s.get("group", "").replace("GROUP_", "")
                 result[letter] = s.get("table", [])
+        log.debug("Fetched standings for %d group(s): %s", len(result), sorted(result.keys()))
         return result
     except Exception:
+        log.debug("Failed to fetch standings", exc_info=True)
         return {}
 
 
@@ -804,12 +823,17 @@ def main():
         sys.exit(1)
 
     setup_git()
+    log.debug("Git configured for World Cup bot")
     print("🌍 World Cup 2026 Git Updater")
     print("=" * 40)
 
     checkout("main")
     git(["fetch", "--all", "--prune"])
     state = load_state()
+    log.debug("Loaded state: processed_ids=%d, group_branches=%s, team_branches=%s",
+              len(state.get("processed_ids", [])),
+              state.get("group_branches"),
+              state.get("team_branches", []))
 
     print("\n📁 Ensuring group branches...")
     ensure_group_branches(state)
@@ -819,10 +843,12 @@ def main():
         matches = fetch_matches()
         standings = fetch_standings()
     except requests.HTTPError as exc:
+        log.debug("HTTP error fetching API data: %s", exc, exc_info=True)
         print(f"API error: {exc}", file=sys.stderr)
         sys.exit(1)
 
     print(f"  {len(matches)} total matches")
+    log.debug("Match statuses: %s", {s: sum(1 for m in matches if m["status"] == s) for s in {m["status"] for m in matches}})
 
     processed_ids = set(state.get("processed_ids", []))
     finished = [m for m in matches if m["status"] == "FINISHED"]
@@ -831,6 +857,7 @@ def main():
         key=lambda m: m["utcDate"],
     )
     print(f"  {len(finished)} finished, {len(new_matches)} new to process")
+    log.debug("New matches to process: %s", [f"{m['homeTeam']['tla']} vs {m['awayTeam']['tla']} ({m['utcDate'][:10]})" for m in new_matches])
 
     all_group = [m for m in matches if m["stage"] == "GROUP_STAGE"]
 
@@ -839,6 +866,7 @@ def main():
     if new_group:
         print(f"\n⚽ Processing {len(new_group)} group-stage match(es)...")
         for m in new_group:
+            log.debug("Processing group match id=%s: %s vs %s (%s)", m["id"], m["homeTeam"]["tla"], m["awayTeam"]["tla"], m["utcDate"][:10])
             process_group_match(m, state, all_group, standings)
             state["processed_ids"].append(m["id"])
 
@@ -851,6 +879,7 @@ def main():
 
         print(f"\n🔥 Processing {len(new_ko)} knockout match(es)...")
         for m in new_ko:
+            log.debug("Processing KO match id=%s stage=%s: %s vs %s (%s)", m["id"], m["stage"], m["homeTeam"]["tla"], m["awayTeam"]["tla"], m["utcDate"][:10])
             process_ko_match(m, state, matches)
             state["processed_ids"].append(m["id"])
 
