@@ -367,7 +367,7 @@ def generate_mermaid_gitgraph() -> str:
             return 2
         return 3
 
-    tip_pairs.sort(key=lambda x: _prio(x[0]))
+    tip_pairs.sort(key=lambda x: (_prio(x[0]), x[0]))
 
     for branch, tip_sha in tip_pairs:
         stack = [tip_sha]
@@ -382,6 +382,21 @@ def generate_mermaid_gitgraph() -> str:
                     if p not in sha_to_branch:
                         stack.append(p)
 
+    def _branch_order(name: str) -> int:
+        """Return a numeric order for Mermaid branch declarations.
+
+        main is the implicit base (order 0); group/* branches get order 1-26
+        sorted alphabetically; teams/* and others follow after.
+        """
+        if name == "main":
+            return 0
+        if name.startswith("group/"):
+            letter = name[6:].upper()
+            return ord(letter[0]) - ord("A") + 1 if letter else 99
+        if name.startswith("teams/"):
+            return 100
+        return 200
+
     # Emit gitGraph commands
     lines = ["gitGraph TB:"]
     cur: str | None = None
@@ -394,7 +409,8 @@ def generate_mermaid_gitgraph() -> str:
             if pb in created and pb != cur:
                 lines.append(f'  checkout {pb}')
                 cur = pb
-            lines.append(f'  branch {branch}')
+            order = _branch_order(branch)
+            lines.append(f'  branch {branch} order: {order}')
             created.add(branch)
             cur = branch
         elif branch != cur:
