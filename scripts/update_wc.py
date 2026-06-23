@@ -1004,7 +1004,7 @@ def main():
         checkout("main")
         for letter in groups_to_merge:
             log.debug("Merging group/%s into main", letter)
-            merge_group_branch_to_main(letter, standings.get(f"Group {letter}", []), matches, state)
+            # merge_group_branch_to_main(letter, standings.get(f"Group {letter}", []), matches, state)
 
     # KO stage
     new_ko = [m for m in new_matches if m["stage"] in KO_STAGES]
