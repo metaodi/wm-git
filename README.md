@@ -19,8 +19,8 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 45 / 104
-- **Last updated**: 2026-06-23 19:44 UTC
+- **Matches played**: 46 / 104
+- **Last updated**: 2026-06-23 21:33 UTC
 
 ## Groups
 
@@ -35,7 +35,7 @@ git log --graph --oneline --all
 - **Group I**: 4/6 played → `group/I`
 - **Group J**: 4/6 played → `group/J`
 - **Group K**: 3/6 played → `group/K`
-- **Group L**: 2/6 played → `group/L`
+- **Group L**: 3/6 played → `group/L`
 
 ## GitGraph (mermaid)
 
@@ -117,26 +117,32 @@ gitGraph TB:
   commit id: "Uzbekistan 1-3 Colombia (2026-06-18)"
   commit id: "Portugal 5-0 Uzbekistan (2026-06-23)"
   checkout main
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
   branch group/L order: 12
   commit id: "initialize Group L"
   commit id: "England 4-2 Croatia (2026-06-17)"
   commit id: "Ghana 1-0 Panama (2026-06-17)"
-  checkout main
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
+  commit id: "England 0-0 Ghana (2026-06-23)"
 ```
 
 ## Git Log
 
 ```text
+* 6a430be Group L, MD2: England 0-0 Ghana (2026-06-23)
+* ab54662 Group L, MD1: Ghana 1-0 Panama (2026-06-17)
+* 9709b5e Group L, MD1: England 4-2 Croatia (2026-06-17)
+* 4ece383 feat: initialize Group L
+* 0dae92a chore: update results (2026-06-23)
 * b4349ce Update state.json
 * 28444af chore: update results (2026-06-23)
 * 0226e32 Allow display of chore commits in update_wc.py
@@ -147,9 +153,6 @@ gitGraph TB:
 * c6254c2 Update starting_commit in state.json
 * 795f227 chore: update results (2026-06-23)
 * 2eb25c8 Update starting_commit to new commit hash
-* ab54662 Group L, MD1: Ghana 1-0 Panama (2026-06-17)
-* 9709b5e Group L, MD1: England 4-2 Croatia (2026-06-17)
-* 4ece383 feat: initialize Group L
 * 6143609 Group K, MD2: Portugal 5-0 Uzbekistan (2026-06-23)
 * 03093dc Group K, MD1: Uzbekistan 1-3 Colombia (2026-06-18)
 * 9e313b3 Group K, MD1: Portugal 1-1 Congo DR (2026-06-17)
