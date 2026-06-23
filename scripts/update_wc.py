@@ -273,6 +273,8 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     updated = state.get("updated", "N/A")[:16].replace("T", " ")
     active_stages = sorted({m["stage"] for m in finished})
     stage_str = ", ".join(STAGE_LABEL.get(s, s) for s in active_stages) or "Not started"
+    starting_commit = state.get("starting_commit")
+    mermaid_graph = generate_mermaid_gitgraph(starting_commit)
 
     lines = [
         "# 🏆 2026 FIFA World Cup in Git\n",
@@ -319,7 +321,13 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
                     f"- {tname(m['homeTeam'])} {fmt_score(m)} {tname(m['awayTeam'])}{adv}"
                 )
             lines.append("")
-
+    if mermaid_graph:
+        lines += [
+            "\n## GitGraph (mermaid)\n",
+            "```mermaid",
+            mermaid_graph,
+            "```",
+        ]
     if git_log:
         lines += [
             "\n## Git Log\n",
