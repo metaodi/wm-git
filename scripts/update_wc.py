@@ -466,11 +466,7 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
         parents = c["parents"]
         subject = c["subject"]
         short = sha[:7]
-
-        # do not display the chore commits
-        if subject.startswith("chore:") or subject == "Update update_wc.py":
-            continue
-          
+      
         _, _, result = subject.partition(":")
         subject = result.strip()
 
