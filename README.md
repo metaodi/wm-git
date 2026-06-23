@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 44 / 104
-- **Last updated**: 2026-06-23 03:05 UTC
+- **Last updated**: 2026-06-23 05:19 UTC
 
 ## Groups
 
@@ -40,41 +40,42 @@ git log --graph --oneline --all
 ## Git Log
 
 ```text
-* e30ca8e Group J, MD2: Jordan 1-2 Algeria (2026-06-23)
-* 173bd76 Group J, MD2: Argentina 2-0 Austria (2026-06-22)
-* 6353ded Group J, MD1: Austria 3-1 Jordan (2026-06-17)
-* adee0a8 Group J, MD1: Argentina 3-0 Algeria (2026-06-17)
-* dbf1358 feat: initialize Group J
-| * be87bdb chore: update results (2026-06-23)
-| * edcdb1a chore: update results (2026-06-23)
-| * 0c8fb35 chore: update results (2026-06-22)
-| * 532ecf2 chore: update results (2026-06-22)
-| * a46e793 chore: update results (2026-06-22)
-| * 7131b1e chore: update results (2026-06-22)
-| * d829014 Refactor table row construction in update_wc.py
-| * cfe79c8 chore: update results (2026-06-22)
-| *   050e8d1 Merge pull request #10 from metaodi/copilot/add-github-repo-link
-| |\  
-| | * 0c9908e Use github_link variable with fallback for empty repo
-| | * a40e6c3 Add GitHub repository link on top of generated site
-| |/  
-| * d0348d9 Update update-results.yml
-| * d0e9e9c chore: update results (2026-06-22)
-| * 6a3d6aa Update update_wc.py
-| * 6539daa Improve logging of fetched standings
-| * 182bb74 Fix group reference in standings and merge logic
-| *   11a7899 Merge pull request #9 from metaodi/copilot/add-dry-run-option-update-wc
-| |\  
-| | * 36045b9 Improve workflow dry_run flag readability
-| | * 2a93b70 Add --dry-run option to update_wc.py and workflow_dispatch input
-| |/  
-| *   3da9dd8 Merge pull request #8 from metaodi/copilot/merge-group-branches-to-main
-| |\  
-| | * 9266698 fix: guard empty standings in group_merge_commit_msg, use check=False for merge --abort
-| | * b047f3d feat: merge completed group branches to main with standings in commit message
-| * | 1cb5603 Fix debug log to show complete standings result
-| |/  
-| * 1891b16 chore: update results (2026-06-22)
+* 970846b chore: update results (2026-06-23)
+* be87bdb chore: update results (2026-06-23)
+* edcdb1a chore: update results (2026-06-23)
+* 0c8fb35 chore: update results (2026-06-22)
+* 532ecf2 chore: update results (2026-06-22)
+* a46e793 chore: update results (2026-06-22)
+* 7131b1e chore: update results (2026-06-22)
+* d829014 Refactor table row construction in update_wc.py
+* cfe79c8 chore: update results (2026-06-22)
+*   050e8d1 Merge pull request #10 from metaodi/copilot/add-github-repo-link
+|\  
+| * 0c9908e Use github_link variable with fallback for empty repo
+| * a40e6c3 Add GitHub repository link on top of generated site
+|/  
+* d0348d9 Update update-results.yml
+* d0e9e9c chore: update results (2026-06-22)
+* 6a3d6aa Update update_wc.py
+* 6539daa Improve logging of fetched standings
+* 182bb74 Fix group reference in standings and merge logic
+*   11a7899 Merge pull request #9 from metaodi/copilot/add-dry-run-option-update-wc
+|\  
+| * 36045b9 Improve workflow dry_run flag readability
+| * 2a93b70 Add --dry-run option to update_wc.py and workflow_dispatch input
+|/  
+*   3da9dd8 Merge pull request #8 from metaodi/copilot/merge-group-branches-to-main
+|\  
+| * 9266698 fix: guard empty standings in group_merge_commit_msg, use check=False for merge --abort
+| * b047f3d feat: merge completed group branches to main with standings in commit message
+* | 1cb5603 Fix debug log to show complete standings result
+|/  
+* 1891b16 chore: update results (2026-06-22)
+| * e30ca8e Group J, MD2: Jordan 1-2 Algeria (2026-06-23)
+| * 173bd76 Group J, MD2: Argentina 2-0 Austria (2026-06-22)
+| * 6353ded Group J, MD1: Austria 3-1 Jordan (2026-06-17)
+| * adee0a8 Group J, MD1: Argentina 3-0 Algeria (2026-06-17)
+| * dbf1358 feat: initialize Group J
 |/  
 | * c7aea2a Group I, MD2: Norway 3-2 Senegal (2026-06-23)
 | * 4e6cfc4 Group I, MD2: France 3-0 Iraq (2026-06-22)
