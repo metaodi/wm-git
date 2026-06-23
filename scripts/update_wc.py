@@ -736,8 +736,7 @@ def group_merge_commit_msg(letter: str, group_standings: list, qualified_tlas: s
     ``qualified_tlas`` should contain only TLAs from this group that are known to
     have qualified; pass an empty set when the best-third-place draw hasn't happened yet.
     """
-    if not group_standings:
-        return f"merge: Group {letter} complete"
+    assert group_standings && len(group_standings), "No group standings available"
     advancing = [tname(e["team"]) for e in group_standings if e["team"]["tla"] in qualified_tlas]
     summary = f" — {' & '.join(advancing)} advance" if advancing else ""
     lines = [f"merge: Group {letter} complete{summary}\n", "Final standings:"]
