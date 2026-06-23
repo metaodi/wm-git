@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 44 / 104
-- **Last updated**: 2026-06-23 05:21 UTC
+- **Last updated**: 2026-06-23 07:13 UTC
 
 ## Groups
 
@@ -37,9 +37,118 @@ git log --graph --oneline --all
 - **Group K**: 2/6 played → `group/K`
 - **Group L**: 2/6 played → `group/L`
 
+## GitGraph (mermaid)
+
+```mermaid
+gitGraph TB:
+  commit id: ""
+  branch group/L order: 12
+  commit id: "initialize Group L"
+  commit id: "England 4-2 Croatia (2026-06-17)"
+  commit id: "Ghana 1-0 Panama (2026-06-17)"
+  checkout main
+  branch group/K order: 11
+  commit id: "initialize Group K"
+  commit id: "Portugal 1-1 Congo DR (2026-06-17)"
+  commit id: "Uzbekistan 1-3 Colombia (2026-06-18)"
+  checkout main
+  branch group/B order: 2
+  commit id: "initialize Group B"
+  commit id: "Canada 1-1 Bosnia-H. (2026-06-12)"
+  commit id: "Qatar 1-1 Switzerland (2026-06-13)"
+  commit id: "Switzerland 4-1 Bosnia-H. (2026-06-1"
+  commit id: "Canada 6-0 Qatar (2026-06-18)"
+  checkout main
+  branch group/A order: 1
+  commit id: "initialize Group A"
+  commit id: "Mexico 2-0 South Africa (2026-06-11)"
+  commit id: "Korea Republic 2-1 Czechia (2026-06-"
+  commit id: "Czechia 1-1 South Africa (2026-06-18"
+  commit id: "Mexico 1-0 Korea Republic (2026-06-1"
+  checkout main
+  branch group/C order: 3
+  commit id: "initialize Group C"
+  commit id: "Brazil 1-1 Morocco (2026-06-13)"
+  commit id: "Haiti 0-1 Scotland (2026-06-14)"
+  commit id: "Scotland 0-1 Morocco (2026-06-19)"
+  commit id: "Brazil 3-0 Haiti (2026-06-20)"
+  checkout main
+  branch group/D order: 4
+  commit id: "initialize Group D"
+  commit id: "USA 4-1 Paraguay (2026-06-13)"
+  commit id: "Australia 2-0 Turkey (2026-06-14)"
+  commit id: "USA 2-0 Australia (2026-06-19)"
+  commit id: "Turkey 0-1 Paraguay (2026-06-20)"
+  checkout main
+  branch group/E order: 5
+  commit id: "initialize Group E"
+  commit id: "Germany 7-1 Curaçao (2026-06-14)"
+  commit id: "Ivory Coast 1-0 Ecuador (2026-06-14)"
+  commit id: "Germany 2-1 Ivory Coast (2026-06-20)"
+  commit id: "Ecuador 0-0 Curaçao (2026-06-21)"
+  checkout main
+  branch group/F order: 6
+  commit id: "initialize Group F"
+  commit id: "Netherlands 2-2 Japan (2026-06-14)"
+  commit id: "Sweden 5-1 Tunisia (2026-06-15)"
+  commit id: "Netherlands 5-1 Sweden (2026-06-20)"
+  commit id: "Tunisia 0-4 Japan (2026-06-21)"
+  checkout main
+  branch group/H order: 8
+  commit id: "initialize Group H"
+  commit id: "Spain 0-0 Cape Verde (2026-06-15)"
+  commit id: "Saudi Arabia 1-1 Uruguay (2026-06-15"
+  commit id: "Spain 4-0 Saudi Arabia (2026-06-21)"
+  commit id: "Uruguay 2-2 Cape Verde (2026-06-21)"
+  checkout main
+  branch group/G order: 7
+  commit id: "initialize Group G"
+  commit id: "Belgium 1-1 Egypt (2026-06-15)"
+  commit id: "Iran 2-2 New Zealand (2026-06-16)"
+  commit id: "Belgium 0-0 Iran (2026-06-21)"
+  commit id: "New Zealand 1-3 Egypt (2026-06-22)"
+  checkout main
+  branch group/I order: 9
+  commit id: "initialize Group I"
+  commit id: "France 3-1 Senegal (2026-06-16)"
+  commit id: "Iraq 1-4 Norway (2026-06-16)"
+  commit id: "France 3-0 Iraq (2026-06-22)"
+  commit id: "Norway 3-2 Senegal (2026-06-23)"
+  checkout main
+  branch group/J order: 10
+  commit id: "initialize Group J"
+  commit id: "Argentina 3-0 Algeria (2026-06-17)"
+  commit id: "Austria 3-1 Jordan (2026-06-17)"
+  commit id: "Argentina 2-0 Austria (2026-06-22)"
+  commit id: "Jordan 1-2 Algeria (2026-06-23)"
+  checkout main
+  commit id: ""
+  commit id: "merge completed group branches to main with"
+  commit id: "guard empty standings in group_merge_commit_m"
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+  commit id: ""
+```
+
 ## Git Log
 
 ```text
+* 3c96f35 Update update_wc.py
+* 18e174b Add mermaid graph generation to update_wc.py
+* 06e0d4b Add assertion for group standings availability
+* 256ba74 Update state.json
+* 8cbf54e chore: update results (2026-06-23)
 * 433deb6 chore: update results (2026-06-23)
 * 970846b chore: update results (2026-06-23)
 * be87bdb chore: update results (2026-06-23)
