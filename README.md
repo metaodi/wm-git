@@ -19,8 +19,8 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 43 / 104
-- **Last updated**: 2026-06-23 00:39 UTC
+- **Matches played**: 44 / 104
+- **Last updated**: 2026-06-23 03:05 UTC
 
 ## Groups
 
@@ -33,18 +33,19 @@ git log --graph --oneline --all
 - **Group G**: 4/6 played → `group/G`
 - **Group H**: 4/6 played → `group/H`
 - **Group I**: 4/6 played → `group/I`
-- **Group J**: 3/6 played → `group/J`
+- **Group J**: 4/6 played → `group/J`
 - **Group K**: 2/6 played → `group/K`
 - **Group L**: 2/6 played → `group/L`
 
 ## Git Log
 
 ```text
-* c7aea2a Group I, MD2: Norway 3-2 Senegal (2026-06-23)
-* 4e6cfc4 Group I, MD2: France 3-0 Iraq (2026-06-22)
-* 00186db Group I, MD1: Iraq 1-4 Norway (2026-06-16)
-* 8d0cde8 Group I, MD1: France 3-1 Senegal (2026-06-16)
-* 890b13e feat: initialize Group I
+* e30ca8e Group J, MD2: Jordan 1-2 Algeria (2026-06-23)
+* 173bd76 Group J, MD2: Argentina 2-0 Austria (2026-06-22)
+* 6353ded Group J, MD1: Austria 3-1 Jordan (2026-06-17)
+* adee0a8 Group J, MD1: Argentina 3-0 Algeria (2026-06-17)
+* dbf1358 feat: initialize Group J
+| * be87bdb chore: update results (2026-06-23)
 | * edcdb1a chore: update results (2026-06-23)
 | * 0c8fb35 chore: update results (2026-06-22)
 | * 532ecf2 chore: update results (2026-06-22)
@@ -75,10 +76,11 @@ git log --graph --oneline --all
 | |/  
 | * 1891b16 chore: update results (2026-06-22)
 |/  
-| * 173bd76 Group J, MD2: Argentina 2-0 Austria (2026-06-22)
-| * 6353ded Group J, MD1: Austria 3-1 Jordan (2026-06-17)
-| * adee0a8 Group J, MD1: Argentina 3-0 Algeria (2026-06-17)
-| * dbf1358 feat: initialize Group J
+| * c7aea2a Group I, MD2: Norway 3-2 Senegal (2026-06-23)
+| * 4e6cfc4 Group I, MD2: France 3-0 Iraq (2026-06-22)
+| * 00186db Group I, MD1: Iraq 1-4 Norway (2026-06-16)
+| * 8d0cde8 Group I, MD1: France 3-1 Senegal (2026-06-16)
+| * 890b13e feat: initialize Group I
 |/  
 | * 04ffccf Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
 | * f7ad2d8 Group G, MD2: Belgium 0-0 Iran (2026-06-21)
