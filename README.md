@@ -19,8 +19,8 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 46 / 104
-- **Last updated**: 2026-06-23 23:24 UTC
+- **Matches played**: 47 / 104
+- **Last updated**: 2026-06-24 00:34 UTC
 
 ## Groups
 
@@ -35,7 +35,7 @@ git log --graph --oneline --all
 - **Group I**: 4/6 played → `group/I`
 - **Group J**: 4/6 played → `group/J`
 - **Group K**: 3/6 played → `group/K`
-- **Group L**: 3/6 played → `group/L`
+- **Group L**: 4/6 played → `group/L`
 
 ## GitGraph (mermaid)
 
@@ -117,31 +117,38 @@ gitGraph TB:
   commit id: "Uzbekistan 1-3 Colombia (2026-06-18)"
   commit id: "Portugal 5-0 Uzbekistan (2026-06-23)"
   checkout main
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: "update results (2026-06-24)"
   branch group/L order: 12
   commit id: "initialize Group L"
   commit id: "England 4-2 Croatia (2026-06-17)"
   commit id: "Ghana 1-0 Panama (2026-06-17)"
   commit id: "England 0-0 Ghana (2026-06-23)"
-  checkout main
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: "update results (2026-06-23)"
+  commit id: "Panama 0-1 Croatia (2026-06-23)"
 ```
 
 ## Git Log
 
 ```text
+* 7551de5 Group L, MD2: Panama 0-1 Croatia (2026-06-23)
+* 6a430be Group L, MD2: England 0-0 Ghana (2026-06-23)
+* ab54662 Group L, MD1: Ghana 1-0 Panama (2026-06-17)
+* 9709b5e Group L, MD1: England 4-2 Croatia (2026-06-17)
+* 4ece383 feat: initialize Group L
+* 9b9ffa2 chore: update results (2026-06-24)
 * e8d508e chore: update results (2026-06-23)
 * 211ffde Update update_wc.py
 * a4c4ecc chore: update results (2026-06-23)
@@ -156,10 +163,6 @@ gitGraph TB:
 * c6254c2 Update starting_commit in state.json
 * 795f227 chore: update results (2026-06-23)
 * 2eb25c8 Update starting_commit to new commit hash
-* 6a430be Group L, MD2: England 0-0 Ghana (2026-06-23)
-* ab54662 Group L, MD1: Ghana 1-0 Panama (2026-06-17)
-* 9709b5e Group L, MD1: England 4-2 Croatia (2026-06-17)
-* 4ece383 feat: initialize Group L
 * 6143609 Group K, MD2: Portugal 5-0 Uzbekistan (2026-06-23)
 * 03093dc Group K, MD1: Uzbekistan 1-3 Colombia (2026-06-18)
 * 9e313b3 Group K, MD1: Portugal 1-1 Congo DR (2026-06-17)
