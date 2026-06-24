@@ -441,7 +441,7 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
         return 200
 
     # Emit gitGraph commands
-    lines = ["gitGraph TB:", 'commit id: "init"']
+    lines = ["gitGraph TB:", '  commit id: "init"']
     cur: str | None = None
     created: set[str] = set()
 
