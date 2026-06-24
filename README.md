@@ -19,13 +19,13 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 49 / 104
-- **Last updated**: 2026-06-24 09:05 UTC
+- **Matches played**: 50 / 104
+- **Last updated**: 2026-06-24 21:01 UTC
 
 ## Groups
 
 - **Group A**: 4/6 played → `group/A`
-- **Group B**: 5/6 played → `group/B`
+- **Group B**: 6/6 played → `group/B`
 - **Group C**: 4/6 played → `group/C`
 - **Group D**: 4/6 played → `group/D`
 - **Group E**: 4/6 played → `group/E`
@@ -143,6 +143,7 @@ gitGraph TB:
   commit id: "update results (2026-06-24)"
   commit id: "update results (2026-06-24)"
   commit id: ""
+  commit id: "update results (2026-06-24)"
   branch group/B order: 2
   commit id: "initialize Group B"
   commit id: "Canada 1-1 Bosnia-H. (2026-06-12)"
@@ -150,17 +151,20 @@ gitGraph TB:
   commit id: "Switzerland 4-1 Bosnia-H. (2026-06-1"
   commit id: "Canada 6-0 Qatar (2026-06-18)"
   commit id: "Switzerland 2-1 Canada (2026-06-24)"
+  commit id: "Bosnia-H. 3-1 Qatar (2026-06-24)"
 ```
 
 ## Git Log
 
 ```text
+* 0a60654 Group B, MD3: Bosnia-H. 3-1 Qatar (2026-06-24)
 * c1e4c7e Group B, MD3: Switzerland 2-1 Canada (2026-06-24)
 * 3357170 Group B, MD2: Canada 6-0 Qatar (2026-06-18)
 * 2f0881b Group B, MD2: Switzerland 4-1 Bosnia-H. (2026-06-18)
 * d12dfee Group B, MD1: Qatar 1-1 Switzerland (2026-06-13)
 * 647c3f3 Group B, MD1: Canada 1-1 Bosnia-H. (2026-06-12)
 * 73fea82 feat: initialize Group B
+* 44b4375 chore: update results (2026-06-24)
 * c9ac0a0 Disable scheduled updates for World Cup results
 * 3363bd4 chore: update results (2026-06-24)
 * 33f3158 chore: update results (2026-06-24)
