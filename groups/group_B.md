@@ -16,3 +16,4 @@
 - ✅ **Switzerland 4-1 Bosnia-H.** (2026-06-18)
 - ✅ **Canada 6-0 Qatar** (2026-06-18)
 - ✅ **Switzerland 2-1 Canada** (2026-06-24)
+- ✅ **Bosnia-H. 3-1 Qatar** (2026-06-24)
