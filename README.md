@@ -19,13 +19,13 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 48 / 104
-- **Last updated**: 2026-06-24 07:10 UTC
+- **Matches played**: 49 / 104
+- **Last updated**: 2026-06-24 09:05 UTC
 
 ## Groups
 
 - **Group A**: 4/6 played → `group/A`
-- **Group B**: 4/6 played → `group/B`
+- **Group B**: 5/6 played → `group/B`
 - **Group C**: 4/6 played → `group/C`
 - **Group D**: 4/6 played → `group/D`
 - **Group E**: 4/6 played → `group/E`
@@ -48,13 +48,6 @@ gitGraph TB:
   commit id: "Korea Republic 2-1 Czechia (2026-06-"
   commit id: "Czechia 1-1 South Africa (2026-06-18"
   commit id: "Mexico 1-0 Korea Republic (2026-06-1"
-  checkout main
-  branch group/B order: 2
-  commit id: "initialize Group B"
-  commit id: "Canada 1-1 Bosnia-H. (2026-06-12)"
-  commit id: "Qatar 1-1 Switzerland (2026-06-13)"
-  commit id: "Switzerland 4-1 Bosnia-H. (2026-06-1"
-  commit id: "Canada 6-0 Qatar (2026-06-18)"
   checkout main
   branch group/C order: 3
   commit id: "initialize Group C"
@@ -148,11 +141,28 @@ gitGraph TB:
   commit id: ""
   commit id: "update results (2026-06-24)"
   commit id: "update results (2026-06-24)"
+  commit id: "update results (2026-06-24)"
+  commit id: ""
+  branch group/B order: 2
+  commit id: "initialize Group B"
+  commit id: "Canada 1-1 Bosnia-H. (2026-06-12)"
+  commit id: "Qatar 1-1 Switzerland (2026-06-13)"
+  commit id: "Switzerland 4-1 Bosnia-H. (2026-06-1"
+  commit id: "Canada 6-0 Qatar (2026-06-18)"
+  commit id: "Switzerland 2-1 Canada (2026-06-24)"
 ```
 
 ## Git Log
 
 ```text
+* c1e4c7e Group B, MD3: Switzerland 2-1 Canada (2026-06-24)
+* 3357170 Group B, MD2: Canada 6-0 Qatar (2026-06-18)
+* 2f0881b Group B, MD2: Switzerland 4-1 Bosnia-H. (2026-06-18)
+* d12dfee Group B, MD1: Qatar 1-1 Switzerland (2026-06-13)
+* 647c3f3 Group B, MD1: Canada 1-1 Bosnia-H. (2026-06-12)
+* 73fea82 feat: initialize Group B
+* c9ac0a0 Disable scheduled updates for World Cup results
+* 3363bd4 chore: update results (2026-06-24)
 * 33f3158 chore: update results (2026-06-24)
 * 69a9d9b chore: update results (2026-06-24)
 * e9982f7 Update update_wc.py
@@ -225,11 +235,6 @@ gitGraph TB:
 * cae8412 Group C, MD1: Haiti 0-1 Scotland (2026-06-14)
 * 4c1fb49 Group C, MD1: Brazil 1-1 Morocco (2026-06-13)
 * de0ccc8 feat: initialize Group C
-* 3357170 Group B, MD2: Canada 6-0 Qatar (2026-06-18)
-* 2f0881b Group B, MD2: Switzerland 4-1 Bosnia-H. (2026-06-18)
-* d12dfee Group B, MD1: Qatar 1-1 Switzerland (2026-06-13)
-* 647c3f3 Group B, MD1: Canada 1-1 Bosnia-H. (2026-06-12)
-* 73fea82 feat: initialize Group B
 * f768041 Group A, MD2: Mexico 1-0 Korea Republic (2026-06-19)
 * dbc69ea Group A, MD2: Czechia 1-1 South Africa (2026-06-18)
 * 777a2b6 Group A, MD1: Korea Republic 2-1 Czechia (2026-06-12)
