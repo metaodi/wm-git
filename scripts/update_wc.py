@@ -441,7 +441,15 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
         return 200
 
     # Emit gitGraph commands
-    lines = ["gitGraph TB:", '  commit id: "init"']
+    lines = [
+      "---",
+      "config:",
+      "  gitGraph:",
+      "    parallelCommits: true",
+      "---",
+      "gitGraph TB:",
+      '  commit id: "init"'
+    ]
     cur: str | None = None
     created: set[str] = set()
 
@@ -483,9 +491,9 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
             if mb and mb in created and mb != branch:
                 lines.append(f'  merge {mb} id: "{subject}"')
             else:
-                lines.append(f'  commit id: "{subject}"')
+                lines.append(f'  commit id: "{subject}"') if subject
         else:
-            lines.append(f'  commit id: "{subject}"')
+            lines.append(f'  commit id: "{subject}"') if subject
 
     return "\n".join(lines)
 
