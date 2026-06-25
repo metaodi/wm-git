@@ -16,3 +16,4 @@
 - ✅ **Scotland 0-1 Morocco** (2026-06-19)
 - ✅ **Brazil 3-0 Haiti** (2026-06-20)
 - ✅ **Morocco 4-2 Haiti** (2026-06-24)
+- ✅ **Scotland 0-3 Brazil** (2026-06-24)
