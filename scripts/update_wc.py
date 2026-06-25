@@ -420,11 +420,16 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
             if sha in sha_to_branch:
                 continue
             sha_to_branch[sha] = branch
-            c = sha_to_commit.get(sha)
-            if c:
-                for p in c["parents"]:
-                    if p not in sha_to_branch:
-                        stack.append(p)
+            commit = sha_to_commit.get(sha)
+            if commit and commit["parents"]:
+                # Only follow the first parent so we don't bleed through merge
+                # commit second-parents into sibling branches. Without this,
+                # walking main's tip would cross into group/* commits via their
+                # merge-parent and claim them for main before the group branch
+                # walk gets a chance.
+                p = commit["parents"][0]
+                if p not in sha_to_branch:
+                    stack.append(p)
     log.debug(f"SHA to branch: {pformat(sha_to_branch)}")
 
     def _branch_order(name: str) -> int:
