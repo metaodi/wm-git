@@ -1036,7 +1036,7 @@ def main():
     starting_commit = state.get("starting_commit")
     git_log_cmd = ["log", "--graph", "--oneline", "--all"]
     sep = "\x1f"
-    git_output_cmd = ["log", "--all", "--topo-order", "--reverse", f"--pretty=format:%H{sep}%P{sep}%D{sep}%s"])
+    git_output_cmd = ["log", "--all", "--topo-order", "--reverse", f"--pretty=format:%H{sep}%P{sep}%D{sep}%s"]
   
     if starting_commit:
         git_log_cmd.append(f"{starting_commit}^..")
