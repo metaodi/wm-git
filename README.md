@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 54 / 104
-- **Last updated**: 2026-06-25 11:18 UTC
+- **Last updated**: 2026-06-25 14:27 UTC
 
 ## Groups
 
@@ -129,6 +129,7 @@ gitGraph LR:
   commit id: "update results (2026-06-25)"
   commit id: "update results (2026-06-25)"
   commit id: "update results (2026-06-25)"
+  branch group/A order: 1
   commit id: "initialize Group A"
   commit id: "Mexico 2-0 South Africa (2026-06-11)"
   commit id: "Korea Republic 2-1 Czechia (2026-06-"
@@ -136,7 +137,9 @@ gitGraph LR:
   commit id: "Mexico 1-0 Korea Republic (2026-06-1"
   commit id: "Czechia 0-3 Mexico (2026-06-25)"
   commit id: "South Africa 1-0 Korea Republic (202"
-  commit id: "MEX, RSA advance (#11)"
+  checkout main
+  merge group/A id: "MEX, RSA advance (#11)"
+  branch group/B order: 2
   commit id: "initialize Group B"
   commit id: "Canada 1-1 Bosnia-H. (2026-06-12)"
   commit id: "Qatar 1-1 Switzerland (2026-06-13)"
@@ -144,7 +147,9 @@ gitGraph LR:
   commit id: "Canada 6-0 Qatar (2026-06-18)"
   commit id: "Switzerland 2-1 Canada (2026-06-24)"
   commit id: "Bosnia-H. 3-1 Qatar (2026-06-24)"
-  commit id: "SUI, CAN advance (#12)"
+  checkout main
+  merge group/B id: "SUI, CAN advance (#12)"
+  branch group/C order: 3
   commit id: "initialize Group C"
   commit id: "Brazil 1-1 Morocco (2026-06-13)"
   commit id: "Haiti 0-1 Scotland (2026-06-14)"
@@ -152,15 +157,28 @@ gitGraph LR:
   commit id: "Brazil 3-0 Haiti (2026-06-20)"
   commit id: "Morocco 4-2 Haiti (2026-06-24)"
   commit id: "Scotland 0-3 Brazil (2026-06-24)"
-  commit id: "BRA, MAR advance (#13)"
+  checkout main
+  merge group/C id: "BRA, MAR advance (#13)"
   commit id: "update results (2026-06-25)"
   commit id: "infer group branch tips from merge commit sub"
   commit id: "fetch all remote branches with wildcard refsp"
+  commit id: "update results (2026-06-25)"
+  commit id: "prevent merging of sibling branches by only f"
+  commit id: "prevent merging of sibling branches by only f"
 ```
 
 ## Git Log
 
 ```text
+*   5d95d20 fix: prevent merging of sibling branches by only following the first … (#24)
+|\  
+| * 5c03e0c fix: prevent merging of sibling branches by only following the first parent in commit history
+|/  
+* 672d35f Update update-results.yml
+* e273890 Add debug logging for branches and SHA mapping
+* af871da Fix formatting in git_output_cmd command
+* 65c5589 Refactor git log commands in update_wc.py
+* 2567c42 chore: update results (2026-06-25)
 *   234a479 Fix group branches missing from Mermaid GitGraph due to narrow fetch refspec (#23)
 |\  
 | * 8dba9b3 Remove the merge guessing
