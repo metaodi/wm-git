@@ -31,7 +31,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch all remote branches
-        run: git fetch --all --prune
+        run: git fetch origin '+refs/heads/*:refs/remotes/origin/*'
 
       - name: Set up Python
         uses: actions/setup-python@v6
