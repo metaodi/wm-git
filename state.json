@@ -56,7 +56,7 @@
     537332
   ],
   "group_branches": true,
-  "merged_groups": [],
+  "merged_groups": ["A", "B", "C"],
   "team_branches": [],
   "starting_commit": "2eb25c89c8b2405223a5a8a8d249204619eccfcf",
   "updated": "2026-06-25T07:42:26.472707+00:00"
