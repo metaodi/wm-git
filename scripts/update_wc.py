@@ -447,7 +447,7 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
       "  gitGraph:",
       "    parallelCommits: true",
       "---",
-      "gitGraph TB:",
+      "gitGraph LR:",
       '  commit id: "init"'
     ]
     cur: str | None = None
