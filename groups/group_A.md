@@ -16,3 +16,4 @@
 - ✅ **Czechia 1-1 South Africa** (2026-06-18)
 - ✅ **Mexico 1-0 Korea Republic** (2026-06-19)
 - ✅ **Czechia 0-3 Mexico** (2026-06-25)
+- ✅ **South Africa 1-0 Korea Republic** (2026-06-25)
