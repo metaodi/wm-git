@@ -486,7 +486,7 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
         _, _, result = subject.partition(":")
         subject = result.strip()
 
-        if not subject:
+        if not subject or 'update results' in subject:
             continue
 
         # Bootstrap: first commit implicitly starts on main
