@@ -19,14 +19,14 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 50 / 104
-- **Last updated**: 2026-06-24 21:01 UTC
+- **Matches played**: 54 / 104
+- **Last updated**: 2026-06-24 21:04 UTC
 
 ## Groups
 
-- **Group A**: 4/6 played → `group/A`
+- **Group A**: 6/6 played → `group/A`
 - **Group B**: 6/6 played → `group/B`
-- **Group C**: 4/6 played → `group/C`
+- **Group C**: 6/6 played → `group/C`
 - **Group D**: 4/6 played → `group/D`
 - **Group E**: 4/6 played → `group/E`
 - **Group F**: 4/6 played → `group/F`
@@ -42,20 +42,6 @@ git log --graph --oneline --all
 ```mermaid
 gitGraph TB:
   commit id: "init"
-  branch group/A order: 1
-  commit id: "initialize Group A"
-  commit id: "Mexico 2-0 South Africa (2026-06-11)"
-  commit id: "Korea Republic 2-1 Czechia (2026-06-"
-  commit id: "Czechia 1-1 South Africa (2026-06-18"
-  commit id: "Mexico 1-0 Korea Republic (2026-06-1"
-  checkout main
-  branch group/C order: 3
-  commit id: "initialize Group C"
-  commit id: "Brazil 1-1 Morocco (2026-06-13)"
-  commit id: "Haiti 0-1 Scotland (2026-06-14)"
-  commit id: "Scotland 0-1 Morocco (2026-06-19)"
-  commit id: "Brazil 3-0 Haiti (2026-06-20)"
-  checkout main
   branch group/D order: 4
   commit id: "initialize Group D"
   commit id: "USA 4-1 Paraguay (2026-06-13)"
@@ -119,31 +105,6 @@ gitGraph TB:
   commit id: "Portugal 5-0 Uzbekistan (2026-06-23)"
   commit id: "Colombia 1-0 Congo DR (2026-06-24)"
   checkout main
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: "update results (2026-06-23)"
-  commit id: ""
-  commit id: "update results (2026-06-23)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: ""
-  commit id: "update results (2026-06-24)"
-  commit id: ""
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: ""
-  commit id: "update results (2026-06-24)"
   branch group/B order: 2
   commit id: "initialize Group B"
   commit id: "Canada 1-1 Bosnia-H. (2026-06-12)"
@@ -152,18 +113,70 @@ gitGraph TB:
   commit id: "Canada 6-0 Qatar (2026-06-18)"
   commit id: "Switzerland 2-1 Canada (2026-06-24)"
   commit id: "Bosnia-H. 3-1 Qatar (2026-06-24)"
+  checkout main
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: "update results (2026-06-23)"
+  commit id: ""
+  commit id: "update results (2026-06-23)"
+  commit id: "update results (2026-06-24)"
+  commit id: "update results (2026-06-24)"
+  commit id: "update results (2026-06-24)"
+  commit id: ""
+  commit id: "update results (2026-06-24)"
+  commit id: ""
+  commit id: "update results (2026-06-24)"
+  commit id: "update results (2026-06-24)"
+  commit id: "update results (2026-06-24)"
+  commit id: ""
+  commit id: "update results (2026-06-24)"
+  commit id: "update results (2026-06-24)"
+  branch group/C order: 3
+  commit id: "initialize Group C"
+  commit id: "Brazil 1-1 Morocco (2026-06-13)"
+  commit id: "Haiti 0-1 Scotland (2026-06-14)"
+  commit id: "Scotland 0-1 Morocco (2026-06-19)"
+  commit id: "Brazil 3-0 Haiti (2026-06-20)"
+  commit id: "Morocco 4-2 Haiti (2026-06-24)"
+  commit id: "Scotland 0-3 Brazil (2026-06-24)"
+  checkout main
+  branch group/A order: 1
+  commit id: "initialize Group A"
+  commit id: "Mexico 2-0 South Africa (2026-06-11)"
+  commit id: "Korea Republic 2-1 Czechia (2026-06-"
+  commit id: "Czechia 1-1 South Africa (2026-06-18"
+  commit id: "Mexico 1-0 Korea Republic (2026-06-1"
+  commit id: "Czechia 0-3 Mexico (2026-06-25)"
+  commit id: "South Africa 1-0 Korea Republic (202"
 ```
 
 ## Git Log
 
 ```text
-* 0a60654 Group B, MD3: Bosnia-H. 3-1 Qatar (2026-06-24)
-* c1e4c7e Group B, MD3: Switzerland 2-1 Canada (2026-06-24)
-* 3357170 Group B, MD2: Canada 6-0 Qatar (2026-06-18)
-* 2f0881b Group B, MD2: Switzerland 4-1 Bosnia-H. (2026-06-18)
-* d12dfee Group B, MD1: Qatar 1-1 Switzerland (2026-06-13)
-* 647c3f3 Group B, MD1: Canada 1-1 Bosnia-H. (2026-06-12)
-* 73fea82 feat: initialize Group B
+* fb7d903 Group A, MD3: South Africa 1-0 Korea Republic (2026-06-25)
+* 1276260 Group A, MD3: Czechia 0-3 Mexico (2026-06-25)
+* f768041 Group A, MD2: Mexico 1-0 Korea Republic (2026-06-19)
+* dbc69ea Group A, MD2: Czechia 1-1 South Africa (2026-06-18)
+* 777a2b6 Group A, MD1: Korea Republic 2-1 Czechia (2026-06-12)
+* 612b691 Group A, MD1: Mexico 2-0 South Africa (2026-06-11)
+* b22d60b feat: initialize Group A
+* 1e63230 Group C, MD3: Scotland 0-3 Brazil (2026-06-24)
+* 914859e Group C, MD3: Morocco 4-2 Haiti (2026-06-24)
+* 713ade3 Group C, MD2: Brazil 3-0 Haiti (2026-06-20)
+* 1ea95ac Group C, MD2: Scotland 0-1 Morocco (2026-06-19)
+* cae8412 Group C, MD1: Haiti 0-1 Scotland (2026-06-14)
+* 4c1fb49 Group C, MD1: Brazil 1-1 Morocco (2026-06-13)
+* de0ccc8 feat: initialize Group C
+* 766e2f9 chore: update results (2026-06-24)
 * 44b4375 chore: update results (2026-06-24)
 * c9ac0a0 Disable scheduled updates for World Cup results
 * 3363bd4 chore: update results (2026-06-24)
@@ -189,6 +202,13 @@ gitGraph TB:
 * c6254c2 Update starting_commit in state.json
 * 795f227 chore: update results (2026-06-23)
 * 2eb25c8 Update starting_commit to new commit hash
+* 0a60654 Group B, MD3: Bosnia-H. 3-1 Qatar (2026-06-24)
+* c1e4c7e Group B, MD3: Switzerland 2-1 Canada (2026-06-24)
+* 3357170 Group B, MD2: Canada 6-0 Qatar (2026-06-18)
+* 2f0881b Group B, MD2: Switzerland 4-1 Bosnia-H. (2026-06-18)
+* d12dfee Group B, MD1: Qatar 1-1 Switzerland (2026-06-13)
+* 647c3f3 Group B, MD1: Canada 1-1 Bosnia-H. (2026-06-12)
+* 73fea82 feat: initialize Group B
 * f5de9cc Group K, MD2: Colombia 1-0 Congo DR (2026-06-24)
 * 6143609 Group K, MD2: Portugal 5-0 Uzbekistan (2026-06-23)
 * 03093dc Group K, MD1: Uzbekistan 1-3 Colombia (2026-06-18)
@@ -234,14 +254,4 @@ gitGraph TB:
 * d9483dc Group D, MD1: Australia 2-0 Turkey (2026-06-14)
 * 3829793 Group D, MD1: USA 4-1 Paraguay (2026-06-13)
 * da0de21 feat: initialize Group D
-* 713ade3 Group C, MD2: Brazil 3-0 Haiti (2026-06-20)
-* 1ea95ac Group C, MD2: Scotland 0-1 Morocco (2026-06-19)
-* cae8412 Group C, MD1: Haiti 0-1 Scotland (2026-06-14)
-* 4c1fb49 Group C, MD1: Brazil 1-1 Morocco (2026-06-13)
-* de0ccc8 feat: initialize Group C
-* f768041 Group A, MD2: Mexico 1-0 Korea Republic (2026-06-19)
-* dbc69ea Group A, MD2: Czechia 1-1 South Africa (2026-06-18)
-* 777a2b6 Group A, MD1: Korea Republic 2-1 Czechia (2026-06-12)
-* 612b691 Group A, MD1: Mexico 2-0 South Africa (2026-06-11)
-* b22d60b feat: initialize Group A
 ```
