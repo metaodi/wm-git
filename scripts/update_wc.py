@@ -1035,9 +1035,15 @@ def main():
     checkout("main")
     starting_commit = state.get("starting_commit")
     git_log_cmd = ["log", "--graph", "--oneline", "--all"]
+    sep = "\x1f"
+    git_output_cmd = ["log", "--all", "--topo-order", "--reverse", f"--pretty=format:%H{sep}%P{sep}%D{sep}%s"])
+  
     if starting_commit:
         git_log_cmd.append(f"{starting_commit}^..")
+        git_output_cmd.append(f"{starting_commit}^..")
     git_log = git(git_log_cmd)
+    git_output = git(git_output_cmd)
+    print(f"Git Output:\n{git_output}")
     (REPO_ROOT / "README.md").write_text(readme_md(matches, state, git_log))
     docs_dir = REPO_ROOT / "docs"
     docs_dir.mkdir(exist_ok=True)
