@@ -478,6 +478,9 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
         _, _, result = subject.partition(":")
         subject = result.strip()
 
+        if not subject:
+            continue
+
         # Bootstrap: first commit implicitly starts on main
         if not created:
             created.add("main")
@@ -491,9 +494,9 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
             if mb and mb in created and mb != branch:
                 lines.append(f'  merge {mb} id: "{subject}"')
             else:
-                lines.append(f'  commit id: "{subject}"') if subject
+                lines.append(f'  commit id: "{subject}"')
         else:
-            lines.append(f'  commit id: "{subject}"') if subject
+            lines.append(f'  commit id: "{subject}"')
 
     return "\n".join(lines)
 
