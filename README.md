@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 54 / 104
-- **Last updated**: 2026-06-25 03:49 UTC
+- **Last updated**: 2026-06-25 07:26 UTC
 
 ## Groups
 
@@ -45,7 +45,7 @@ config:
   gitGraph:
     parallelCommits: true
 ---
-gitGraph TB:
+gitGraph LR:
   commit id: "init"
   branch group/D order: 4
   commit id: "initialize Group D"
@@ -154,11 +154,14 @@ gitGraph TB:
   commit id: "update results (2026-06-24)"
   commit id: "update results (2026-06-24)"
   commit id: "update results (2026-06-25)"
+  commit id: "update results (2026-06-25)"
 ```
 
 ## Git Log
 
 ```text
+* 63ecdfc Update update_wc.py
+* 2452db4 chore: update results (2026-06-25)
 * 09b3863 Update update_wc.py
 * 58eaddf Update update_wc.py
 * d795d15 chore: update results (2026-06-25)
