@@ -54,7 +54,7 @@ jobs:
           python scripts/update_wc.py $EXTRA_FLAGS
 
       - name: Show git graph (debug)
-        run: git log --graph --oneline --all | head -80
+        run: git log --graph --oneline --all
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
