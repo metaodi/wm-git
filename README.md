@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 54 / 104
-- **Last updated**: 2026-06-25 14:27 UTC
+- **Last updated**: 2026-06-25 15:50 UTC
 
 ## Groups
 
@@ -110,25 +110,6 @@ gitGraph LR:
   commit id: "Portugal 5-0 Uzbekistan (2026-06-23)"
   commit id: "Colombia 1-0 Congo DR (2026-06-24)"
   checkout main
-  commit id: "update results (2026-06-23)"
-  commit id: "update results (2026-06-23)"
-  commit id: "update results (2026-06-23)"
-  commit id: "update results (2026-06-23)"
-  commit id: "update results (2026-06-23)"
-  commit id: "update results (2026-06-23)"
-  commit id: "update results (2026-06-23)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-24)"
-  commit id: "update results (2026-06-25)"
-  commit id: "update results (2026-06-25)"
-  commit id: "update results (2026-06-25)"
   branch group/A order: 1
   commit id: "initialize Group A"
   commit id: "Mexico 2-0 South Africa (2026-06-11)"
@@ -159,10 +140,8 @@ gitGraph LR:
   commit id: "Scotland 0-3 Brazil (2026-06-24)"
   checkout main
   merge group/C id: "BRA, MAR advance (#13)"
-  commit id: "update results (2026-06-25)"
   commit id: "infer group branch tips from merge commit sub"
   commit id: "fetch all remote branches with wildcard refsp"
-  commit id: "update results (2026-06-25)"
   commit id: "prevent merging of sibling branches by only f"
   commit id: "prevent merging of sibling branches by only f"
 ```
@@ -170,6 +149,8 @@ gitGraph LR:
 ## Git Log
 
 ```text
+* 9985da4 Update update_wc.py
+* 14b7d30 chore: update results (2026-06-25)
 *   5d95d20 fix: prevent merging of sibling branches by only following the first … (#24)
 |\  
 | * 5c03e0c fix: prevent merging of sibling branches by only following the first parent in commit history
