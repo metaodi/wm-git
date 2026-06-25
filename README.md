@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 54 / 104
-- **Last updated**: 2026-06-25 07:42 UTC
+- **Last updated**: 2026-06-25 11:18 UTC
 
 ## Groups
 
@@ -153,11 +153,21 @@ gitGraph LR:
   commit id: "Morocco 4-2 Haiti (2026-06-24)"
   commit id: "Scotland 0-3 Brazil (2026-06-24)"
   commit id: "BRA, MAR advance (#13)"
+  commit id: "update results (2026-06-25)"
+  commit id: "infer group branch tips from merge commit sub"
+  commit id: "fetch all remote branches with wildcard refsp"
 ```
 
 ## Git Log
 
 ```text
+*   234a479 Fix group branches missing from Mermaid GitGraph due to narrow fetch refspec (#23)
+|\  
+| * 8dba9b3 Remove the merge guessing
+| * 0917a6d fix: fetch all remote branches with wildcard refspec in workflow
+| * adcc7d8 fix: infer group branch tips from merge commit subjects when branch refs are deleted
+|/  
+* 95d2fbb chore: update results (2026-06-25)
 * 20bb335 Update state.json
 *   1853711 Group C: BRA, MAR advance (#13)
 |\  
