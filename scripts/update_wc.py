@@ -15,6 +15,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -408,6 +409,30 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
         if name.startswith("teams/"):
             return 2
         return 3
+
+    # When a group/teams branch was deleted after its PR was merged, the branch
+    # ref no longer appears in `git log --all` decorators.  Recover these lost
+    # tips by inspecting merge commits: "Group A: …" → group/A with parents[1]
+    # as the branch tip, and similarly "teams/BRA: …" → teams/BRA.
+    _group_merge_re = re.compile(r'^Group\s+([A-Za-z])\s*:', re.IGNORECASE)
+    _teams_merge_re = re.compile(r'^([A-Z]{2,4})\s+(?:advance|eliminated)', re.IGNORECASE)
+    existing_tip_shas = {sha for _, sha in tip_pairs}
+    for c in commits:
+        if len(c["parents"]) < 2:
+            continue
+        tip = c["parents"][1]
+        if tip in existing_tip_shas:
+            continue
+        subject = c["subject"]
+        m = _group_merge_re.match(subject)
+        if m:
+            tip_pairs.append((f"group/{m.group(1).upper()}", tip))
+            existing_tip_shas.add(tip)
+            continue
+        m = _teams_merge_re.match(subject)
+        if m:
+            tip_pairs.append((f"teams/{m.group(1).upper()}", tip))
+            existing_tip_shas.add(tip)
 
     tip_pairs.sort(key=lambda x: (_prio(x[0]), x[0]))
 
