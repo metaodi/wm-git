@@ -383,6 +383,8 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
             if r and r != "HEAD":
                 branch_refs.append(r)
 
+        log.debug(f"Found the following branches: {branch_refs}")
+
         c: dict = dict(
             sha=sha,
             parents=parents,
@@ -423,6 +425,7 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
                 for p in c["parents"]:
                     if p not in sha_to_branch:
                         stack.append(p)
+    log.debug(f"SHA to branch: {pformat(sha_to_branch)}")
 
     def _branch_order(name: str) -> int:
         """Return a numeric order for Mermaid branch declarations.
