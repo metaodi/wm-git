@@ -460,7 +460,7 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
     ]
     cur: str | None = None
     created: set[str] = set()
-
+    
     def ensure_on(branch: str, parent_branch: str | None = None) -> None:
         nonlocal cur
         if branch not in created:
@@ -476,6 +476,25 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
             lines.append(f'  checkout {branch}')
             cur = branch
 
+    if not created:
+        created.add("main")
+        cur = "main"
+
+    # create all group branches
+    ensure_on("group/A", "main")
+    ensure_on("group/B", "main")
+    ensure_on("group/C", "main")
+    ensure_on("group/D", "main")
+    ensure_on("group/E", "main")
+    ensure_on("group/F", "main")
+    ensure_on("group/G", "main")
+    ensure_on("group/H", "main")
+    ensure_on("group/I", "main")
+    ensure_on("group/J", "main")
+    ensure_on("group/K", "main")
+    ensure_on("group/L", "main")
+    ensure_on("main", "main")
+    
     for c in commits:
         sha = c["sha"]
         branch = sha_to_branch.get(sha, "main")
@@ -488,11 +507,6 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
 
         if not subject or 'update results' in subject:
             continue
-
-        # Bootstrap: first commit implicitly starts on main
-        if not created:
-            created.add("main")
-            cur = "main"
 
         par_branch = sha_to_branch.get(parents[0]) if parents else None
         ensure_on(branch, par_branch)
