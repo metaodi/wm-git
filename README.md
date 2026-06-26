@@ -19,17 +19,17 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 60 / 104
-- **Last updated**: 2026-06-25 15:55 UTC
+- **Matches played**: 54 / 104
+- **Last updated**: 2026-06-26 04:20 UTC
 
 ## Groups
 
 - **Group A**: 6/6 played → `group/A`
 - **Group B**: 6/6 played → `group/B`
 - **Group C**: 6/6 played → `group/C`
-- **Group D**: 6/6 played → `group/D`
-- **Group E**: 6/6 played → `group/E`
-- **Group F**: 6/6 played → `group/F`
+- **Group D**: 4/6 played → `group/D`
+- **Group E**: 4/6 played → `group/E`
+- **Group F**: 4/6 played → `group/F`
 - **Group G**: 4/6 played → `group/G`
 - **Group H**: 4/6 played → `group/H`
 - **Group I**: 4/6 played → `group/I`
@@ -123,6 +123,16 @@ gitGraph LR:
   commit id: "fetch all remote branches with wildcard refsp"
   commit id: "prevent merging of sibling branches by only f"
   commit id: "prevent merging of sibling branches by only f"
+  branch group/D order: 4
+  commit id: "initialize Group D"
+  commit id: "USA 4-1 Paraguay (2026-06-13)"
+  commit id: "Australia 2-0 Turkey (2026-06-14)"
+  commit id: "USA 2-0 Australia (2026-06-19)"
+  commit id: "Turkey 0-1 Paraguay (2026-06-20)"
+  commit id: "Turkey 3-2 USA (2026-06-26)"
+  commit id: "Paraguay 0-0 Australia (2026-06-26)"
+  checkout main
+  merge group/D id: "USA, AUS advance (#14)"
   branch group/E order: 5
   commit id: "initialize Group E"
   commit id: "Germany 7-1 Curaçao (2026-06-14)"
@@ -132,6 +142,7 @@ gitGraph LR:
   commit id: "Ecuador 2-1 Germany (2026-06-25)"
   commit id: "Curaçao 0-2 Ivory Coast (2026-06-25)"
   checkout main
+  merge group/E id: "GER, CIV, ECU advance (#15)"
   branch group/F order: 6
   commit id: "initialize Group F"
   commit id: "Netherlands 2-2 Japan (2026-06-14)"
@@ -141,40 +152,40 @@ gitGraph LR:
   commit id: "Tunisia 1-3 Netherlands (2026-06-25)"
   commit id: "Japan 1-1 Sweden (2026-06-25)"
   checkout main
-  branch group/D order: 4
-  commit id: "initialize Group D"
-  commit id: "USA 4-1 Paraguay (2026-06-13)"
-  commit id: "Australia 2-0 Turkey (2026-06-14)"
-  commit id: "USA 2-0 Australia (2026-06-19)"
-  commit id: "Turkey 0-1 Paraguay (2026-06-20)"
-  commit id: "Turkey 3-2 USA (2026-06-26)"
-  commit id: "Paraguay 0-0 Australia (2026-06-26)"
+  merge group/F id: "NED, JPN, SWE advance (#16)"
 ```
 
 ## Git Log
 
 ```text
-* a0a688a Group D, MD3: Paraguay 0-0 Australia (2026-06-26)
-* 6fa6b3a Group D, MD3: Turkey 3-2 USA (2026-06-26)
-* e28a6dc Group D, MD2: Turkey 0-1 Paraguay (2026-06-20)
-* f307f62 Group D, MD2: USA 2-0 Australia (2026-06-19)
-* d9483dc Group D, MD1: Australia 2-0 Turkey (2026-06-14)
-* 3829793 Group D, MD1: USA 4-1 Paraguay (2026-06-13)
-* da0de21 feat: initialize Group D
-* 3fb3b66 Group F, MD3: Japan 1-1 Sweden (2026-06-25)
-* d3f08c9 Group F, MD3: Tunisia 1-3 Netherlands (2026-06-25)
-* 37486e3 Group F, MD2: Tunisia 0-4 Japan (2026-06-21)
-* 62cfd94 Group F, MD2: Netherlands 5-1 Sweden (2026-06-20)
-* a3802dd Group F, MD1: Sweden 5-1 Tunisia (2026-06-15)
-* 55a2a87 Group F, MD1: Netherlands 2-2 Japan (2026-06-14)
-* f136fe6 feat: initialize Group F
-* 1e58c16 Group E, MD3: Curaçao 0-2 Ivory Coast (2026-06-25)
-* 3a01352 Group E, MD3: Ecuador 2-1 Germany (2026-06-25)
-* 54ae035 Group E, MD2: Ecuador 0-0 Curaçao (2026-06-21)
-* fd81778 Group E, MD2: Germany 2-1 Ivory Coast (2026-06-20)
-* 7948bbe Group E, MD1: Ivory Coast 1-0 Ecuador (2026-06-14)
-* 6256d77 Group E, MD1: Germany 7-1 Curaçao (2026-06-14)
-* cd1b6fc feat: initialize Group E
+*   b2474ad Group F: NED, JPN, SWE advance (#16)
+|\  
+| * 3fb3b66 Group F, MD3: Japan 1-1 Sweden (2026-06-25)
+| * d3f08c9 Group F, MD3: Tunisia 1-3 Netherlands (2026-06-25)
+| * 37486e3 Group F, MD2: Tunisia 0-4 Japan (2026-06-21)
+| * 62cfd94 Group F, MD2: Netherlands 5-1 Sweden (2026-06-20)
+| * a3802dd Group F, MD1: Sweden 5-1 Tunisia (2026-06-15)
+| * 55a2a87 Group F, MD1: Netherlands 2-2 Japan (2026-06-14)
+| * f136fe6 feat: initialize Group F
+*   e2a060a Group E: GER, CIV, ECU advance (#15)
+|\  
+| * 1e58c16 Group E, MD3: Curaçao 0-2 Ivory Coast (2026-06-25)
+| * 3a01352 Group E, MD3: Ecuador 2-1 Germany (2026-06-25)
+| * 54ae035 Group E, MD2: Ecuador 0-0 Curaçao (2026-06-21)
+| * fd81778 Group E, MD2: Germany 2-1 Ivory Coast (2026-06-20)
+| * 7948bbe Group E, MD1: Ivory Coast 1-0 Ecuador (2026-06-14)
+| * 6256d77 Group E, MD1: Germany 7-1 Curaçao (2026-06-14)
+| * cd1b6fc feat: initialize Group E
+*   6f49e3c Group D: USA, AUS advance (#14)
+|\  
+| * a0a688a Group D, MD3: Paraguay 0-0 Australia (2026-06-26)
+| * 6fa6b3a Group D, MD3: Turkey 3-2 USA (2026-06-26)
+| * e28a6dc Group D, MD2: Turkey 0-1 Paraguay (2026-06-20)
+| * f307f62 Group D, MD2: USA 2-0 Australia (2026-06-19)
+| * d9483dc Group D, MD1: Australia 2-0 Turkey (2026-06-14)
+| * 3829793 Group D, MD1: USA 4-1 Paraguay (2026-06-13)
+| * da0de21 feat: initialize Group D
+* 8aae2fe chore: update results (2026-06-26)
 * 0bd3a04 chore: update results (2026-06-25)
 * 9985da4 Update update_wc.py
 * 14b7d30 chore: update results (2026-06-25)
