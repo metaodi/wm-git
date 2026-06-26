@@ -50,7 +50,7 @@
 
   <div class="status">
     <span class="stat">⚽ <strong>60</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-06-26 05:03 UTC</span>
+    <span class="last-updated">Updated: 2026-06-26 08:39 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
@@ -66,49 +66,67 @@ config:
 ---
 gitGraph LR:
   commit id: "init"
+  branch group/A order: 1
+  checkout main
+  branch group/B order: 2
+  checkout main
+  branch group/C order: 3
+  checkout main
+  branch group/D order: 4
+  checkout main
+  branch group/E order: 5
+  checkout main
+  branch group/F order: 6
+  checkout main
   branch group/G order: 7
+  checkout main
+  branch group/H order: 8
+  checkout main
+  branch group/I order: 9
+  checkout main
+  branch group/J order: 10
+  checkout main
+  branch group/K order: 11
+  checkout main
+  branch group/L order: 12
+  checkout main
+  checkout group/G
   commit id: "initialize Group G"
   commit id: "Belgium 1-1 Egypt (2026-06-15)"
   commit id: "Iran 2-2 New Zealand (2026-06-16)"
   commit id: "Belgium 0-0 Iran (2026-06-21)"
   commit id: "New Zealand 1-3 Egypt (2026-06-22)"
-  checkout main
-  branch group/H order: 8
+  checkout group/H
   commit id: "initialize Group H"
   commit id: "Spain 0-0 Cape Verde (2026-06-15)"
   commit id: "Saudi Arabia 1-1 Uruguay (2026-06-15"
   commit id: "Spain 4-0 Saudi Arabia (2026-06-21)"
   commit id: "Uruguay 2-2 Cape Verde (2026-06-21)"
-  checkout main
-  branch group/I order: 9
+  checkout group/I
   commit id: "initialize Group I"
   commit id: "France 3-1 Senegal (2026-06-16)"
   commit id: "Iraq 1-4 Norway (2026-06-16)"
   commit id: "France 3-0 Iraq (2026-06-22)"
   commit id: "Norway 3-2 Senegal (2026-06-23)"
-  checkout main
-  branch group/J order: 10
+  checkout group/J
   commit id: "initialize Group J"
   commit id: "Argentina 3-0 Algeria (2026-06-17)"
   commit id: "Austria 3-1 Jordan (2026-06-17)"
   commit id: "Argentina 2-0 Austria (2026-06-22)"
   commit id: "Jordan 1-2 Algeria (2026-06-23)"
-  checkout main
-  branch group/L order: 12
+  checkout group/L
   commit id: "initialize Group L"
   commit id: "England 4-2 Croatia (2026-06-17)"
   commit id: "Ghana 1-0 Panama (2026-06-17)"
   commit id: "England 0-0 Ghana (2026-06-23)"
   commit id: "Panama 0-1 Croatia (2026-06-23)"
-  checkout main
-  branch group/K order: 11
+  checkout group/K
   commit id: "initialize Group K"
   commit id: "Portugal 1-1 Congo DR (2026-06-17)"
   commit id: "Uzbekistan 1-3 Colombia (2026-06-18)"
   commit id: "Portugal 5-0 Uzbekistan (2026-06-23)"
   commit id: "Colombia 1-0 Congo DR (2026-06-24)"
-  checkout main
-  branch group/A order: 1
+  checkout group/A
   commit id: "initialize Group A"
   commit id: "Mexico 2-0 South Africa (2026-06-11)"
   commit id: "Korea Republic 2-1 Czechia (2026-06-"
@@ -118,7 +136,7 @@ gitGraph LR:
   commit id: "South Africa 1-0 Korea Republic (202"
   checkout main
   merge group/A id: "MEX, RSA advance (#11)"
-  branch group/B order: 2
+  checkout group/B
   commit id: "initialize Group B"
   commit id: "Canada 1-1 Bosnia-H. (2026-06-12)"
   commit id: "Qatar 1-1 Switzerland (2026-06-13)"
@@ -128,7 +146,7 @@ gitGraph LR:
   commit id: "Bosnia-H. 3-1 Qatar (2026-06-24)"
   checkout main
   merge group/B id: "SUI, CAN advance (#12)"
-  branch group/C order: 3
+  checkout group/C
   commit id: "initialize Group C"
   commit id: "Brazil 1-1 Morocco (2026-06-13)"
   commit id: "Haiti 0-1 Scotland (2026-06-14)"
@@ -142,7 +160,7 @@ gitGraph LR:
   commit id: "fetch all remote branches with wildcard refsp"
   commit id: "prevent merging of sibling branches by only f"
   commit id: "prevent merging of sibling branches by only f"
-  branch group/D order: 4
+  checkout group/D
   commit id: "initialize Group D"
   commit id: "USA 4-1 Paraguay (2026-06-13)"
   commit id: "Australia 2-0 Turkey (2026-06-14)"
@@ -152,7 +170,7 @@ gitGraph LR:
   commit id: "Paraguay 0-0 Australia (2026-06-26)"
   checkout main
   merge group/D id: "USA, AUS advance (#14)"
-  branch group/E order: 5
+  checkout group/E
   commit id: "initialize Group E"
   commit id: "Germany 7-1 Curaçao (2026-06-14)"
   commit id: "Ivory Coast 1-0 Ecuador (2026-06-14)"
@@ -162,7 +180,7 @@ gitGraph LR:
   commit id: "Curaçao 0-2 Ivory Coast (2026-06-25)"
   checkout main
   merge group/E id: "GER, CIV, ECU advance (#15)"
-  branch group/F order: 6
+  checkout group/F
   commit id: "initialize Group F"
   commit id: "Netherlands 2-2 Japan (2026-06-14)"
   commit id: "Sweden 5-1 Tunisia (2026-06-15)"
@@ -177,7 +195,9 @@ gitGraph LR:
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">* fe06e7d Update starting_commit in state.json
+    <pre class="git-log">* 80722e0 Update update_wc.py
+* 2e5027e chore: update results (2026-06-26)
+* fe06e7d Update starting_commit in state.json
 * 387fa14 chore: update results (2026-06-26)
 * 9acabe8 chore: update results (2026-06-26)
 * 1ae3674 Update third_place.md
