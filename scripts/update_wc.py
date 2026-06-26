@@ -342,7 +342,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
 _MERMAID_SUBJECT_LEN = 50  # max chars of commit subject kept in Mermaid commit IDs
 
 
-def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str
+def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
     """Parse the git DAG and produce Mermaid gitGraph syntax."""
     all_commit_ids = list[str] = []
     sep = "\x1f"
