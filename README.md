@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 60 / 104
-- **Last updated**: 2026-06-26 08:39 UTC
+- **Last updated**: 2026-06-26 09:08 UTC
 
 ## Groups
 
@@ -140,7 +140,6 @@ gitGraph LR:
   commit id: "infer group branch tips from merge commit sub"
   commit id: "fetch all remote branches with wildcard refsp"
   commit id: "prevent merging of sibling branches by only f"
-  commit id: "prevent merging of sibling branches by only f"
   checkout group/D
   commit id: "initialize Group D"
   commit id: "USA 4-1 Paraguay (2026-06-13)"
@@ -176,6 +175,12 @@ gitGraph LR:
 ## Git Log
 
 ```text
+* 4c84768 Fix typo in variable name for commit IDs
+* 3279c6c Fix type hint syntax for all_commit_ids variable
+* bc49820 Append commit ID to all_commit_ids list
+* dddd7fc Fix function definition syntax in update_wc.py
+* 332da53 Update update_wc.py
+* fd70bea chore: update results (2026-06-26)
 * 80722e0 Update update_wc.py
 * 2e5027e chore: update results (2026-06-26)
 * fe06e7d Update starting_commit in state.json
