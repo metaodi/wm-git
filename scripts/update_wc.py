@@ -510,7 +510,7 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
             continue
 
         # prevent commits with the same id
-        if subject in all_commits_ids:
+        if subject in all_commit_ids:
             continue
 
         par_branch = sha_to_branch.get(parents[0]) if parents else None
