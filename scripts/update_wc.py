@@ -342,8 +342,9 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
 _MERMAID_SUBJECT_LEN = 50  # max chars of commit subject kept in Mermaid commit IDs
 
 
-def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
+def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str
     """Parse the git DAG and produce Mermaid gitGraph syntax."""
+    all_commit_ids = list[str] = []
     sep = "\x1f"
     try:
         cmd = ["git", "log", "--all", "--topo-order", "--reverse",
@@ -506,6 +507,10 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
         subject = result.strip()
 
         if not subject or 'update results' in subject:
+            continue
+
+        # prevent commits with the same id
+        if subject in all_commits_ids:
             continue
 
         par_branch = sha_to_branch.get(parents[0]) if parents else None
