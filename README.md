@@ -19,17 +19,17 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 54 / 104
-- **Last updated**: 2026-06-26 04:31 UTC
+- **Matches played**: 60 / 104
+- **Last updated**: 2026-06-26 04:47 UTC
 
 ## Groups
 
-- **Group A**: 4/6 played → `group/A`
+- **Group A**: 6/6 played → `group/A`
 - **Group B**: 6/6 played → `group/B`
 - **Group C**: 6/6 played → `group/C`
 - **Group D**: 6/6 played → `group/D`
-- **Group E**: 4/6 played → `group/E`
-- **Group F**: 4/6 played → `group/F`
+- **Group E**: 6/6 played → `group/E`
+- **Group F**: 6/6 played → `group/F`
 - **Group G**: 4/6 played → `group/G`
 - **Group H**: 4/6 played → `group/H`
 - **Group I**: 4/6 played → `group/I`
@@ -158,6 +158,7 @@ gitGraph LR:
 ## Git Log
 
 ```text
+* 9acabe8 chore: update results (2026-06-26)
 * 1ae3674 Update third_place.md
 * b48e1cc Add Ecuador team to third place standings
 * 701f697 Add third place standings markdown file
