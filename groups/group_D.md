@@ -16,3 +16,4 @@
 - ✅ **USA 2-0 Australia** (2026-06-19)
 - ✅ **Turkey 0-1 Paraguay** (2026-06-20)
 - ✅ **Turkey 3-2 USA** (2026-06-26)
+- ✅ **Paraguay 0-0 Australia** (2026-06-26)
