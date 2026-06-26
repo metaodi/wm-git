@@ -344,7 +344,7 @@ _MERMAID_SUBJECT_LEN = 50  # max chars of commit subject kept in Mermaid commit 
 
 def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
     """Parse the git DAG and produce Mermaid gitGraph syntax."""
-    all_commit_ids = list[str] = []
+    all_commit_ids: list[str] = []
     sep = "\x1f"
     try:
         cmd = ["git", "log", "--all", "--topo-order", "--reverse",
