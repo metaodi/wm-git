@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 60 / 104
-- **Last updated**: 2026-06-26 09:31 UTC
+- **Last updated**: 2026-06-26 16:46 UTC
 
 ## Groups
 
@@ -170,11 +170,20 @@ gitGraph LR:
   commit id: "Japan 1-1 Sweden (2026-06-25)"
   checkout main
   merge group/F id: "NED, JPN, SWE advance (#16)"
+  branch copilot/allow-larger-mermaid-gitgraph-modal order: 200
+  commit id: "add modal to view mermaid GitGraph larger"
+  checkout main
+  merge copilot/allow-larger-mermaid-gitgraph-modal id: "fullscreen modal for Mermaid GitGraph (#25)"
 ```
 
 ## Git Log
 
 ```text
+*   aeeb1f6 feat: fullscreen modal for Mermaid GitGraph (#25)
+|\  
+| * 7ea859d feat: add modal to view mermaid GitGraph larger
+|/  
+* 991535c chore: update results (2026-06-26)
 * 76c0d15 Update Congo DR entry to Senegal in standings
 * 3cbda12 Add new teams and update standings in third_place.md
 * 4c2d875 Add checkmarks to teams in standings
