@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 60 / 104
-- **Last updated**: 2026-06-26 09:08 UTC
+- **Last updated**: 2026-06-26 09:27 UTC
 
 ## Groups
 
@@ -43,7 +43,7 @@ git log --graph --oneline --all
 ---
 config:
   gitGraph:
-    parallelCommits: true
+    parallelCommits: false
 ---
 gitGraph LR:
   commit id: "init"
@@ -175,6 +175,8 @@ gitGraph LR:
 ## Git Log
 
 ```text
+* c3a80fa Change parallelCommits setting to false
+* 622fb7b chore: update results (2026-06-26)
 * 4c84768 Fix typo in variable name for commit IDs
 * 3279c6c Fix type hint syntax for all_commit_ids variable
 * bc49820 Append commit ID to all_commit_ids list
