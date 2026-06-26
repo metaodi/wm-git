@@ -525,6 +525,8 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
         else:
             lines.append(f'  commit id: "{subject}"')
 
+        all_commit_ids.append(subject)
+
     return "\n".join(lines)
 
 
