@@ -16,3 +16,4 @@
 - ✅ **Netherlands 5-1 Sweden** (2026-06-20)
 - ✅ **Tunisia 0-4 Japan** (2026-06-21)
 - ✅ **Tunisia 1-3 Netherlands** (2026-06-25)
+- ✅ **Japan 1-1 Sweden** (2026-06-25)
