@@ -16,3 +16,4 @@
 - ✅ **France 3-0 Iraq** (2026-06-22)
 - ✅ **Norway 3-2 Senegal** (2026-06-23)
 - ✅ **Norway 1-4 France** (2026-06-26)
+- ✅ **Senegal 5-0 Iraq** (2026-06-26)
