@@ -16,3 +16,4 @@
 - ✅ **Germany 2-1 Ivory Coast** (2026-06-20)
 - ✅ **Ecuador 0-0 Curaçao** (2026-06-21)
 - ✅ **Ecuador 2-1 Germany** (2026-06-25)
+- ✅ **Curaçao 0-2 Ivory Coast** (2026-06-25)
