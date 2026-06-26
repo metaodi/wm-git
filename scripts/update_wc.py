@@ -672,6 +672,19 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     pre.git-log{{background:#0d1117;border:1px solid #21262d;border-radius:4px;
                  padding:.75rem;overflow-x:auto;font-size:.7rem;line-height:1.45;
                  color:#7ee787;margin-top:.75rem}}
+    .expand-btn{{background:#21262d;border:1px solid #30363d;color:#58a6ff;cursor:pointer;
+                 border-radius:4px;padding:3px 10px;font-size:.8rem;float:right;margin-top:.1rem}}
+    .expand-btn:hover{{background:#30363d}}
+    #gg-modal{{display:none;position:fixed;inset:0;z-index:1000;background:#000000cc;
+               align-items:center;justify-content:center}}
+    #gg-modal.open{{display:flex}}
+    .modal-inner{{background:#161b22;border:1px solid #30363d;border-radius:8px;
+                  width:95vw;height:90vh;overflow:auto;padding:1rem;position:relative}}
+    .modal-close{{position:absolute;top:.75rem;right:.75rem;background:#21262d;
+                  border:1px solid #30363d;color:#c9d1d9;cursor:pointer;border-radius:4px;
+                  padding:4px 10px;font-size:.9rem;z-index:1}}
+    .modal-close:hover{{background:#30363d;color:#f0f6fc}}
+    #modal-graph svg{{width:100%!important;height:auto!important;max-width:none!important}}
   </style>
 </head>
 <body>
@@ -685,7 +698,7 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
 
   <h2>Git DAG</h2>
   <details open>
-    <summary>Mermaid GitGraph</summary>
+    <summary>Mermaid GitGraph <button class="expand-btn" onclick="openGGModal()" aria-label="Expand GitGraph">⛶ Expand</button></summary>
     <div class="gitgraph-wrap">
       <div class="mermaid">
 {mermaid_graph}
@@ -697,11 +710,36 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     <pre class="git-log">{git_log_ascii}</pre>
   </details>
 
+  <div id="gg-modal" role="dialog" aria-modal="true" aria-label="GitGraph fullscreen view">
+    <div class="modal-inner">
+      <button class="modal-close" onclick="closeGGModal()" aria-label="Close modal">✕ Close</button>
+      <div id="modal-graph"></div>
+    </div>
+  </div>
+
   <script>
     mermaid.initialize({{
       startOnLoad: true,
       theme: 'dark',
       gitGraph: {{ rotateCommitLabel: true, parallelCommits: false, showBranches: true }}
+    }});
+    function openGGModal() {{
+      const svg = document.querySelector('.gitgraph-wrap .mermaid svg');
+      const container = document.getElementById('modal-graph');
+      container.innerHTML = '';
+      if (svg) container.appendChild(svg.cloneNode(true));
+      document.getElementById('gg-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }}
+    function closeGGModal() {{
+      document.getElementById('gg-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }}
+    document.getElementById('gg-modal').addEventListener('click', function(e) {{
+      if (e.target === this) closeGGModal();
+    }});
+    document.addEventListener('keydown', function(e) {{
+      if (e.key === 'Escape' && document.getElementById('gg-modal').classList.contains('open')) closeGGModal();
     }});
   </script>
 
