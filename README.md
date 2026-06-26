@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 60 / 104
-- **Last updated**: 2026-06-26 09:27 UTC
+- **Last updated**: 2026-06-26 09:31 UTC
 
 ## Groups
 
@@ -175,6 +175,15 @@ gitGraph LR:
 ## Git Log
 
 ```text
+* 76c0d15 Update Congo DR entry to Senegal in standings
+* 3cbda12 Add new teams and update standings in third_place.md
+* 4c2d875 Add checkmarks to teams in standings
+* c05297f Add Scotland to third place standings
+* a795492 Add Algeria to third place standings
+* ca6b833 Add Korea Republic to third place standings
+* 78cb5f9 Add Croatia's entry to third place standings
+* f8348b0 Add Paraguay to third place standings
+* 7293832 chore: update results (2026-06-26)
 * c3a80fa Change parallelCommits setting to false
 * 622fb7b chore: update results (2026-06-26)
 * 4c84768 Fix typo in variable name for commit IDs
