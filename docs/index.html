@@ -62,8 +62,8 @@
   <h1>🏆 2026 FIFA World Cup in Git <a href="https://github.com/metaodi/wm-git" style="font-size:.6em;font-weight:400;vertical-align:middle" title="View on GitHub">GitHub</a></h1>
 
   <div class="status">
-    <span class="stat">⚽ <strong>65</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-06-26 21:35 UTC</span>
+    <span class="stat">⚽ <strong>66</strong> / <strong>104</strong> matches played</span>
+    <span class="last-updated">Updated: 2026-06-27 05:03 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
@@ -121,6 +121,14 @@ gitGraph LR:
   commit id: "Uzbekistan 1-3 Colombia (2026-06-18)"
   commit id: "Portugal 5-0 Uzbekistan (2026-06-23)"
   commit id: "Colombia 1-0 Congo DR (2026-06-24)"
+  checkout group/H
+  commit id: "initialize Group H"
+  commit id: "Spain 0-0 Cape Verde (2026-06-15)"
+  commit id: "Saudi Arabia 1-1 Uruguay (2026-06-15"
+  commit id: "Spain 4-0 Saudi Arabia (2026-06-21)"
+  commit id: "Uruguay 2-2 Cape Verde (2026-06-21)"
+  commit id: "Uruguay 0-1 Spain (2026-06-27)"
+  commit id: "Cape Verde 0-0 Saudi Arabia (2026-06"
   checkout group/A
   commit id: "initialize Group A"
   commit id: "Mexico 2-0 South Africa (2026-06-11)"
@@ -198,14 +206,6 @@ gitGraph LR:
   commit id: "Senegal 5-0 Iraq (2026-06-26)"
   checkout main
   merge group/I id: "FRA, NOR advance (#19)"
-  checkout group/H
-  commit id: "initialize Group H"
-  commit id: "Spain 0-0 Cape Verde (2026-06-15)"
-  commit id: "Saudi Arabia 1-1 Uruguay (2026-06-15"
-  commit id: "Spain 4-0 Saudi Arabia (2026-06-21)"
-  commit id: "Uruguay 2-2 Cape Verde (2026-06-21)"
-  commit id: "Uruguay 0-1 Spain (2026-06-27)"
-  commit id: "Cape Verde 0-0 Saudi Arabia (2026-06"
   checkout group/G
   commit id: "initialize Group G"
   commit id: "Belgium 1-1 Egypt (2026-06-15)"
@@ -213,25 +213,20 @@ gitGraph LR:
   commit id: "Belgium 0-0 Iran (2026-06-21)"
   commit id: "New Zealand 1-3 Egypt (2026-06-22)"
   commit id: "New Zealand 1-5 Belgium (2026-06-27)"
+  commit id: "Egypt 1-2 Iran (2026-06-27)"
       </div>
     </div>
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">* a8eb1cc Group G, MD3: New Zealand 1-5 Belgium (2026-06-27)
+    <pre class="git-log">* 5228e04 Group G, MD3: Egypt 1-2 Iran (2026-06-27)
+* a8eb1cc Group G, MD3: New Zealand 1-5 Belgium (2026-06-27)
 * 1aa234b Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
 * 9a649da Group G, MD2: Belgium 0-0 Iran (2026-06-21)
 * 4198b88 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
 * 7f1d992 Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
 * 9ba404e feat: initialize Group G
-| * 6bcba87 Group H, MD3: Cape Verde 0-0 Saudi Arabia (2026-06-27)
-| * 936cae0 Group H, MD3: Uruguay 0-1 Spain (2026-06-27)
-| * 041ba94 Group H, MD2: Uruguay 2-2 Cape Verde (2026-06-21)
-| * 4187777 Group H, MD2: Spain 4-0 Saudi Arabia (2026-06-21)
-| * b8d1966 Group H, MD1: Saudi Arabia 1-1 Uruguay (2026-06-15)
-| * 0d818f0 Group H, MD1: Spain 0-0 Cape Verde (2026-06-15)
-| * ea91a7b feat: initialize Group H
-|/  
+| * 0f51768 chore: update results (2026-06-27)
 | *   7cd5b66 Group I: FRA, NOR advance (#19)
 | |\  
 | | * 5703db8 Group I, MD3: Senegal 5-0 Iraq (2026-06-26)
@@ -396,7 +391,12 @@ gitGraph LR:
 | * 795f227 chore: update results (2026-06-23)
 | * 2eb25c8 Update starting_commit to new commit hash
 |/  
-| * f5de9cc Group K, MD2: Colombia 1-0 Congo DR (2026-06-24)</pre>
+| * 6bcba87 Group H, MD3: Cape Verde 0-0 Saudi Arabia (2026-06-27)
+| * 936cae0 Group H, MD3: Uruguay 0-1 Spain (2026-06-27)
+| * 041ba94 Group H, MD2: Uruguay 2-2 Cape Verde (2026-06-21)
+| * 4187777 Group H, MD2: Spain 4-0 Saudi Arabia (2026-06-21)
+| * b8d1966 Group H, MD1: Saudi Arabia 1-1 Uruguay (2026-06-15)
+| * 0d818f0 Group H, MD1: Spain 0-0 Cape Verde (2026-06-15)</pre>
   </details>
 
   <div id="gg-modal" role="dialog" aria-modal="true" aria-label="GitGraph fullscreen view">
@@ -442,7 +442,7 @@ gitGraph LR:
 <section class='group' id='group-D'><h3>Group D <span class='branch-tag'>group/D</span></h3><p class='played'>6/6 played</p><table aria-label='Group D standings'><thead><tr><th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th><th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th><th scope='col'>GD</th><th scope='col'>Pts</th></tr></thead><tbody><tr><td>1</td><td><strong>USA</strong></td><td>3</td><td>2</td><td>0</td><td>1</td><td>+4</td><td><strong>6</strong></td></tr><tr><td>2</td><td><strong>Australia</strong></td><td>3</td><td>1</td><td>1</td><td>1</td><td>+0</td><td><strong>4</strong></td></tr><tr><td>3</td><td><strong>Paraguay</strong></td><td>3</td><td>1</td><td>1</td><td>1</td><td>-2</td><td><strong>4</strong></td></tr><tr><td>4</td><td><strong>Turkey</strong></td><td>3</td><td>1</td><td>0</td><td>2</td><td>-2</td><td><strong>3</strong></td></tr></tbody></table><ul class='matches'><li>✅ <strong>USA 4-1 Paraguay</strong> <span class='date'>(2026-06-13)</span></li><li>✅ <strong>Australia 2-0 Turkey</strong> <span class='date'>(2026-06-14)</span></li><li>✅ <strong>USA 2-0 Australia</strong> <span class='date'>(2026-06-19)</span></li><li>✅ <strong>Turkey 0-1 Paraguay</strong> <span class='date'>(2026-06-20)</span></li><li>✅ <strong>Turkey 3-2 USA</strong> <span class='date'>(2026-06-26)</span></li><li>✅ <strong>Paraguay 0-0 Australia</strong> <span class='date'>(2026-06-26)</span></li></ul></section>
 <section class='group' id='group-E'><h3>Group E <span class='branch-tag'>group/E</span></h3><p class='played'>6/6 played</p><table aria-label='Group E standings'><thead><tr><th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th><th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th><th scope='col'>GD</th><th scope='col'>Pts</th></tr></thead><tbody><tr><td>1</td><td><strong>Germany</strong></td><td>3</td><td>2</td><td>0</td><td>1</td><td>+6</td><td><strong>6</strong></td></tr><tr><td>2</td><td><strong>Ivory Coast</strong></td><td>3</td><td>2</td><td>0</td><td>1</td><td>+2</td><td><strong>6</strong></td></tr><tr><td>3</td><td><strong>Ecuador</strong></td><td>3</td><td>1</td><td>1</td><td>1</td><td>+0</td><td><strong>4</strong></td></tr><tr><td>4</td><td><strong>Curaçao</strong></td><td>3</td><td>0</td><td>1</td><td>2</td><td>-8</td><td><strong>1</strong></td></tr></tbody></table><ul class='matches'><li>✅ <strong>Germany 7-1 Curaçao</strong> <span class='date'>(2026-06-14)</span></li><li>✅ <strong>Ivory Coast 1-0 Ecuador</strong> <span class='date'>(2026-06-14)</span></li><li>✅ <strong>Germany 2-1 Ivory Coast</strong> <span class='date'>(2026-06-20)</span></li><li>✅ <strong>Ecuador 0-0 Curaçao</strong> <span class='date'>(2026-06-21)</span></li><li>✅ <strong>Ecuador 2-1 Germany</strong> <span class='date'>(2026-06-25)</span></li><li>✅ <strong>Curaçao 0-2 Ivory Coast</strong> <span class='date'>(2026-06-25)</span></li></ul></section>
 <section class='group' id='group-F'><h3>Group F <span class='branch-tag'>group/F</span></h3><p class='played'>6/6 played</p><table aria-label='Group F standings'><thead><tr><th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th><th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th><th scope='col'>GD</th><th scope='col'>Pts</th></tr></thead><tbody><tr><td>1</td><td><strong>Netherlands</strong></td><td>3</td><td>2</td><td>1</td><td>0</td><td>+6</td><td><strong>7</strong></td></tr><tr><td>2</td><td><strong>Japan</strong></td><td>3</td><td>1</td><td>2</td><td>0</td><td>+4</td><td><strong>5</strong></td></tr><tr><td>3</td><td><strong>Sweden</strong></td><td>3</td><td>1</td><td>1</td><td>1</td><td>+0</td><td><strong>4</strong></td></tr><tr><td>4</td><td><strong>Tunisia</strong></td><td>3</td><td>0</td><td>0</td><td>3</td><td>-10</td><td><strong>0</strong></td></tr></tbody></table><ul class='matches'><li>✅ <strong>Netherlands 2-2 Japan</strong> <span class='date'>(2026-06-14)</span></li><li>✅ <strong>Sweden 5-1 Tunisia</strong> <span class='date'>(2026-06-15)</span></li><li>✅ <strong>Netherlands 5-1 Sweden</strong> <span class='date'>(2026-06-20)</span></li><li>✅ <strong>Tunisia 0-4 Japan</strong> <span class='date'>(2026-06-21)</span></li><li>✅ <strong>Tunisia 1-3 Netherlands</strong> <span class='date'>(2026-06-25)</span></li><li>✅ <strong>Japan 1-1 Sweden</strong> <span class='date'>(2026-06-25)</span></li></ul></section>
-<section class='group' id='group-G'><h3>Group G <span class='branch-tag'>group/G</span></h3><p class='played'>5/6 played</p><table aria-label='Group G standings'><thead><tr><th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th><th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th><th scope='col'>GD</th><th scope='col'>Pts</th></tr></thead><tbody><tr><td>1</td><td><strong>Belgium</strong></td><td>3</td><td>1</td><td>2</td><td>0</td><td>+4</td><td><strong>5</strong></td></tr><tr><td>2</td><td><strong>Iran</strong></td><td>3</td><td>1</td><td>2</td><td>0</td><td>+1</td><td><strong>5</strong></td></tr><tr><td>3</td><td><strong>Egypt</strong></td><td>3</td><td>1</td><td>1</td><td>1</td><td>+1</td><td><strong>4</strong></td></tr><tr><td>4</td><td><strong>New Zealand</strong></td><td>3</td><td>0</td><td>1</td><td>2</td><td>-6</td><td><strong>1</strong></td></tr></tbody></table><ul class='matches'><li>✅ <strong>Belgium 1-1 Egypt</strong> <span class='date'>(2026-06-15)</span></li><li>✅ <strong>Iran 2-2 New Zealand</strong> <span class='date'>(2026-06-16)</span></li><li>✅ <strong>Belgium 0-0 Iran</strong> <span class='date'>(2026-06-21)</span></li><li>✅ <strong>New Zealand 1-3 Egypt</strong> <span class='date'>(2026-06-22)</span></li><li>✅ <strong>New Zealand 1-5 Belgium</strong> <span class='date'>(2026-06-27)</span></li><li>📅 <strong>Egypt 1-2 Iran</strong> <span class='date'>(2026-06-27)</span></li></ul></section>
+<section class='group' id='group-G'><h3>Group G <span class='branch-tag'>group/G</span></h3><p class='played'>6/6 played</p><table aria-label='Group G standings'><thead><tr><th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th><th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th><th scope='col'>GD</th><th scope='col'>Pts</th></tr></thead><tbody><tr><td>1</td><td><strong>Belgium</strong></td><td>3</td><td>1</td><td>2</td><td>0</td><td>+4</td><td><strong>5</strong></td></tr><tr><td>2</td><td><strong>Iran</strong></td><td>3</td><td>1</td><td>2</td><td>0</td><td>+1</td><td><strong>5</strong></td></tr><tr><td>3</td><td><strong>Egypt</strong></td><td>3</td><td>1</td><td>1</td><td>1</td><td>+1</td><td><strong>4</strong></td></tr><tr><td>4</td><td><strong>New Zealand</strong></td><td>3</td><td>0</td><td>1</td><td>2</td><td>-6</td><td><strong>1</strong></td></tr></tbody></table><ul class='matches'><li>✅ <strong>Belgium 1-1 Egypt</strong> <span class='date'>(2026-06-15)</span></li><li>✅ <strong>Iran 2-2 New Zealand</strong> <span class='date'>(2026-06-16)</span></li><li>✅ <strong>Belgium 0-0 Iran</strong> <span class='date'>(2026-06-21)</span></li><li>✅ <strong>New Zealand 1-3 Egypt</strong> <span class='date'>(2026-06-22)</span></li><li>✅ <strong>New Zealand 1-5 Belgium</strong> <span class='date'>(2026-06-27)</span></li><li>✅ <strong>Egypt 1-2 Iran</strong> <span class='date'>(2026-06-27)</span></li></ul></section>
 <section class='group' id='group-H'><h3>Group H <span class='branch-tag'>group/H</span></h3><p class='played'>6/6 played</p><table aria-label='Group H standings'><thead><tr><th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th><th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th><th scope='col'>GD</th><th scope='col'>Pts</th></tr></thead><tbody><tr><td>1</td><td><strong>Spain</strong></td><td>3</td><td>2</td><td>1</td><td>0</td><td>+5</td><td><strong>7</strong></td></tr><tr><td>2</td><td><strong>Cape Verde</strong></td><td>3</td><td>0</td><td>3</td><td>0</td><td>+0</td><td><strong>3</strong></td></tr><tr><td>3</td><td><strong>Uruguay</strong></td><td>3</td><td>0</td><td>2</td><td>1</td><td>-1</td><td><strong>2</strong></td></tr><tr><td>4</td><td><strong>Saudi Arabia</strong></td><td>3</td><td>0</td><td>2</td><td>1</td><td>-4</td><td><strong>2</strong></td></tr></tbody></table><ul class='matches'><li>✅ <strong>Spain 0-0 Cape Verde</strong> <span class='date'>(2026-06-15)</span></li><li>✅ <strong>Saudi Arabia 1-1 Uruguay</strong> <span class='date'>(2026-06-15)</span></li><li>✅ <strong>Spain 4-0 Saudi Arabia</strong> <span class='date'>(2026-06-21)</span></li><li>✅ <strong>Uruguay 2-2 Cape Verde</strong> <span class='date'>(2026-06-21)</span></li><li>✅ <strong>Uruguay 0-1 Spain</strong> <span class='date'>(2026-06-27)</span></li><li>✅ <strong>Cape Verde 0-0 Saudi Arabia</strong> <span class='date'>(2026-06-27)</span></li></ul></section>
 <section class='group' id='group-I'><h3>Group I <span class='branch-tag'>group/I</span></h3><p class='played'>6/6 played</p><table aria-label='Group I standings'><thead><tr><th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th><th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th><th scope='col'>GD</th><th scope='col'>Pts</th></tr></thead><tbody><tr><td>1</td><td><strong>France</strong></td><td>3</td><td>3</td><td>0</td><td>0</td><td>+8</td><td><strong>9</strong></td></tr><tr><td>2</td><td><strong>Norway</strong></td><td>3</td><td>2</td><td>0</td><td>1</td><td>+1</td><td><strong>6</strong></td></tr><tr><td>3</td><td><strong>Senegal</strong></td><td>3</td><td>1</td><td>0</td><td>2</td><td>+2</td><td><strong>3</strong></td></tr><tr><td>4</td><td><strong>Iraq</strong></td><td>3</td><td>0</td><td>0</td><td>3</td><td>-11</td><td><strong>0</strong></td></tr></tbody></table><ul class='matches'><li>✅ <strong>France 3-1 Senegal</strong> <span class='date'>(2026-06-16)</span></li><li>✅ <strong>Iraq 1-4 Norway</strong> <span class='date'>(2026-06-16)</span></li><li>✅ <strong>France 3-0 Iraq</strong> <span class='date'>(2026-06-22)</span></li><li>✅ <strong>Norway 3-2 Senegal</strong> <span class='date'>(2026-06-23)</span></li><li>✅ <strong>Norway 1-4 France</strong> <span class='date'>(2026-06-26)</span></li><li>✅ <strong>Senegal 5-0 Iraq</strong> <span class='date'>(2026-06-26)</span></li></ul></section>
 <section class='group' id='group-J'><h3>Group J <span class='branch-tag'>group/J</span></h3><p class='played'>4/6 played</p><table aria-label='Group J standings'><thead><tr><th scope='col'>#</th><th scope='col'>Team</th><th scope='col'>P</th><th scope='col'>W</th><th scope='col'>D</th><th scope='col'>L</th><th scope='col'>GD</th><th scope='col'>Pts</th></tr></thead><tbody><tr><td>1</td><td><strong>Argentina</strong></td><td>2</td><td>2</td><td>0</td><td>0</td><td>+5</td><td><strong>6</strong></td></tr><tr><td>2</td><td><strong>Austria</strong></td><td>2</td><td>1</td><td>0</td><td>1</td><td>+0</td><td><strong>3</strong></td></tr><tr><td>3</td><td><strong>Algeria</strong></td><td>2</td><td>1</td><td>0</td><td>1</td><td>-2</td><td><strong>3</strong></td></tr><tr><td>4</td><td><strong>Jordan</strong></td><td>2</td><td>0</td><td>0</td><td>2</td><td>-3</td><td><strong>0</strong></td></tr></tbody></table><ul class='matches'><li>✅ <strong>Argentina 3-0 Algeria</strong> <span class='date'>(2026-06-17)</span></li><li>✅ <strong>Austria 3-1 Jordan</strong> <span class='date'>(2026-06-17)</span></li><li>✅ <strong>Argentina 2-0 Austria</strong> <span class='date'>(2026-06-22)</span></li><li>✅ <strong>Jordan 1-2 Algeria</strong> <span class='date'>(2026-06-23)</span></li><li>📅 <strong>Jordan vs Argentina</strong> <span class='date'>(2026-06-28)</span></li><li>📅 <strong>Algeria vs Austria</strong> <span class='date'>(2026-06-28)</span></li></ul></section>

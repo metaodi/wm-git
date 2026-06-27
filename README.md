@@ -19,8 +19,8 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 65 / 104
-- **Last updated**: 2026-06-26 21:35 UTC
+- **Matches played**: 66 / 104
+- **Last updated**: 2026-06-27 05:03 UTC
 
 ## Groups
 
@@ -30,7 +30,7 @@ git log --graph --oneline --all
 - **Group D**: 6/6 played → `group/D`
 - **Group E**: 6/6 played → `group/E`
 - **Group F**: 6/6 played → `group/F`
-- **Group G**: 5/6 played → `group/G`
+- **Group G**: 6/6 played → `group/G`
 - **Group H**: 6/6 played → `group/H`
 - **Group I**: 6/6 played → `group/I`
 - **Group J**: 4/6 played → `group/J`
@@ -89,6 +89,14 @@ gitGraph LR:
   commit id: "Uzbekistan 1-3 Colombia (2026-06-18)"
   commit id: "Portugal 5-0 Uzbekistan (2026-06-23)"
   commit id: "Colombia 1-0 Congo DR (2026-06-24)"
+  checkout group/H
+  commit id: "initialize Group H"
+  commit id: "Spain 0-0 Cape Verde (2026-06-15)"
+  commit id: "Saudi Arabia 1-1 Uruguay (2026-06-15"
+  commit id: "Spain 4-0 Saudi Arabia (2026-06-21)"
+  commit id: "Uruguay 2-2 Cape Verde (2026-06-21)"
+  commit id: "Uruguay 0-1 Spain (2026-06-27)"
+  commit id: "Cape Verde 0-0 Saudi Arabia (2026-06"
   checkout group/A
   commit id: "initialize Group A"
   commit id: "Mexico 2-0 South Africa (2026-06-11)"
@@ -166,14 +174,6 @@ gitGraph LR:
   commit id: "Senegal 5-0 Iraq (2026-06-26)"
   checkout main
   merge group/I id: "FRA, NOR advance (#19)"
-  checkout group/H
-  commit id: "initialize Group H"
-  commit id: "Spain 0-0 Cape Verde (2026-06-15)"
-  commit id: "Saudi Arabia 1-1 Uruguay (2026-06-15"
-  commit id: "Spain 4-0 Saudi Arabia (2026-06-21)"
-  commit id: "Uruguay 2-2 Cape Verde (2026-06-21)"
-  commit id: "Uruguay 0-1 Spain (2026-06-27)"
-  commit id: "Cape Verde 0-0 Saudi Arabia (2026-06"
   checkout group/G
   commit id: "initialize Group G"
   commit id: "Belgium 1-1 Egypt (2026-06-15)"
@@ -181,25 +181,20 @@ gitGraph LR:
   commit id: "Belgium 0-0 Iran (2026-06-21)"
   commit id: "New Zealand 1-3 Egypt (2026-06-22)"
   commit id: "New Zealand 1-5 Belgium (2026-06-27)"
+  commit id: "Egypt 1-2 Iran (2026-06-27)"
 ```
 
 ## Git Log
 
 ```text
+* 5228e04 Group G, MD3: Egypt 1-2 Iran (2026-06-27)
 * a8eb1cc Group G, MD3: New Zealand 1-5 Belgium (2026-06-27)
 * 1aa234b Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
 * 9a649da Group G, MD2: Belgium 0-0 Iran (2026-06-21)
 * 4198b88 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
 * 7f1d992 Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
 * 9ba404e feat: initialize Group G
-| * 6bcba87 Group H, MD3: Cape Verde 0-0 Saudi Arabia (2026-06-27)
-| * 936cae0 Group H, MD3: Uruguay 0-1 Spain (2026-06-27)
-| * 041ba94 Group H, MD2: Uruguay 2-2 Cape Verde (2026-06-21)
-| * 4187777 Group H, MD2: Spain 4-0 Saudi Arabia (2026-06-21)
-| * b8d1966 Group H, MD1: Saudi Arabia 1-1 Uruguay (2026-06-15)
-| * 0d818f0 Group H, MD1: Spain 0-0 Cape Verde (2026-06-15)
-| * ea91a7b feat: initialize Group H
-|/  
+| * 0f51768 chore: update results (2026-06-27)
 | *   7cd5b66 Group I: FRA, NOR advance (#19)
 | |\  
 | | * 5703db8 Group I, MD3: Senegal 5-0 Iraq (2026-06-26)
@@ -363,6 +358,14 @@ gitGraph LR:
 | * c6254c2 Update starting_commit in state.json
 | * 795f227 chore: update results (2026-06-23)
 | * 2eb25c8 Update starting_commit to new commit hash
+|/  
+| * 6bcba87 Group H, MD3: Cape Verde 0-0 Saudi Arabia (2026-06-27)
+| * 936cae0 Group H, MD3: Uruguay 0-1 Spain (2026-06-27)
+| * 041ba94 Group H, MD2: Uruguay 2-2 Cape Verde (2026-06-21)
+| * 4187777 Group H, MD2: Spain 4-0 Saudi Arabia (2026-06-21)
+| * b8d1966 Group H, MD1: Saudi Arabia 1-1 Uruguay (2026-06-15)
+| * 0d818f0 Group H, MD1: Spain 0-0 Cape Verde (2026-06-15)
+| * ea91a7b feat: initialize Group H
 |/  
 | * f5de9cc Group K, MD2: Colombia 1-0 Congo DR (2026-06-24)
 | * 6143609 Group K, MD2: Portugal 5-0 Uzbekistan (2026-06-23)
