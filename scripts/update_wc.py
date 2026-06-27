@@ -454,7 +454,7 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
       "---",
       "config:",
       "  gitGraph:",
-      "    parallelCommits: false",
+      "    parallelCommits: true",
       "---",
       "gitGraph LR:",
       '  commit id: "init"'
@@ -721,7 +721,7 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     mermaid.initialize({{
       startOnLoad: true,
       theme: 'dark',
-      gitGraph: {{ rotateCommitLabel: true, parallelCommits: false, showBranches: true }}
+      gitGraph: {{ rotateCommitLabel: true, parallelCommits: true, showBranches: true }}
     }});
     function openGGModal() {{
       const svg = document.querySelector('.gitgraph-wrap .mermaid svg');
