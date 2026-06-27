@@ -16,3 +16,4 @@
 - ✅ **Spain 4-0 Saudi Arabia** (2026-06-21)
 - ✅ **Uruguay 2-2 Cape Verde** (2026-06-21)
 - ✅ **Uruguay 0-1 Spain** (2026-06-27)
+- ✅ **Cape Verde 0-0 Saudi Arabia** (2026-06-27)
