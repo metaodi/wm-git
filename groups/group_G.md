@@ -16,3 +16,4 @@
 - ✅ **Belgium 0-0 Iran** (2026-06-21)
 - ✅ **New Zealand 1-3 Egypt** (2026-06-22)
 - ✅ **New Zealand 1-5 Belgium** (2026-06-27)
+- ✅ **Egypt 1-2 Iran** (2026-06-27)
