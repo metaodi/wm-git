@@ -19,8 +19,8 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage
-- **Matches played**: 62 / 104
-- **Last updated**: 2026-06-26 16:55 UTC
+- **Matches played**: 65 / 104
+- **Last updated**: 2026-06-26 21:35 UTC
 
 ## Groups
 
@@ -30,8 +30,8 @@ git log --graph --oneline --all
 - **Group D**: 6/6 played → `group/D`
 - **Group E**: 6/6 played → `group/E`
 - **Group F**: 6/6 played → `group/F`
-- **Group G**: 4/6 played → `group/G`
-- **Group H**: 4/6 played → `group/H`
+- **Group G**: 5/6 played → `group/G`
+- **Group H**: 6/6 played → `group/H`
 - **Group I**: 6/6 played → `group/I`
 - **Group J**: 4/6 played → `group/J`
 - **Group K**: 4/6 played → `group/K`
@@ -71,18 +71,6 @@ gitGraph LR:
   checkout main
   branch group/L order: 12
   checkout main
-  checkout group/G
-  commit id: "initialize Group G"
-  commit id: "Belgium 1-1 Egypt (2026-06-15)"
-  commit id: "Iran 2-2 New Zealand (2026-06-16)"
-  commit id: "Belgium 0-0 Iran (2026-06-21)"
-  commit id: "New Zealand 1-3 Egypt (2026-06-22)"
-  checkout group/H
-  commit id: "initialize Group H"
-  commit id: "Spain 0-0 Cape Verde (2026-06-15)"
-  commit id: "Saudi Arabia 1-1 Uruguay (2026-06-15"
-  commit id: "Spain 4-0 Saudi Arabia (2026-06-21)"
-  commit id: "Uruguay 2-2 Cape Verde (2026-06-21)"
   checkout group/J
   commit id: "initialize Group J"
   commit id: "Argentina 3-0 Algeria (2026-06-17)"
@@ -176,18 +164,54 @@ gitGraph LR:
   commit id: "Norway 3-2 Senegal (2026-06-23)"
   commit id: "Norway 1-4 France (2026-06-26)"
   commit id: "Senegal 5-0 Iraq (2026-06-26)"
+  checkout main
+  merge group/I id: "FRA, NOR advance (#19)"
+  checkout group/H
+  commit id: "initialize Group H"
+  commit id: "Spain 0-0 Cape Verde (2026-06-15)"
+  commit id: "Saudi Arabia 1-1 Uruguay (2026-06-15"
+  commit id: "Spain 4-0 Saudi Arabia (2026-06-21)"
+  commit id: "Uruguay 2-2 Cape Verde (2026-06-21)"
+  commit id: "Uruguay 0-1 Spain (2026-06-27)"
+  commit id: "Cape Verde 0-0 Saudi Arabia (2026-06"
+  checkout group/G
+  commit id: "initialize Group G"
+  commit id: "Belgium 1-1 Egypt (2026-06-15)"
+  commit id: "Iran 2-2 New Zealand (2026-06-16)"
+  commit id: "Belgium 0-0 Iran (2026-06-21)"
+  commit id: "New Zealand 1-3 Egypt (2026-06-22)"
+  commit id: "New Zealand 1-5 Belgium (2026-06-27)"
 ```
 
 ## Git Log
 
 ```text
-* 5703db8 Group I, MD3: Senegal 5-0 Iraq (2026-06-26)
-* c05f27d Group I, MD3: Norway 1-4 France (2026-06-26)
-* 5a0f84e Group I, MD2: Norway 3-2 Senegal (2026-06-23)
-* 40fce23 Group I, MD2: France 3-0 Iraq (2026-06-22)
-* 432ca77 Group I, MD1: Iraq 1-4 Norway (2026-06-16)
-* 769feea Group I, MD1: France 3-1 Senegal (2026-06-16)
-* a28079d feat: initialize Group I
+* a8eb1cc Group G, MD3: New Zealand 1-5 Belgium (2026-06-27)
+* 1aa234b Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
+* 9a649da Group G, MD2: Belgium 0-0 Iran (2026-06-21)
+* 4198b88 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
+* 7f1d992 Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
+* 9ba404e feat: initialize Group G
+| * 6bcba87 Group H, MD3: Cape Verde 0-0 Saudi Arabia (2026-06-27)
+| * 936cae0 Group H, MD3: Uruguay 0-1 Spain (2026-06-27)
+| * 041ba94 Group H, MD2: Uruguay 2-2 Cape Verde (2026-06-21)
+| * 4187777 Group H, MD2: Spain 4-0 Saudi Arabia (2026-06-21)
+| * b8d1966 Group H, MD1: Saudi Arabia 1-1 Uruguay (2026-06-15)
+| * 0d818f0 Group H, MD1: Spain 0-0 Cape Verde (2026-06-15)
+| * ea91a7b feat: initialize Group H
+|/  
+| *   7cd5b66 Group I: FRA, NOR advance (#19)
+| |\  
+| | * 5703db8 Group I, MD3: Senegal 5-0 Iraq (2026-06-26)
+| | * c05f27d Group I, MD3: Norway 1-4 France (2026-06-26)
+| | * 5a0f84e Group I, MD2: Norway 3-2 Senegal (2026-06-23)
+| | * 40fce23 Group I, MD2: France 3-0 Iraq (2026-06-22)
+| | * 432ca77 Group I, MD1: Iraq 1-4 Norway (2026-06-16)
+| | * 769feea Group I, MD1: France 3-1 Senegal (2026-06-16)
+| | * a28079d feat: initialize Group I
+| |/  
+|/|   
+| * 4393b31 chore: update results (2026-06-26)
 | * 9265497 chore: update results (2026-06-26)
 | *   aeeb1f6 feat: fullscreen modal for Mermaid GitGraph (#25)
 | |\  
@@ -357,18 +381,6 @@ gitGraph LR:
 | * d62db80 Group J, MD1: Austria 3-1 Jordan (2026-06-17)
 | * 555de8f Group J, MD1: Argentina 3-0 Algeria (2026-06-17)
 | * 26d1524 feat: initialize Group J
-|/  
-| * 041ba94 Group H, MD2: Uruguay 2-2 Cape Verde (2026-06-21)
-| * 4187777 Group H, MD2: Spain 4-0 Saudi Arabia (2026-06-21)
-| * b8d1966 Group H, MD1: Saudi Arabia 1-1 Uruguay (2026-06-15)
-| * 0d818f0 Group H, MD1: Spain 0-0 Cape Verde (2026-06-15)
-| * ea91a7b feat: initialize Group H
-|/  
-| * 1aa234b Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
-| * 9a649da Group G, MD2: Belgium 0-0 Iran (2026-06-21)
-| * 4198b88 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
-| * 7f1d992 Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
-| * 9ba404e feat: initialize Group G
 |/  
 * ca7d95c chore: update results (2026-06-23)
 * 29bcdac chore: update results (2026-06-23)
