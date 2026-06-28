@@ -63,15 +63,15 @@
 
   <div class="status">
     <span class="stat">⚽ <strong>72</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-06-28 04:49 UTC</span>
+    <span class="last-updated">Updated: 2026-06-28 04:57 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
   <h2>Git DAG</h2>
   <details open>
-    <summary>Mermaid GitGraph <button class="expand-btn" onclick="openGGModal()" aria-label="Expand GitGraph">⛶ Expand</button></summary>
+    <summary>Mermaid GitGraph <button class="expand-btn" onclick="openGGModal('main-graph')" aria-label="Expand GitGraph">⛶ Expand</button></summary>
     <div class="gitgraph-wrap">
-      <div class="mermaid">
+      <div class="mermaid" id="main-graph">
 ---
 config:
   gitGraph:
@@ -228,12 +228,26 @@ gitGraph LR:
   commit id: "Croatia 2-1 Ghana (2026-06-27)"
   checkout main
   merge group/L id: "ENG, CRO, GHA advance (#22)"
+  branch copilot/preserve-mermaid-gitgraph order: 200
+  commit id: "support commit range in mermaid GitGraph for"
+  commit id: "address code review feedback on commit range"
+  checkout main
+  merge copilot/preserve-mermaid-gitgraph id: "bounded commit range for Mermaid GitGraph to"
       </div>
     </div>
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">*   c9b1c6a Group L: ENG, CRO, GHA advance (#22)
+    <pre class="git-log">*   6bba9dc feat: bounded commit range for Mermaid GitGraph to preserve group stage snapshot (#26)
+|\  
+| * b29ac47 fix: address code review feedback on commit range GitGraph feature
+| * 73c3da7 feat: support commit range in mermaid GitGraph for group stage snapshot
+|/  
+* f3c37a8 Update Ghana team status with checkmark
+* 8bf4695 Rearrange teams in third place standings
+* a6a2976 Update standings in third_place.md
+* 5d5cd1b chore: update results (2026-06-28)
+*   c9b1c6a Group L: ENG, CRO, GHA advance (#22)
 |\  
 | * e8fed03 Group L, MD3: Croatia 2-1 Ghana (2026-06-27)
 | * 475af9c Group L, MD3: Panama 0-2 England (2026-06-27)
@@ -401,16 +415,7 @@ gitGraph LR:
 * |   582cdde Group B: SUI, CAN advance (#12)
 |\ \  
 | * | 0a60654 Group B, MD3: Bosnia-H. 3-1 Qatar (2026-06-24)
-| * | c1e4c7e Group B, MD3: Switzerland 2-1 Canada (2026-06-24)
-| * | 3357170 Group B, MD2: Canada 6-0 Qatar (2026-06-18)
-| * | 2f0881b Group B, MD2: Switzerland 4-1 Bosnia-H. (2026-06-18)
-| * | d12dfee Group B, MD1: Qatar 1-1 Switzerland (2026-06-13)
-| * | 647c3f3 Group B, MD1: Canada 1-1 Bosnia-H. (2026-06-12)
-| * | 73fea82 feat: initialize Group B
-| |/  
-* |   2601f9a Group A: MEX, RSA advance (#11)
-|\ \  
-| * | fb7d903 Group A, MD3: South Africa 1-0 Korea Republic (2026-06-25)</pre>
+| * | c1e4c7e Group B, MD3: Switzerland 2-1 Canada (2026-06-24)</pre>
   </details>
 
   <div id="gg-modal" role="dialog" aria-modal="true" aria-label="GitGraph fullscreen view">
@@ -426,8 +431,9 @@ gitGraph LR:
       theme: 'dark',
       gitGraph: { rotateCommitLabel: true, parallelCommits: true, showBranches: true }
     });
-    function openGGModal() {
-      const svg = document.querySelector('.gitgraph-wrap .mermaid svg');
+    function openGGModal(graphId) {
+      const el = document.getElementById(graphId);
+      const svg = el ? el.querySelector('svg') : null;
       const container = document.getElementById('modal-graph');
       container.innerHTML = '';
       if (svg) container.appendChild(svg.cloneNode(true));
