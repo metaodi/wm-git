@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 72 / 104
-- **Last updated**: 2026-06-28 04:57 UTC
+- **Last updated**: 2026-06-28 05:38 UTC
 
 ## Groups
 
@@ -37,7 +37,7 @@ git log --graph --oneline --all
 - **Group K**: 6/6 played → `group/K`
 - **Group L**: 6/6 played → `group/L`
 
-## GitGraph (mermaid)
+## GitGraph — Group Stage (Snapshot, mermaid)
 
 ```mermaid
 ---
@@ -196,16 +196,31 @@ gitGraph LR:
   commit id: "Croatia 2-1 Ghana (2026-06-27)"
   checkout main
   merge group/L id: "ENG, CRO, GHA advance (#22)"
-  branch copilot/preserve-mermaid-gitgraph order: 200
   commit id: "support commit range in mermaid GitGraph for"
   commit id: "address code review feedback on commit range"
-  checkout main
-  merge copilot/preserve-mermaid-gitgraph id: "bounded commit range for Mermaid GitGraph to"
+  commit id: "bounded commit range for Mermaid GitGraph to"
+```
+
+## GitGraph — KO Stage (mermaid)
+
+```mermaid
+---
+config:
+  gitGraph:
+    parallelCommits: true
+---
+gitGraph LR:
+  commit id: "init"
+  commit id: "support commit range in mermaid GitGraph for"
+  commit id: "address code review feedback on commit range"
+  commit id: "bounded commit range for Mermaid GitGraph to"
 ```
 
 ## Git Log
 
 ```text
+* 6b629d8 Add ending_commit field to state.json
+* f18185d chore: update results (2026-06-28)
 *   6bba9dc feat: bounded commit range for Mermaid GitGraph to preserve group stage snapshot (#26)
 |\  
 | * b29ac47 fix: address code review feedback on commit range GitGraph feature
