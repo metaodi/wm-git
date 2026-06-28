@@ -274,7 +274,12 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     active_stages = sorted({m["stage"] for m in finished})
     stage_str = ", ".join(STAGE_LABEL.get(s, s) for s in active_stages) or "Not started"
     starting_commit = state.get("starting_commit")
-    mermaid_graph = generate_mermaid_gitgraph(starting_commit)
+    ending_commit = state.get("ending_commit")
+    if ending_commit:
+        group_stage_graph = generate_mermaid_gitgraph(starting_commit, ending_commit)
+        ko_graph = generate_mermaid_gitgraph(ending_commit)
+    else:
+        mermaid_graph = generate_mermaid_gitgraph(starting_commit)
 
     lines = [
         "# 🏆 2026 FIFA World Cup in Git\n",
@@ -321,7 +326,22 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
                     f"- {tname(m['homeTeam'])} {fmt_score(m)} {tname(m['awayTeam'])}{adv}"
                 )
             lines.append("")
-    if mermaid_graph:
+    if ending_commit:
+        if group_stage_graph:
+            lines += [
+                "\n## GitGraph — Group Stage (Snapshot, mermaid)\n",
+                "```mermaid",
+                group_stage_graph,
+                "```",
+            ]
+        if ko_graph:
+            lines += [
+                "\n## GitGraph — KO Stage (mermaid)\n",
+                "```mermaid",
+                ko_graph,
+                "```",
+            ]
+    elif mermaid_graph:
         lines += [
             "\n## GitGraph (mermaid)\n",
             "```mermaid",
@@ -342,15 +362,36 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
 _MERMAID_SUBJECT_LEN = 50  # max chars of commit subject kept in Mermaid commit IDs
 
 
-def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
-    """Parse the git DAG and produce Mermaid gitGraph syntax."""
+def generate_mermaid_gitgraph(starting_commit: str | None = None, ending_commit: str | None = None) -> str:
+    """Parse the git DAG and produce Mermaid gitGraph syntax.
+
+    When both *starting_commit* and *ending_commit* are provided the graph is
+    bounded to the range ``starting_commit^..ending_commit`` (without ``--all``
+    so that branches created after *ending_commit* are excluded).  This lets
+    callers produce a frozen snapshot of the group-stage graph.
+
+    When only *starting_commit* is given (the normal live-update path) the
+    existing ``--all`` behaviour is preserved so every branch tip is included.
+    """
     all_commit_ids: list[str] = []
     sep = "\x1f"
     try:
-        cmd = ["git", "log", "--all", "--topo-order", "--reverse",
-               f"--pretty=format:%H{sep}%P{sep}%D{sep}%s"]
-        if starting_commit:
-            cmd.append(f"{starting_commit}^..")
+        fmt = f"--pretty=format:%H{sep}%P{sep}%D{sep}%s"
+        if starting_commit and ending_commit:
+            # Bounded snapshot: commits reachable from ending_commit but not
+            # from starting_commit^.  Drop --all so branches created after
+            # ending_commit are not included.
+            cmd = ["git", "log", "--topo-order", "--reverse", fmt,
+                   f"{starting_commit}^..{ending_commit}"]
+        elif starting_commit:
+            # Open-ended live graph: all refs after starting_commit.
+            cmd = ["git", "log", "--all", "--topo-order", "--reverse", fmt,
+                   f"{starting_commit}^.."]
+        elif ending_commit:
+            # From the very beginning up to ending_commit.
+            cmd = ["git", "log", "--topo-order", "--reverse", fmt, ending_commit]
+        else:
+            cmd = ["git", "log", "--all", "--topo-order", "--reverse", fmt]
         raw = subprocess.check_output(
             cmd,
             cwd=REPO_ROOT, text=True, stderr=subprocess.DEVNULL,
@@ -481,19 +522,14 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None) -> str:
         created.add("main")
         cur = "main"
 
-    # create all group branches
-    ensure_on("group/A", "main")
-    ensure_on("group/B", "main")
-    ensure_on("group/C", "main")
-    ensure_on("group/D", "main")
-    ensure_on("group/E", "main")
-    ensure_on("group/F", "main")
-    ensure_on("group/G", "main")
-    ensure_on("group/H", "main")
-    ensure_on("group/I", "main")
-    ensure_on("group/J", "main")
-    ensure_on("group/K", "main")
-    ensure_on("group/L", "main")
+    # Pre-declare only the group branches that actually have commits in the
+    # current range.  This avoids empty branch lanes when showing a KO-only
+    # graph where all group branches have already been merged.
+    branches_in_range = set(sha_to_branch.values())
+    for letter in "ABCDEFGHIJKL":
+        branch = f"group/{letter}"
+        if branch in branches_in_range:
+            ensure_on(branch, "main")
     ensure_on("main", "main")
     
     for c in commits:
@@ -539,7 +575,15 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
 
     # ── Mermaid gitGraph ──────────────────────────────────────────────────────
     starting_commit = state.get("starting_commit")
-    mermaid_graph = generate_mermaid_gitgraph(starting_commit)
+    ending_commit = state.get("ending_commit")
+    if ending_commit:
+        group_stage_graph = generate_mermaid_gitgraph(starting_commit, ending_commit)
+        ko_graph = generate_mermaid_gitgraph(ending_commit)
+        mermaid_graph = ko_graph  # default graph shown in the modal
+    else:
+        group_stage_graph = None
+        ko_graph = None
+        mermaid_graph = generate_mermaid_gitgraph(starting_commit)
 
     # ── ASCII git log (capped to avoid huge pages as history grows) ────────────
     git_log_cmd = ["log", "--graph", "--oneline", "--all", "--max-count=150"]
@@ -627,6 +671,36 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     clone_cmd = f"git clone https://github.com/{repo}.git && git log --graph --oneline --all" if repo else "git log --graph --oneline --all"
     github_link = f'<a href="https://github.com/{repo}" style="font-size:.6em;font-weight:400;vertical-align:middle" title="View on GitHub">GitHub</a>' if repo else ""
 
+    # Build the Git DAG section — two details panels when both stage graphs exist.
+    if group_stage_graph and ko_graph:
+        git_dag_html = f"""  <h2>Git DAG</h2>
+  <details open>
+    <summary>KO Stage — Mermaid GitGraph <button class="expand-btn" onclick="openGGModal('ko-graph')" aria-label="Expand KO GitGraph">⛶ Expand</button></summary>
+    <div class="gitgraph-wrap">
+      <div class="mermaid" id="ko-graph">
+{ko_graph}
+      </div>
+    </div>
+  </details>
+  <details>
+    <summary>Group Stage — Mermaid GitGraph (Snapshot) <button class="expand-btn" onclick="openGGModal('group-graph')" aria-label="Expand Group Stage GitGraph">⛶ Expand</button></summary>
+    <div class="gitgraph-wrap">
+      <div class="mermaid" id="group-graph">
+{group_stage_graph}
+      </div>
+    </div>
+  </details>"""
+    else:
+        git_dag_html = f"""  <h2>Git DAG</h2>
+  <details open>
+    <summary>Mermaid GitGraph <button class="expand-btn" onclick="openGGModal('main-graph')" aria-label="Expand GitGraph">⛶ Expand</button></summary>
+    <div class="gitgraph-wrap">
+      <div class="mermaid" id="main-graph">
+{mermaid_graph}
+      </div>
+    </div>
+  </details>"""
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -696,15 +770,7 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     <span class="stat" style="margin-left:auto"><code>{clone_cmd}</code></span>
   </div>
 
-  <h2>Git DAG</h2>
-  <details open>
-    <summary>Mermaid GitGraph <button class="expand-btn" onclick="openGGModal()" aria-label="Expand GitGraph">⛶ Expand</button></summary>
-    <div class="gitgraph-wrap">
-      <div class="mermaid">
-{mermaid_graph}
-      </div>
-    </div>
-  </details>
+{git_dag_html}
   <details>
     <summary>ASCII Git Log</summary>
     <pre class="git-log">{git_log_ascii}</pre>
@@ -723,8 +789,9 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
       theme: 'dark',
       gitGraph: {{ rotateCommitLabel: true, parallelCommits: true, showBranches: true }}
     }});
-    function openGGModal() {{
-      const svg = document.querySelector('.gitgraph-wrap .mermaid svg');
+    function openGGModal(graphId) {{
+      const el = document.getElementById(graphId);
+      const svg = el ? el.querySelector('svg') : null;
       const container = document.getElementById('modal-graph');
       container.innerHTML = '';
       if (svg) container.appendChild(svg.cloneNode(true));
@@ -1087,6 +1154,19 @@ def main():
     # KO stage
     new_ko = [m for m in new_matches if m["stage"] in KO_STAGES]
     if new_ko:
+        # Auto-record the group-stage end point the first time a KO match is
+        # processed.  We capture the current HEAD of main (all group merges done,
+        # no KO commits yet) so that a frozen Group Stage graph can be generated
+        # from this commit range later.
+        # Assumption: ending_commit is only set once; it is not updated if more
+        # group-stage commits are added after this point (which should not happen
+        # once the KO stage begins).
+        if not state.get("ending_commit") and not DRY_RUN:
+            checkout("main")
+            state["ending_commit"] = git(["rev-parse", "HEAD"])
+            log.info("Recorded group stage end commit: %s", state["ending_commit"])
+            print(f"  📸 Group stage end recorded at {state['ending_commit'][:12]}")
+
         print("\n🏟️  Ensuring team branches...")
         checkout("main")
         ensure_team_branches(matches, state)
