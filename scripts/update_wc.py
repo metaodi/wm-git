@@ -329,7 +329,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     if ending_commit:
         if group_stage_graph:
             lines += [
-                "\n## GitGraph — Group Stage (mermaid)\n",
+                "\n## GitGraph — Group Stage (Snapshot, mermaid)\n",
                 "```mermaid",
                 group_stage_graph,
                 "```",
@@ -683,7 +683,7 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     </div>
   </details>
   <details>
-    <summary>Group Stage Snapshot — Mermaid GitGraph <button class="expand-btn" onclick="openGGModal('group-graph')" aria-label="Expand Group Stage GitGraph">⛶ Expand</button></summary>
+    <summary>Group Stage — Mermaid GitGraph (Snapshot) <button class="expand-btn" onclick="openGGModal('group-graph')" aria-label="Expand Group Stage GitGraph">⛶ Expand</button></summary>
     <div class="gitgraph-wrap">
       <div class="mermaid" id="group-graph">
 {group_stage_graph}
@@ -790,10 +790,8 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
       gitGraph: {{ rotateCommitLabel: true, parallelCommits: true, showBranches: true }}
     }});
     function openGGModal(graphId) {{
-      const src = graphId
-        ? document.getElementById(graphId)
-        : document.querySelector('.gitgraph-wrap .mermaid');
-      const svg = src ? src.querySelector('svg') : null;
+      const el = document.getElementById(graphId);
+      const svg = el ? el.querySelector('svg') : null;
       const container = document.getElementById('modal-graph');
       container.innerHTML = '';
       if (svg) container.appendChild(svg.cloneNode(true));
@@ -1160,6 +1158,9 @@ def main():
         # processed.  We capture the current HEAD of main (all group merges done,
         # no KO commits yet) so that a frozen Group Stage graph can be generated
         # from this commit range later.
+        # Assumption: ending_commit is only set once; it is not updated if more
+        # group-stage commits are added after this point (which should not happen
+        # once the KO stage begins).
         if not state.get("ending_commit") and not DRY_RUN:
             checkout("main")
             state["ending_commit"] = git(["rev-parse", "HEAD"])
