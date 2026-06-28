@@ -275,11 +275,12 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     stage_str = ", ".join(STAGE_LABEL.get(s, s) for s in active_stages) or "Not started"
     starting_commit = state.get("starting_commit")
     ending_commit = state.get("ending_commit")
+    team_order = compute_team_bracket_order(matches)
     if ending_commit:
         group_stage_graph = generate_mermaid_gitgraph(starting_commit, ending_commit)
-        ko_graph = generate_mermaid_gitgraph(ending_commit)
+        ko_graph = generate_mermaid_gitgraph(ending_commit, team_bracket_order=team_order)
     else:
-        mermaid_graph = generate_mermaid_gitgraph(starting_commit)
+        mermaid_graph = generate_mermaid_gitgraph(starting_commit, team_bracket_order=team_order)
 
     lines = [
         "# 🏆 2026 FIFA World Cup in Git\n",
@@ -362,7 +363,29 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
 _MERMAID_SUBJECT_LEN = 50  # max chars of commit subject kept in Mermaid commit IDs
 
 
-def generate_mermaid_gitgraph(starting_commit: str | None = None, ending_commit: str | None = None) -> str:
+def compute_team_bracket_order(matches: list[dict]) -> dict[str, int]:
+    """Return a TLA→order mapping where bracket opponents get adjacent order values.
+
+    LAST_32 matches are sorted by date; home and away teams of each match are
+    assigned consecutive even/odd order numbers so that they appear side-by-side
+    in the Mermaid gitgraph.
+    """
+    r32_matches = sorted(
+        [m for m in matches if m["stage"] == "LAST_32"],
+        key=lambda m: m["utcDate"],
+    )
+    order: dict[str, int] = {}
+    for i, m in enumerate(r32_matches):
+        order[m["homeTeam"]["tla"]] = 101 + i * 2
+        order[m["awayTeam"]["tla"]] = 102 + i * 2
+    return order
+
+
+def generate_mermaid_gitgraph(
+    starting_commit: str | None = None,
+    ending_commit: str | None = None,
+    team_bracket_order: dict[str, int] | None = None,
+) -> str:
     """Parse the git DAG and produce Mermaid gitGraph syntax.
 
     When both *starting_commit* and *ending_commit* are provided the graph is
@@ -478,8 +501,10 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None, ending_commit:
         """Return a numeric order for Mermaid branch declarations.
 
         main is the implicit base (order 0); group/* branches get order 1-12
-        sorted alphabetically (A=1 … L=12); teams/* and others follow after.
-        An empty group suffix falls back to 99.
+        sorted alphabetically (A=1 … L=12); teams/* follow after, ordered by
+        bracket position when team_bracket_order is provided (bracket opponents
+        get consecutive values so they appear side-by-side).  An empty group
+        suffix falls back to 99.
         """
         if name == "main":
             return 0
@@ -487,6 +512,9 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None, ending_commit:
             letter = name[6:].upper()
             return ord(letter[0]) - ord("A") + 1 if letter else 99
         if name.startswith("teams/"):
+            if team_bracket_order:
+                tla = name[6:]
+                return team_bracket_order.get(tla, 200)
             return 100
         return 200
 
@@ -530,6 +558,12 @@ def generate_mermaid_gitgraph(starting_commit: str | None = None, ending_commit:
         branch = f"group/{letter}"
         if branch in branches_in_range:
             ensure_on(branch, "main")
+    # Pre-declare team branches in bracket order so that opponents are adjacent.
+    if team_bracket_order:
+        for tla, _ in sorted(team_bracket_order.items(), key=lambda x: x[1]):
+            branch = f"teams/{tla}"
+            if branch in branches_in_range:
+                ensure_on(branch, "main")
     ensure_on("main", "main")
     
     for c in commits:
@@ -576,14 +610,15 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     # ── Mermaid gitGraph ──────────────────────────────────────────────────────
     starting_commit = state.get("starting_commit")
     ending_commit = state.get("ending_commit")
+    team_order = compute_team_bracket_order(matches)
     if ending_commit:
         group_stage_graph = generate_mermaid_gitgraph(starting_commit, ending_commit)
-        ko_graph = generate_mermaid_gitgraph(ending_commit)
+        ko_graph = generate_mermaid_gitgraph(ending_commit, team_bracket_order=team_order)
         mermaid_graph = ko_graph  # default graph shown in the modal
     else:
         group_stage_graph = None
         ko_graph = None
-        mermaid_graph = generate_mermaid_gitgraph(starting_commit)
+        mermaid_graph = generate_mermaid_gitgraph(starting_commit, team_bracket_order=team_order)
 
     # ── ASCII git log (capped to avoid huge pages as history grows) ────────────
     git_log_cmd = ["log", "--graph", "--oneline", "--all", "--max-count=150"]
@@ -1151,6 +1186,15 @@ def main():
             log.debug("Merging group/%s into main", letter)
             # merge_group_branch_to_main(letter, standings.get(f"Group {letter}", []), matches, state)
 
+    # Ensure team branches as soon as all groups are complete and the KO bracket
+    # is known from the API (even before the first KO match is played).
+    all_groups_complete = all(group_is_complete(l, matches) for l in "ABCDEFGHIJKL")
+    ko_bracket_known = any(m["stage"] == "LAST_32" for m in matches)
+    if all_groups_complete and ko_bracket_known:
+        print("\n🏟️  Ensuring team branches...")
+        checkout("main")
+        ensure_team_branches(matches, state)
+
     # KO stage
     new_ko = [m for m in new_matches if m["stage"] in KO_STAGES]
     if new_ko:
@@ -1166,10 +1210,6 @@ def main():
             state["ending_commit"] = git(["rev-parse", "HEAD"])
             log.info("Recorded group stage end commit: %s", state["ending_commit"])
             print(f"  📸 Group stage end recorded at {state['ending_commit'][:12]}")
-
-        print("\n🏟️  Ensuring team branches...")
-        checkout("main")
-        ensure_team_branches(matches, state)
 
         print(f"\n🔥 Processing {len(new_ko)} knockout match(es)...")
         for m in new_ko:
