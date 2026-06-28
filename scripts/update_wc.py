@@ -1045,10 +1045,6 @@ def process_ko_match(m: dict, state: dict, all_matches: list[dict]):
     h, a, s = tname(m["homeTeam"]), tname(m["awayTeam"]), fmt_score(m)
     msg = f"{stage}: {h} {s} {a} ({m['utcDate'][:10]})"
 
-    # Idempotency
-    if commit_already_exists(wb, stage):
-        return
-
     for branch in (wb, lb):
         if not branch_exists_local(branch) and not branch_exists_remote(branch):
             print(f"  ⚠ missing branch {branch}, skipping {msg}")
