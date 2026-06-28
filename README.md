@@ -18,9 +18,9 @@ git log --graph --oneline --all
 
 ## Status
 
-- **Stage**: Group Stage
-- **Matches played**: 72 / 104
-- **Last updated**: 2026-06-28 11:46 UTC
+- **Stage**: Group Stage, Round of 32
+- **Matches played**: 73 / 104
+- **Last updated**: 2026-06-28 12:22 UTC
 
 ## Groups
 
@@ -36,6 +36,13 @@ git log --graph --oneline --all
 - **Group J**: 6/6 played → `group/J`
 - **Group K**: 6/6 played → `group/K`
 - **Group L**: 6/6 played → `group/L`
+
+## Knockout Bracket
+
+### Round of 32
+
+- South Africa 0-1 Canada → **CAN**
+
 
 ## GitGraph — Group Stage (Snapshot, mermaid)
 
@@ -352,6 +359,7 @@ gitGraph LR:
 ## Git Log
 
 ```text
+* 1804e17 chore: update results (2026-06-28)
 *   cb138d9 fix: sort KO bracket branches by matchday, add manual order override (#28)
 |\  
 | * 0f8cd76 feat: sort bracket order by matchday+date, add ko_branch_order override
