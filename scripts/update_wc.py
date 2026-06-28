@@ -165,7 +165,7 @@ def api_get(path: str, params: dict | None = None) -> dict:
 def fetch_matches() -> list[dict]:
     log.debug("Fetching matches for competition %s", COMPETITION)
     matches = api_get(f"/competitions/{COMPETITION}/matches").get("matches", [])
-    log.debug("Fetched %d matches", len(matches))
+    log.debug("Fetched %d matches: %s", len(matches), pformat(matches))
     return matches
 
 
