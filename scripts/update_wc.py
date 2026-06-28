@@ -56,6 +56,15 @@ STAGE_LABEL = {
     "FINAL": "Final",
 }
 
+NEXT_STAGE_LABEL = {
+    "LAST_32": "Round of 16",
+    "LAST_16": "Quarter-finals",
+    "QUARTER_FINALS": "Semi-finals",
+    "SEMI_FINALS": "Final",
+    "THIRD_PLACE": "3rd Place",
+    "FINAL": "Champion",
+}
+
 
 # ── Git helpers ───────────────────────────────────────────────────────────────
 
@@ -1044,6 +1053,8 @@ def process_ko_match(m: dict, state: dict, all_matches: list[dict]):
     stage = STAGE_LABEL.get(m["stage"], m["stage"])
     h, a, s = tname(m["homeTeam"]), tname(m["awayTeam"]), fmt_score(m)
     msg = f"{stage}: {h} {s} {a} ({m['utcDate'][:10]})"
+    next_stage = NEXT_STAGE_LABEL.get(m["stage"], stage)
+    merge_msg = f"{wtla} advances to {next_stage}"
 
     # Idempotency
     if commit_already_exists(wb, stage):
@@ -1086,16 +1097,16 @@ def process_ko_match(m: dict, state: dict, all_matches: list[dict]):
     git(["commit", "-m", msg])
 
     r = subprocess.run(
-        ["git", "merge", "--no-ff", lb, "-m", msg],
+        ["git", "merge", "--no-ff", lb, "-m", merge_msg],
         cwd=REPO_ROOT, capture_output=True, text=True,
     )
     if r.returncode != 0:
         # Conflict resolution: keep our content
         subprocess.run(["git", "merge", "--abort"], cwd=REPO_ROOT, check=True)
-        subprocess.run(["git", "merge", "--no-ff", "-s", "ours", lb, "-m", msg], cwd=REPO_ROOT, check=True)
+        subprocess.run(["git", "merge", "--no-ff", "-s", "ours", lb, "-m", merge_msg], cwd=REPO_ROOT, check=True)
 
     git(["push", "-u", "origin", wb])
-    print(f"  ✓ merge: {msg}")
+    print(f"  ✓ merge: {merge_msg}")
 
     if m["stage"] == "FINAL":
         checkout("main")
