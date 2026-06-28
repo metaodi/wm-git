@@ -16,3 +16,4 @@
 - ✅ **Argentina 2-0 Austria** (2026-06-22)
 - ✅ **Jordan 1-2 Algeria** (2026-06-23)
 - ✅ **Jordan 1-3 Argentina** (2026-06-28)
+- ✅ **Algeria 3-3 Austria** (2026-06-28)
