@@ -16,3 +16,4 @@
 - ✅ **England 0-0 Ghana** (2026-06-23)
 - ✅ **Panama 0-1 Croatia** (2026-06-23)
 - ✅ **Panama 0-2 England** (2026-06-27)
+- ✅ **Croatia 2-1 Ghana** (2026-06-27)
