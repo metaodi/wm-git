@@ -16,3 +16,4 @@
 - ✅ **Portugal 5-0 Uzbekistan** (2026-06-23)
 - ✅ **Colombia 1-0 Congo DR** (2026-06-24)
 - ✅ **Colombia 0-0 Portugal** (2026-06-27)
+- ✅ **Congo DR 3-1 Uzbekistan** (2026-06-27)
