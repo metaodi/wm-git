@@ -1081,27 +1081,18 @@ def process_ko_match(m: dict, state: dict, all_matches: list[dict]):
             print(f"  [dry-run] would merge {wb} → main: 🏆 World Cup 2026 Champion: {champion}!")
         return
 
+    # Commit winner's updated file before merging so the index is always clean
     git(["add", f"teams/{wtla}.md"])
+    git(["commit", "-m", msg])
 
     r = subprocess.run(
         ["git", "merge", "--no-ff", lb, "-m", msg],
         cwd=REPO_ROOT, capture_output=True, text=True,
     )
     if r.returncode != 0:
-        # Conflict resolution: keep our content.
-        # If the merge failed before creating MERGE_HEAD (e.g. dirty index blocked it),
-        # --abort would fail; reset the index instead so the ours-strategy merge can run.
-        if (REPO_ROOT / ".git" / "MERGE_HEAD").exists():
-            subprocess.run(["git", "merge", "--abort"], cwd=REPO_ROOT, check=True)
-        else:
-            subprocess.run(["git", "reset", "HEAD"], cwd=REPO_ROOT, check=True)
+        # Conflict resolution: keep our content
+        subprocess.run(["git", "merge", "--abort"], cwd=REPO_ROOT, check=True)
         subprocess.run(["git", "merge", "--no-ff", "-s", "ours", lb, "-m", msg], cwd=REPO_ROOT, check=True)
-        # Restore our updated files after ours-merge
-        (REPO_ROOT / "teams" / f"{wtla}.md").write_text(
-            team_md(wtla, wteam.get("name", wtla), wmatches, stage)
-        )
-        git(["add", "-A"])
-        git(["commit", "--amend", "--no-edit"])
 
     git(["push", "-u", "origin", wb])
     print(f"  ✓ merge: {msg}")
