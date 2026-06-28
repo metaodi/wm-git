@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage
 - **Matches played**: 72 / 104
-- **Last updated**: 2026-06-28 06:17 UTC
+- **Last updated**: 2026-06-28 11:46 UTC
 
 ## Groups
 
@@ -345,11 +345,18 @@ gitGraph LR:
   commit id: "bounded commit range for Mermaid GitGraph to"
   commit id: "create team branches after group stage and o"
   commit id: "create team branches post-group-stage and or"
+  commit id: "sort bracket order by matchday+date, add ko_"
+  commit id: "sort KO bracket branches by matchday, add man"
 ```
 
 ## Git Log
 
 ```text
+*   cb138d9 fix: sort KO bracket branches by matchday, add manual order override (#28)
+|\  
+| * 0f8cd76 feat: sort bracket order by matchday+date, add ko_branch_order override
+|/  
+* 85f6868 chore: update results (2026-06-28)
 * facc459 Enhance debug logging for fetched matches
 * c2b9053 chore: update results (2026-06-28)
 *   bc27e9a feat: create team branches post-group-stage and order GitGraph by bracket (#27)

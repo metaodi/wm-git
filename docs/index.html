@@ -63,7 +63,7 @@
 
   <div class="status">
     <span class="stat">⚽ <strong>72</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-06-28 06:17 UTC</span>
+    <span class="last-updated">Updated: 2026-06-28 11:46 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
@@ -213,6 +213,8 @@ gitGraph LR:
   commit id: "bounded commit range for Mermaid GitGraph to"
   commit id: "create team branches after group stage and o"
   commit id: "create team branches post-group-stage and or"
+  commit id: "sort bracket order by matchday+date, add ko_"
+  commit id: "sort KO bracket branches by matchday, add man"
       </div>
     </div>
   </details>
@@ -384,7 +386,12 @@ gitGraph LR:
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">* facc459 Enhance debug logging for fetched matches
+    <pre class="git-log">*   cb138d9 fix: sort KO bracket branches by matchday, add manual order override (#28)
+|\  
+| * 0f8cd76 feat: sort bracket order by matchday+date, add ko_branch_order override
+|/  
+* 85f6868 chore: update results (2026-06-28)
+* facc459 Enhance debug logging for fetched matches
 * c2b9053 chore: update results (2026-06-28)
 *   bc27e9a feat: create team branches post-group-stage and order GitGraph by bracket (#27)
 |\  
@@ -584,12 +591,7 @@ gitGraph LR:
 | | | | |/| | | | | |   
 | | | | | | | | | | | * d3ec69d feat: Senegal advances to Round of 32
 | | | | | | | | |_|_|/  
-| | | | | | | |/| | |   
-| | | | | | | | | | | * dcbd99c feat: Belgium advances to Round of 32
-| | | | | | | | | |_|/  
-| | | | | | | | |/| |   
-| | | | | | | | * | | 5228e04 Group G, MD3: Egypt 1-2 Iran (2026-06-27)
-| | | | | | | | * | | a8eb1cc Group G, MD3: New Zealand 1-5 Belgium (2026-06-27)</pre>
+| | | | | | | |/| | |</pre>
   </details>
 
   <div id="gg-modal" role="dialog" aria-modal="true" aria-label="GitGraph fullscreen view">
