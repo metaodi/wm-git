@@ -589,8 +589,9 @@ def generate_mermaid_gitgraph(
         subject = c["subject"]
         short = sha[:7]
       
-        _, _, result = subject.partition(":")
-        subject = result.strip()
+        _, sep, result = subject.partition(":")
+        if sep and result.strip():
+            subject = result.strip()
 
         if not subject or 'update results' in subject:
             continue
