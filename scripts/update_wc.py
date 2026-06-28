@@ -275,7 +275,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     stage_str = ", ".join(STAGE_LABEL.get(s, s) for s in active_stages) or "Not started"
     starting_commit = state.get("starting_commit")
     ending_commit = state.get("ending_commit")
-    team_order = compute_team_bracket_order(matches)
+    team_order = compute_team_bracket_order(matches, state)
     if ending_commit:
         group_stage_graph = generate_mermaid_gitgraph(starting_commit, ending_commit)
         ko_graph = generate_mermaid_gitgraph(ending_commit, team_bracket_order=team_order)
@@ -363,16 +363,23 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
 _MERMAID_SUBJECT_LEN = 50  # max chars of commit subject kept in Mermaid commit IDs
 
 
-def compute_team_bracket_order(matches: list[dict]) -> dict[str, int]:
+def compute_team_bracket_order(matches: list[dict], state: dict | None = None) -> dict[str, int]:
     """Return a TLA→order mapping where bracket opponents get adjacent order values.
 
-    LAST_32 matches are sorted by date; home and away teams of each match are
-    assigned consecutive even/odd order numbers so that they appear side-by-side
-    in the Mermaid gitgraph.
+    LAST_32 matches are sorted by matchday (bracket slot) with utcDate as a
+    tiebreaker; home and away teams of each match are assigned consecutive
+    even/odd order numbers so that they appear side-by-side in the Mermaid
+    gitgraph.
+
+    An optional ``ko_branch_order`` dict in *state* (mapping TLA → int) takes
+    full precedence over the computed order, allowing manual overrides.
     """
+    if state and state.get("ko_branch_order"):
+        return dict(state["ko_branch_order"])
+
     r32_matches = sorted(
         [m for m in matches if m["stage"] == "LAST_32"],
-        key=lambda m: m["utcDate"],
+        key=lambda m: (m.get("matchday") or 999, m["utcDate"]),
     )
     order: dict[str, int] = {}
     for i, m in enumerate(r32_matches):
@@ -610,7 +617,7 @@ def html_site(matches: list[dict], standings: dict[str, list], state: dict) -> s
     # ── Mermaid gitGraph ──────────────────────────────────────────────────────
     starting_commit = state.get("starting_commit")
     ending_commit = state.get("ending_commit")
-    team_order = compute_team_bracket_order(matches)
+    team_order = compute_team_bracket_order(matches, state)
     if ending_commit:
         group_stage_graph = generate_mermaid_gitgraph(starting_commit, ending_commit)
         ko_graph = generate_mermaid_gitgraph(ending_commit, team_bracket_order=team_order)
