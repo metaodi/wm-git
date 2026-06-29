@@ -123,7 +123,7 @@
     "COL",
     "GHA"
   ],
-  ko_branch_order: {
+  "ko_branch_order": {
     "RSA": 201,
     "CAN": 202,
     "BRA": 501,
