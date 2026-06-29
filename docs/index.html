@@ -62,8 +62,8 @@
   <h1>🏆 2026 FIFA World Cup in Git <a href="https://github.com/metaodi/wm-git" style="font-size:.6em;font-weight:400;vertical-align:middle" title="View on GitHub">GitHub</a></h1>
 
   <div class="status">
-    <span class="stat">⚽ <strong>74</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-06-29 07:34 UTC</span>
+    <span class="stat">⚽ <strong>75</strong> / <strong>104</strong> matches played</span>
+    <span class="last-updated">Updated: 2026-06-29 20:24 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
@@ -143,10 +143,6 @@ gitGraph LR:
   checkout main
   branch teams/GHA order: 852
   checkout main
-  checkout teams/GER
-  commit id: "Germany advances to Round of 32"
-  checkout teams/PAR
-  commit id: "Paraguay advances to Round of 32"
   checkout teams/NED
   commit id: "Netherlands advances to Round of 32"
   checkout teams/MAR
@@ -207,6 +203,14 @@ gitGraph LR:
   commit id: "RSA exits at Round of 32"
   checkout teams/CAN
   merge teams/RSA id: "CAN advances to Round of 16"
+  checkout teams/BRA
+  commit id: "Brazil advances to Round of 32"
+  commit id: "Brazil 2-1 Japan (2026-06-29)"
+  checkout teams/JPN
+  commit id: "Japan advances to Round of 32"
+  commit id: "JPN exits at Round of 32"
+  checkout teams/BRA
+  merge teams/JPN id: "BRA advances to Round of 16"
   checkout main
   commit id: "support commit range in mermaid GitGraph for"
   commit id: "address code review feedback on commit range"
@@ -228,14 +232,14 @@ gitGraph LR:
   commit id: "Update state.json"
   commit id: "Fix JSON syntax for ko_branch_order"
   commit id: "Fix JSON formatting for ko_branch_order key"
-  checkout teams/BRA
-  commit id: "Brazil advances to Round of 32"
-  commit id: "Brazil 2-1 Japan (2026-06-29)"
-  checkout teams/JPN
-  commit id: "Japan advances to Round of 32"
-  commit id: "JPN exits at Round of 32"
-  checkout teams/BRA
-  merge teams/JPN id: "BRA advances to Round of 16"
+  checkout teams/PAR
+  commit id: "Paraguay advances to Round of 32"
+  commit id: "Germany 5-6 (pen. 5-5) Paraguay (2026"
+  checkout teams/GER
+  commit id: "Germany advances to Round of 32"
+  commit id: "GER exits at Round of 32"
+  checkout teams/PAR
+  merge teams/GER id: "PAR advances to Round of 16"
       </div>
     </div>
   </details>
@@ -448,12 +452,13 @@ gitGraph LR:
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">*   5d7caa6 BRA advances to Round of 16
+    <pre class="git-log">*   5505e76 PAR advances to Round of 16
 |\  
-| * 126b286 eliminated: JPN exits at Round of 32
-| * e07b324 feat: Japan advances to Round of 32
-* | 43e8655 Round of 32: Brazil 2-1 Japan (2026-06-29)
-* | 038f852 feat: Brazil advances to Round of 32
+| * a8fd897 eliminated: GER exits at Round of 32
+| * c4373a3 feat: Germany advances to Round of 32
+* | 67ce0af Round of 32: Germany 5-6 (pen. 5-5) Paraguay (2026-06-29)
+* | 7803851 feat: Paraguay advances to Round of 32
+| | * 2ebd9c9 chore: update results (2026-06-29)
 | | * 8b3ad41 chore: update results (2026-06-29)
 | | * de4586a Fix JSON formatting for ko_branch_order key
 | | * 047874d Fix JSON syntax for ko_branch_order
@@ -559,38 +564,38 @@ gitGraph LR:
 | | * | | | | | | d6351b3 chore: update results (2026-06-26)
 | | * | | | | | |   b2474ad Group F: NED, JPN, SWE advance (#16)
 | | |\ \ \ \ \ \ \  
-| | |/ / / / / / /  
-| |/| | | | | | |   
-| | * | | | | | |   e2a060a Group E: GER, CIV, ECU advance (#15)
-| | |\ \ \ \ \ \ \  
-| | * \ \ \ \ \ \ \   6f49e3c Group D: USA, AUS advance (#14)
+| | * \ \ \ \ \ \ \   e2a060a Group E: GER, CIV, ECU advance (#15)
 | | |\ \ \ \ \ \ \ \  
-| | * | | | | | | | | 8aae2fe chore: update results (2026-06-26)
-| | * | | | | | | | | 0bd3a04 chore: update results (2026-06-25)
-| | * | | | | | | | | 9985da4 Update update_wc.py
-| | * | | | | | | | | 14b7d30 chore: update results (2026-06-25)
-| | * | | | | | | | |   5d95d20 fix: prevent merging of sibling branches by only following the first … (#24)
-| | |\ \ \ \ \ \ \ \ \  
-| | | * | | | | | | | | 5c03e0c fix: prevent merging of sibling branches by only following the first parent in commit history
-| | |/ / / / / / / / /  
-| | * | | | | | | | | 672d35f Update update-results.yml
-| | * | | | | | | | | e273890 Add debug logging for branches and SHA mapping
-| | * | | | | | | | | af871da Fix formatting in git_output_cmd command
-| | * | | | | | | | | 65c5589 Refactor git log commands in update_wc.py
-| | * | | | | | | | | 2567c42 chore: update results (2026-06-25)
-| | * | | | | | | | |   234a479 Fix group branches missing from Mermaid GitGraph due to narrow fetch refspec (#23)
-| | |\ \ \ \ \ \ \ \ \  
-| | | * | | | | | | | | 8dba9b3 Remove the merge guessing
-| | | * | | | | | | | | 0917a6d fix: fetch all remote branches with wildcard refspec in workflow
-| | | * | | | | | | | | adcc7d8 fix: infer group branch tips from merge commit subjects when branch refs are deleted
-| | |/ / / / / / / / /  
-| | * | | | | | | | | 95d2fbb chore: update results (2026-06-25)
-| | * | | | | | | | | 20bb335 Update state.json
-| | * | | | | | | | |   1853711 Group C: BRA, MAR advance (#13)
-| | |\ \ \ \ \ \ \ \ \  
-| |_|/ / / / / / / / /  
-|/| | | | | | | | | |   
-| | * | | | | | | | |   582cdde Group B: SUI, CAN advance (#12)
+| | |/ / / / / / / /  
+| |/| | | | | | | |   
+| | * | | | | | | |   6f49e3c Group D: USA, AUS advance (#14)
+| | |\ \ \ \ \ \ \ \  
+| |_|/ / / / / / / /  
+|/| | | | | | | | |   
+| | * | | | | | | | 8aae2fe chore: update results (2026-06-26)
+| | * | | | | | | | 0bd3a04 chore: update results (2026-06-25)
+| | * | | | | | | | 9985da4 Update update_wc.py
+| | * | | | | | | | 14b7d30 chore: update results (2026-06-25)
+| | * | | | | | | |   5d95d20 fix: prevent merging of sibling branches by only following the first … (#24)
+| | |\ \ \ \ \ \ \ \  
+| | | * | | | | | | | 5c03e0c fix: prevent merging of sibling branches by only following the first parent in commit history
+| | |/ / / / / / / /  
+| | * | | | | | | | 672d35f Update update-results.yml
+| | * | | | | | | | e273890 Add debug logging for branches and SHA mapping
+| | * | | | | | | | af871da Fix formatting in git_output_cmd command
+| | * | | | | | | | 65c5589 Refactor git log commands in update_wc.py
+| | * | | | | | | | 2567c42 chore: update results (2026-06-25)
+| | * | | | | | | |   234a479 Fix group branches missing from Mermaid GitGraph due to narrow fetch refspec (#23)
+| | |\ \ \ \ \ \ \ \  
+| | | * | | | | | | | 8dba9b3 Remove the merge guessing
+| | | * | | | | | | | 0917a6d fix: fetch all remote branches with wildcard refspec in workflow
+| | | * | | | | | | | adcc7d8 fix: infer group branch tips from merge commit subjects when branch refs are deleted
+| | |/ / / / / / / /  
+| | * | | | | | | | 95d2fbb chore: update results (2026-06-25)
+| | * | | | | | | | 20bb335 Update state.json
+| | * | | | | | | |   1853711 Group C: BRA, MAR advance (#13)
+| | |\ \ \ \ \ \ \ \  
+| | * \ \ \ \ \ \ \ \   582cdde Group B: SUI, CAN advance (#12)
 | | |\ \ \ \ \ \ \ \ \  
 | | * \ \ \ \ \ \ \ \ \   2601f9a Group A: MEX, RSA advance (#11)
 | | |\ \ \ \ \ \ \ \ \ \  
@@ -626,13 +631,12 @@ gitGraph LR:
 | | * | | | | | | | | | | c6254c2 Update starting_commit in state.json
 | | * | | | | | | | | | | 795f227 chore: update results (2026-06-23)
 | | * | | | | | | | | | | 2eb25c8 Update starting_commit to new commit hash
-| | | | | | | | | | | | | *   c8473e6 CAN advances to Round of 16
+| | | | | | | | | | | | | *   5d7caa6 BRA advances to Round of 16
 | | | | | | | | | | | | | |\  
-| | | | | | | | | | | | | | * 8ea328b eliminated: RSA exits at Round of 32
-| | | | | | | | | | | | | | * ad50414 feat: South Africa advances to Round of 32
-| | | | |_|_|_|_|_|_|_|_|_|/  
-| | | |/| | | | | | | | | |   
-| | | | | | | | | | | | | * 31f0f6d Round of 32: South Africa 0-1 Canada (2026-06-28)</pre>
+| | | | | | | | | | | | | | * 126b286 eliminated: JPN exits at Round of 32
+| | | | | | | | | | | | | | * e07b324 feat: Japan advances to Round of 32
+| | | | | | | |_|_|_|_|_|_|/  
+| | | | | | |/| | | | | | |</pre>
   </details>
 
   <div id="gg-modal" role="dialog" aria-modal="true" aria-label="GitGraph fullscreen view">
@@ -673,6 +677,7 @@ gitGraph LR:
 <h3>Round of 32</h3><ul class='matches'>
 <li>✅ <strong>South Africa 0-1 Canada</strong> → <strong>CAN</strong> <span class='date'>(2026-06-28)</span></li>
 <li>✅ <strong>Brazil 2-1 Japan</strong> → <strong>BRA</strong> <span class='date'>(2026-06-29)</span></li>
+<li>✅ <strong>Germany 5-6 (pen. 5-5) Paraguay</strong> → <strong>PAR</strong> <span class='date'>(2026-06-29)</span></li>
 </ul>
 </section>
 

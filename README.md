@@ -19,8 +19,8 @@ git log --graph --oneline --all
 ## Status
 
 - **Stage**: Group Stage, Round of 32
-- **Matches played**: 74 / 104
-- **Last updated**: 2026-06-29 07:34 UTC
+- **Matches played**: 75 / 104
+- **Last updated**: 2026-06-29 20:24 UTC
 
 ## Groups
 
@@ -43,6 +43,7 @@ git log --graph --oneline --all
 
 - South Africa 0-1 Canada → **CAN**
 - Brazil 2-1 Japan → **BRA**
+- Germany 5-6 (pen. 5-5) Paraguay → **PAR**
 
 
 ## GitGraph — Group Stage (Snapshot, mermaid)
@@ -324,10 +325,6 @@ gitGraph LR:
   checkout main
   branch teams/GHA order: 852
   checkout main
-  checkout teams/GER
-  commit id: "Germany advances to Round of 32"
-  checkout teams/PAR
-  commit id: "Paraguay advances to Round of 32"
   checkout teams/NED
   commit id: "Netherlands advances to Round of 32"
   checkout teams/MAR
@@ -388,6 +385,14 @@ gitGraph LR:
   commit id: "RSA exits at Round of 32"
   checkout teams/CAN
   merge teams/RSA id: "CAN advances to Round of 16"
+  checkout teams/BRA
+  commit id: "Brazil advances to Round of 32"
+  commit id: "Brazil 2-1 Japan (2026-06-29)"
+  checkout teams/JPN
+  commit id: "Japan advances to Round of 32"
+  commit id: "JPN exits at Round of 32"
+  checkout teams/BRA
+  merge teams/JPN id: "BRA advances to Round of 16"
   checkout main
   commit id: "support commit range in mermaid GitGraph for"
   commit id: "address code review feedback on commit range"
@@ -409,25 +414,26 @@ gitGraph LR:
   commit id: "Update state.json"
   commit id: "Fix JSON syntax for ko_branch_order"
   commit id: "Fix JSON formatting for ko_branch_order key"
-  checkout teams/BRA
-  commit id: "Brazil advances to Round of 32"
-  commit id: "Brazil 2-1 Japan (2026-06-29)"
-  checkout teams/JPN
-  commit id: "Japan advances to Round of 32"
-  commit id: "JPN exits at Round of 32"
-  checkout teams/BRA
-  merge teams/JPN id: "BRA advances to Round of 16"
+  checkout teams/PAR
+  commit id: "Paraguay advances to Round of 32"
+  commit id: "Germany 5-6 (pen. 5-5) Paraguay (2026"
+  checkout teams/GER
+  commit id: "Germany advances to Round of 32"
+  commit id: "GER exits at Round of 32"
+  checkout teams/PAR
+  merge teams/GER id: "PAR advances to Round of 16"
 ```
 
 ## Git Log
 
 ```text
-*   5d7caa6 BRA advances to Round of 16
+*   5505e76 PAR advances to Round of 16
 |\  
-| * 126b286 eliminated: JPN exits at Round of 32
-| * e07b324 feat: Japan advances to Round of 32
-* | 43e8655 Round of 32: Brazil 2-1 Japan (2026-06-29)
-* | 038f852 feat: Brazil advances to Round of 32
+| * a8fd897 eliminated: GER exits at Round of 32
+| * c4373a3 feat: Germany advances to Round of 32
+* | 67ce0af Round of 32: Germany 5-6 (pen. 5-5) Paraguay (2026-06-29)
+* | 7803851 feat: Paraguay advances to Round of 32
+| | * 2ebd9c9 chore: update results (2026-06-29)
 | | * 8b3ad41 chore: update results (2026-06-29)
 | | * de4586a Fix JSON formatting for ko_branch_order key
 | | * 047874d Fix JSON syntax for ko_branch_order
@@ -533,38 +539,38 @@ gitGraph LR:
 | | * | | | | | | d6351b3 chore: update results (2026-06-26)
 | | * | | | | | |   b2474ad Group F: NED, JPN, SWE advance (#16)
 | | |\ \ \ \ \ \ \  
-| | |/ / / / / / /  
-| |/| | | | | | |   
-| | * | | | | | |   e2a060a Group E: GER, CIV, ECU advance (#15)
-| | |\ \ \ \ \ \ \  
-| | * \ \ \ \ \ \ \   6f49e3c Group D: USA, AUS advance (#14)
+| | * \ \ \ \ \ \ \   e2a060a Group E: GER, CIV, ECU advance (#15)
 | | |\ \ \ \ \ \ \ \  
-| | * | | | | | | | | 8aae2fe chore: update results (2026-06-26)
-| | * | | | | | | | | 0bd3a04 chore: update results (2026-06-25)
-| | * | | | | | | | | 9985da4 Update update_wc.py
-| | * | | | | | | | | 14b7d30 chore: update results (2026-06-25)
-| | * | | | | | | | |   5d95d20 fix: prevent merging of sibling branches by only following the first … (#24)
-| | |\ \ \ \ \ \ \ \ \  
-| | | * | | | | | | | | 5c03e0c fix: prevent merging of sibling branches by only following the first parent in commit history
-| | |/ / / / / / / / /  
-| | * | | | | | | | | 672d35f Update update-results.yml
-| | * | | | | | | | | e273890 Add debug logging for branches and SHA mapping
-| | * | | | | | | | | af871da Fix formatting in git_output_cmd command
-| | * | | | | | | | | 65c5589 Refactor git log commands in update_wc.py
-| | * | | | | | | | | 2567c42 chore: update results (2026-06-25)
-| | * | | | | | | | |   234a479 Fix group branches missing from Mermaid GitGraph due to narrow fetch refspec (#23)
-| | |\ \ \ \ \ \ \ \ \  
-| | | * | | | | | | | | 8dba9b3 Remove the merge guessing
-| | | * | | | | | | | | 0917a6d fix: fetch all remote branches with wildcard refspec in workflow
-| | | * | | | | | | | | adcc7d8 fix: infer group branch tips from merge commit subjects when branch refs are deleted
-| | |/ / / / / / / / /  
-| | * | | | | | | | | 95d2fbb chore: update results (2026-06-25)
-| | * | | | | | | | | 20bb335 Update state.json
-| | * | | | | | | | |   1853711 Group C: BRA, MAR advance (#13)
-| | |\ \ \ \ \ \ \ \ \  
-| |_|/ / / / / / / / /  
-|/| | | | | | | | | |   
-| | * | | | | | | | |   582cdde Group B: SUI, CAN advance (#12)
+| | |/ / / / / / / /  
+| |/| | | | | | | |   
+| | * | | | | | | |   6f49e3c Group D: USA, AUS advance (#14)
+| | |\ \ \ \ \ \ \ \  
+| |_|/ / / / / / / /  
+|/| | | | | | | | |   
+| | * | | | | | | | 8aae2fe chore: update results (2026-06-26)
+| | * | | | | | | | 0bd3a04 chore: update results (2026-06-25)
+| | * | | | | | | | 9985da4 Update update_wc.py
+| | * | | | | | | | 14b7d30 chore: update results (2026-06-25)
+| | * | | | | | | |   5d95d20 fix: prevent merging of sibling branches by only following the first … (#24)
+| | |\ \ \ \ \ \ \ \  
+| | | * | | | | | | | 5c03e0c fix: prevent merging of sibling branches by only following the first parent in commit history
+| | |/ / / / / / / /  
+| | * | | | | | | | 672d35f Update update-results.yml
+| | * | | | | | | | e273890 Add debug logging for branches and SHA mapping
+| | * | | | | | | | af871da Fix formatting in git_output_cmd command
+| | * | | | | | | | 65c5589 Refactor git log commands in update_wc.py
+| | * | | | | | | | 2567c42 chore: update results (2026-06-25)
+| | * | | | | | | |   234a479 Fix group branches missing from Mermaid GitGraph due to narrow fetch refspec (#23)
+| | |\ \ \ \ \ \ \ \  
+| | | * | | | | | | | 8dba9b3 Remove the merge guessing
+| | | * | | | | | | | 0917a6d fix: fetch all remote branches with wildcard refspec in workflow
+| | | * | | | | | | | adcc7d8 fix: infer group branch tips from merge commit subjects when branch refs are deleted
+| | |/ / / / / / / /  
+| | * | | | | | | | 95d2fbb chore: update results (2026-06-25)
+| | * | | | | | | | 20bb335 Update state.json
+| | * | | | | | | |   1853711 Group C: BRA, MAR advance (#13)
+| | |\ \ \ \ \ \ \ \  
+| | * \ \ \ \ \ \ \ \   582cdde Group B: SUI, CAN advance (#12)
 | | |\ \ \ \ \ \ \ \ \  
 | | * \ \ \ \ \ \ \ \ \   2601f9a Group A: MEX, RSA advance (#11)
 | | |\ \ \ \ \ \ \ \ \ \  
@@ -600,6 +606,16 @@ gitGraph LR:
 | | * | | | | | | | | | | c6254c2 Update starting_commit in state.json
 | | * | | | | | | | | | | 795f227 chore: update results (2026-06-23)
 | | * | | | | | | | | | | 2eb25c8 Update starting_commit to new commit hash
+| | | | | | | | | | | | | *   5d7caa6 BRA advances to Round of 16
+| | | | | | | | | | | | | |\  
+| | | | | | | | | | | | | | * 126b286 eliminated: JPN exits at Round of 32
+| | | | | | | | | | | | | | * e07b324 feat: Japan advances to Round of 32
+| | | | | | | |_|_|_|_|_|_|/  
+| | | | | | |/| | | | | | |   
+| | | | | | | | | | | | | * 43e8655 Round of 32: Brazil 2-1 Japan (2026-06-29)
+| | | | | | | | | | | | | * 038f852 feat: Brazil advances to Round of 32
+| | | | | | |_|_|_|_|_|_|/  
+| | | | | |/| | | | | | |   
 | | | | | | | | | | | | | *   c8473e6 CAN advances to Round of 16
 | | | | | | | | | | | | | |\  
 | | | | | | | | | | | | | | * 8ea328b eliminated: RSA exits at Round of 32
@@ -625,8 +641,8 @@ gitGraph LR:
 | | | | | | | | | | |_|_|/  
 | | | | | | | | | |/| | |   
 | | | | | | | | | | | | | * 42b8d83 feat: Australia advances to Round of 32
-| | | | | | |_|_|_|_|_|_|/  
-| | | | | |/| | | | | | |   
+| |_|_|_|_|_|_|_|_|_|_|_|/  
+|/| | | | | | | | | | | |   
 | | | | | | | | | | | | | * 1625e5c feat: Algeria advances to Round of 32
 | | | | | | | | | | | |_|/  
 | | | | | | | | | | |/| |   
@@ -675,121 +691,117 @@ gitGraph LR:
 | | | |/ / / / / / /  
 | | |/| | | | | | |   
 | | | | | | | | | | * 009956f feat: USA advances to Round of 32
-| | | | | |_|_|_|_|/  
-| | | | |/| | | | |   
-| | | | | | | | | | * d3ec69d feat: Senegal advances to Round of 32
-| | | | | | | |_|_|/  
-| | | | | | |/| | |   
-| | | | | | | | | | * dcbd99c feat: Belgium advances to Round of 32
-| | | | | | | | |_|/  
-| | | | | | | |/| |   
-| | | | | | | * | | 5228e04 Group G, MD3: Egypt 1-2 Iran (2026-06-27)
-| | | | | | | * | | a8eb1cc Group G, MD3: New Zealand 1-5 Belgium (2026-06-27)
-| | | | | | | * | | 1aa234b Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
-| | | | | | | * | | 9a649da Group G, MD2: Belgium 0-0 Iran (2026-06-21)
-| | | | | | | * | | 4198b88 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
-| | | | | | | * | | 7f1d992 Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
-| | | | | | | * | | 9ba404e feat: initialize Group G
-| | | |_|_|_|/ / /  
-| | |/| | | | | |   
-| | | | | | | | | * 5672b0b feat: Congo DR advances to Round of 32
-| | | | | | | | |/  
-| | | | | | | |/|   
-| | | | | | | * | 8744925 Group K, MD3: Congo DR 3-1 Uzbekistan (2026-06-27)
-| | | | | | | * | 3d35870 Group K, MD3: Colombia 0-0 Portugal (2026-06-27)
-| | | | | | | * | f5de9cc Group K, MD2: Colombia 1-0 Congo DR (2026-06-24)
-| | | | | | | * | 6143609 Group K, MD2: Portugal 5-0 Uzbekistan (2026-06-23)
-| | | | | | | * | 03093dc Group K, MD1: Uzbekistan 1-3 Colombia (2026-06-18)
-| | | | | | | * | 9e313b3 Group K, MD1: Portugal 1-1 Congo DR (2026-06-17)
-| | | | | | | * | 682f112 feat: initialize Group K
-| | | |_|_|_|/ /  
-| | |/| | | | |   
-| | | | | | | | * 8b598ba feat: England advances to Round of 32
+| |_|_|_|_|_|_|_|_|/  
+|/| | | | | | | | |   
+* | | | | | | | | | a0a688a Group D, MD3: Paraguay 0-0 Australia (2026-06-26)
+* | | | | | | | | | 6fa6b3a Group D, MD3: Turkey 3-2 USA (2026-06-26)
+* | | | | | | | | | e28a6dc Group D, MD2: Turkey 0-1 Paraguay (2026-06-20)
+* | | | | | | | | | f307f62 Group D, MD2: USA 2-0 Australia (2026-06-19)
+* | | | | | | | | | d9483dc Group D, MD1: Australia 2-0 Turkey (2026-06-14)
+* | | | | | | | | | 3829793 Group D, MD1: USA 4-1 Paraguay (2026-06-13)
+* | | | | | | | | | da0de21 feat: initialize Group D
+| |/ / / / / / / /  
+|/| | | | | | | |   
+| | | | | | | | | * d3ec69d feat: Senegal advances to Round of 32
+| | | | | | |_|_|/  
+| | | | | |/| | |   
+| | | | | | | | | * dcbd99c feat: Belgium advances to Round of 32
+| | | | | | | |_|/  
+| | | | | | |/| |   
+| | | | | | * | | 5228e04 Group G, MD3: Egypt 1-2 Iran (2026-06-27)
+| | | | | | * | | a8eb1cc Group G, MD3: New Zealand 1-5 Belgium (2026-06-27)
+| | | | | | * | | 1aa234b Group G, MD2: New Zealand 1-3 Egypt (2026-06-22)
+| | | | | | * | | 9a649da Group G, MD2: Belgium 0-0 Iran (2026-06-21)
+| | | | | | * | | 4198b88 Group G, MD1: Iran 2-2 New Zealand (2026-06-16)
+| | | | | | * | | 7f1d992 Group G, MD1: Belgium 1-1 Egypt (2026-06-15)
+| | | | | | * | | 9ba404e feat: initialize Group G
+| |_|_|_|_|/ / /  
+|/| | | | | | |   
+| | | | | | | | * 5672b0b feat: Congo DR advances to Round of 32
 | | | | | | | |/  
-| | | | | | | * e8fed03 Group L, MD3: Croatia 2-1 Ghana (2026-06-27)
-| | | | | | | * 475af9c Group L, MD3: Panama 0-2 England (2026-06-27)
-| | | | | | | * 7551de5 Group L, MD2: Panama 0-1 Croatia (2026-06-23)
-| | | | | | | * 6a430be Group L, MD2: England 0-0 Ghana (2026-06-23)
-| | | | | | | * ab54662 Group L, MD1: Ghana 1-0 Panama (2026-06-17)
-| | | | | | | * 9709b5e Group L, MD1: England 4-2 Croatia (2026-06-17)
-| | | | | | | * 4ece383 feat: initialize Group L
-| | | |_|_|_|/  
-| | |/| | | |   
-| | | | | | | * 09d842a feat: Ecuador advances to Round of 32
+| | | | | | |/|   
+| | | | | | * | 8744925 Group K, MD3: Congo DR 3-1 Uzbekistan (2026-06-27)
+| | | | | | * | 3d35870 Group K, MD3: Colombia 0-0 Portugal (2026-06-27)
+| | | | | | * | f5de9cc Group K, MD2: Colombia 1-0 Congo DR (2026-06-24)
+| | | | | | * | 6143609 Group K, MD2: Portugal 5-0 Uzbekistan (2026-06-23)
+| | | | | | * | 03093dc Group K, MD1: Uzbekistan 1-3 Colombia (2026-06-18)
+| | | | | | * | 9e313b3 Group K, MD1: Portugal 1-1 Congo DR (2026-06-17)
+| | | | | | * | 682f112 feat: initialize Group K
+| |_|_|_|_|/ /  
+|/| | | | | |   
+| | | | | | | * 8b598ba feat: England advances to Round of 32
 | | | | | | |/  
-| | | | | |/|   
-| | | | | | | * 447aabb feat: Mexico advances to Round of 32
-| | | | |_|_|/  
-| | | |/| | |   
-| | | * | | | fb7d903 Group A, MD3: South Africa 1-0 Korea Republic (2026-06-25)
-| | | * | | | 1276260 Group A, MD3: Czechia 0-3 Mexico (2026-06-25)
-| | | * | | | f768041 Group A, MD2: Mexico 1-0 Korea Republic (2026-06-19)
-| | | * | | | dbc69ea Group A, MD2: Czechia 1-1 South Africa (2026-06-18)
-| | | * | | | 777a2b6 Group A, MD1: Korea Republic 2-1 Czechia (2026-06-12)
-| | | * | | | 612b691 Group A, MD1: Mexico 2-0 South Africa (2026-06-11)
-| | | * | | | b22d60b feat: initialize Group A
-| | |/ / / /  
-| | | | | | * 8b96aa3 feat: Sweden advances to Round of 32
+| | | | | | * e8fed03 Group L, MD3: Croatia 2-1 Ghana (2026-06-27)
+| | | | | | * 475af9c Group L, MD3: Panama 0-2 England (2026-06-27)
+| | | | | | * 7551de5 Group L, MD2: Panama 0-1 Croatia (2026-06-23)
+| | | | | | * 6a430be Group L, MD2: England 0-0 Ghana (2026-06-23)
+| | | | | | * ab54662 Group L, MD1: Ghana 1-0 Panama (2026-06-17)
+| | | | | | * 9709b5e Group L, MD1: England 4-2 Croatia (2026-06-17)
+| | | | | | * 4ece383 feat: initialize Group L
+| |_|_|_|_|/  
+|/| | | | |   
+| | | | | | * 09d842a feat: Ecuador advances to Round of 32
 | | |_|_|_|/  
 | |/| | | |   
-| | | | | | * 4a6c4ef feat: France advances to Round of 32
-| | | | | |/  
-| | | | | | * 31d39aa feat: Norway advances to Round of 32
-| | | | | |/  
-| | | | | * 5703db8 Group I, MD3: Senegal 5-0 Iraq (2026-06-26)
-| | | | | * c05f27d Group I, MD3: Norway 1-4 France (2026-06-26)
-| | | | | * 5a0f84e Group I, MD2: Norway 3-2 Senegal (2026-06-23)
-| | | | | * 40fce23 Group I, MD2: France 3-0 Iraq (2026-06-22)
-| | | | | * 432ca77 Group I, MD1: Iraq 1-4 Norway (2026-06-16)
-| | | | | * 769feea Group I, MD1: France 3-1 Senegal (2026-06-16)
-| | | | | * a28079d feat: initialize Group I
-| | | |_|/  
-| | |/| |   
-| | | | | * 57a304b feat: Ivory Coast advances to Round of 32
-| | | | |/  
-| | | | | * b958ff3 feat: Morocco advances to Round of 32
-| |_|_|_|/  
+| | | | | | * 447aabb feat: Mexico advances to Round of 32
+| | | |_|_|/  
+| | |/| | |   
+| | * | | | fb7d903 Group A, MD3: South Africa 1-0 Korea Republic (2026-06-25)
+| | * | | | 1276260 Group A, MD3: Czechia 0-3 Mexico (2026-06-25)
+| | * | | | f768041 Group A, MD2: Mexico 1-0 Korea Republic (2026-06-19)
+| | * | | | dbc69ea Group A, MD2: Czechia 1-1 South Africa (2026-06-18)
+| | * | | | 777a2b6 Group A, MD1: Korea Republic 2-1 Czechia (2026-06-12)
+| | * | | | 612b691 Group A, MD1: Mexico 2-0 South Africa (2026-06-11)
+| | * | | | b22d60b feat: initialize Group A
+| |/ / / /  
 |/| | | |   
-* | | | | 1e63230 Group C, MD3: Scotland 0-3 Brazil (2026-06-24)
-* | | | | 914859e Group C, MD3: Morocco 4-2 Haiti (2026-06-24)
-* | | | | 713ade3 Group C, MD2: Brazil 3-0 Haiti (2026-06-20)
-* | | | | 1ea95ac Group C, MD2: Scotland 0-1 Morocco (2026-06-19)
-* | | | | cae8412 Group C, MD1: Haiti 0-1 Scotland (2026-06-14)
-* | | | | 4c1fb49 Group C, MD1: Brazil 1-1 Morocco (2026-06-13)
-* | | | | de0ccc8 feat: initialize Group C
-| |/ / /  
+| | | | | * 8b96aa3 feat: Sweden advances to Round of 32
+| | | | |/  
+| | | |/|   
+| | | | | * 4a6c4ef feat: France advances to Round of 32
+| | | | |/  
+| | | | | * 31d39aa feat: Norway advances to Round of 32
+| | | | |/  
+| | | | * 5703db8 Group I, MD3: Senegal 5-0 Iraq (2026-06-26)
+| | | | * c05f27d Group I, MD3: Norway 1-4 France (2026-06-26)
+| | | | * 5a0f84e Group I, MD2: Norway 3-2 Senegal (2026-06-23)
+| | | | * 40fce23 Group I, MD2: France 3-0 Iraq (2026-06-22)
+| | | | * 432ca77 Group I, MD1: Iraq 1-4 Norway (2026-06-16)
+| | | | * 769feea Group I, MD1: France 3-1 Senegal (2026-06-16)
+| | | | * a28079d feat: initialize Group I
+| |_|_|/  
 |/| | |   
-| | | | * 6f089b1 feat: Netherlands advances to Round of 32
+| | | | * 57a304b feat: Ivory Coast advances to Round of 32
 | | |_|/  
 | |/| |   
-| * | | 3fb3b66 Group F, MD3: Japan 1-1 Sweden (2026-06-25)
-| * | | d3f08c9 Group F, MD3: Tunisia 1-3 Netherlands (2026-06-25)
-| * | | 37486e3 Group F, MD2: Tunisia 0-4 Japan (2026-06-21)
-| * | | 62cfd94 Group F, MD2: Netherlands 5-1 Sweden (2026-06-20)
-| * | | a3802dd Group F, MD1: Sweden 5-1 Tunisia (2026-06-15)
-| * | | 55a2a87 Group F, MD1: Netherlands 2-2 Japan (2026-06-14)
-| * | | f136fe6 feat: initialize Group F
+| * | | 1e58c16 Group E, MD3: Curaçao 0-2 Ivory Coast (2026-06-25)
+| * | | 3a01352 Group E, MD3: Ecuador 2-1 Germany (2026-06-25)
+| * | | 54ae035 Group E, MD2: Ecuador 0-0 Curaçao (2026-06-21)
+| * | | fd81778 Group E, MD2: Germany 2-1 Ivory Coast (2026-06-20)
+| * | | 7948bbe Group E, MD1: Ivory Coast 1-0 Ecuador (2026-06-14)
+| * | | 6256d77 Group E, MD1: Germany 7-1 Curaçao (2026-06-14)
+| * | | cd1b6fc feat: initialize Group E
 |/ / /  
-| | | * 7803851 feat: Paraguay advances to Round of 32
+| | | * b958ff3 feat: Morocco advances to Round of 32
 | | |/  
 | |/|   
-| * | a0a688a Group D, MD3: Paraguay 0-0 Australia (2026-06-26)
-| * | 6fa6b3a Group D, MD3: Turkey 3-2 USA (2026-06-26)
-| * | e28a6dc Group D, MD2: Turkey 0-1 Paraguay (2026-06-20)
-| * | f307f62 Group D, MD2: USA 2-0 Australia (2026-06-19)
-| * | d9483dc Group D, MD1: Australia 2-0 Turkey (2026-06-14)
-| * | 3829793 Group D, MD1: USA 4-1 Paraguay (2026-06-13)
-| * | da0de21 feat: initialize Group D
+| * | 1e63230 Group C, MD3: Scotland 0-3 Brazil (2026-06-24)
+| * | 914859e Group C, MD3: Morocco 4-2 Haiti (2026-06-24)
+| * | 713ade3 Group C, MD2: Brazil 3-0 Haiti (2026-06-20)
+| * | 1ea95ac Group C, MD2: Scotland 0-1 Morocco (2026-06-19)
+| * | cae8412 Group C, MD1: Haiti 0-1 Scotland (2026-06-14)
+| * | 4c1fb49 Group C, MD1: Brazil 1-1 Morocco (2026-06-13)
+| * | de0ccc8 feat: initialize Group C
 |/ /  
-| | * c4373a3 feat: Germany advances to Round of 32
+| | * 6f089b1 feat: Netherlands advances to Round of 32
 | |/  
-| * 1e58c16 Group E, MD3: Curaçao 0-2 Ivory Coast (2026-06-25)
-| * 3a01352 Group E, MD3: Ecuador 2-1 Germany (2026-06-25)
-| * 54ae035 Group E, MD2: Ecuador 0-0 Curaçao (2026-06-21)
-| * fd81778 Group E, MD2: Germany 2-1 Ivory Coast (2026-06-20)
-| * 7948bbe Group E, MD1: Ivory Coast 1-0 Ecuador (2026-06-14)
-| * 6256d77 Group E, MD1: Germany 7-1 Curaçao (2026-06-14)
-| * cd1b6fc feat: initialize Group E
+| * 3fb3b66 Group F, MD3: Japan 1-1 Sweden (2026-06-25)
+| * d3f08c9 Group F, MD3: Tunisia 1-3 Netherlands (2026-06-25)
+| * 37486e3 Group F, MD2: Tunisia 0-4 Japan (2026-06-21)
+| * 62cfd94 Group F, MD2: Netherlands 5-1 Sweden (2026-06-20)
+| * a3802dd Group F, MD1: Sweden 5-1 Tunisia (2026-06-15)
+| * 55a2a87 Group F, MD1: Netherlands 2-2 Japan (2026-06-14)
+| * f136fe6 feat: initialize Group F
 |/  
 * ca7d95c chore: update results (2026-06-23)
 * 29bcdac chore: update results (2026-06-23)
