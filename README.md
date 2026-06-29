@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage, Round of 32
 - **Matches played**: 73 / 104
-- **Last updated**: 2026-06-29 04:04 UTC
+- **Last updated**: 2026-06-29 05:50 UTC
 
 ## Groups
 
@@ -259,69 +259,69 @@ config:
 ---
 gitGraph LR:
   commit id: "init"
-  branch teams/RSA order: 101
+  branch teams/GER order: 101
   checkout main
-  branch teams/CAN order: 102
+  branch teams/PAR order: 102
   checkout main
-  branch teams/BRA order: 103
+  branch teams/FRA order: 151
   checkout main
-  branch teams/JPN order: 104
+  branch teams/SWE order: 152
   checkout main
-  branch teams/GER order: 105
+  branch teams/RSA order: 201
   checkout main
-  branch teams/PAR order: 106
+  branch teams/CAN order: 202
   checkout main
-  branch teams/NED order: 107
+  branch teams/NED order: 251
   checkout main
-  branch teams/MAR order: 108
+  branch teams/MAR order: 252
   checkout main
-  branch teams/CIV order: 109
+  branch teams/POR order: 301
   checkout main
-  branch teams/NOR order: 110
+  branch teams/CRO order: 302
   checkout main
-  branch teams/FRA order: 111
+  branch teams/ESP order: 351
   checkout main
-  branch teams/SWE order: 112
+  branch teams/AUT order: 352
   checkout main
-  branch teams/MEX order: 113
+  branch teams/USA order: 401
   checkout main
-  branch teams/ECU order: 114
+  branch teams/BIH order: 402
   checkout main
-  branch teams/ENG order: 115
+  branch teams/BEL order: 451
   checkout main
-  branch teams/COD order: 116
+  branch teams/SEN order: 452
   checkout main
-  branch teams/BEL order: 117
+  branch teams/BRA order: 501
   checkout main
-  branch teams/SEN order: 118
+  branch teams/JPN order: 502
   checkout main
-  branch teams/USA order: 119
+  branch teams/CIV order: 551
   checkout main
-  branch teams/BIH order: 120
+  branch teams/NOR order: 552
   checkout main
-  branch teams/ESP order: 121
+  branch teams/MEX order: 601
   checkout main
-  branch teams/AUT order: 122
+  branch teams/ECU order: 602
   checkout main
-  branch teams/POR order: 123
+  branch teams/ENG order: 651
   checkout main
-  branch teams/CRO order: 124
+  branch teams/COD order: 652
   checkout main
-  branch teams/SUI order: 125
+  branch teams/ARG order: 701
   checkout main
-  branch teams/ALG order: 126
+  branch teams/CPV order: 702
   checkout main
-  branch teams/AUS order: 127
+  branch teams/AUS order: 751
   checkout main
-  branch teams/EGY order: 128
+  branch teams/EGY order: 752
   checkout main
-  branch teams/ARG order: 129
+  branch teams/SUI order: 801
   checkout main
-  branch teams/CPV order: 130
+  branch teams/ALG order: 802
   checkout main
-  branch teams/COL order: 131
+  branch teams/COL order: 851
   checkout main
-  branch teams/GHA order: 132
+  branch teams/GHA order: 852
   checkout main
   checkout teams/BRA
   commit id: "Brazil advances to Round of 32"
@@ -409,11 +409,18 @@ gitGraph LR:
   commit id: "use '{WTLA} advances to {NEXT_STAGE}' as mer"
   commit id: "keep full subject in gitgraph when commit mes"
   commit id: "Add uv and dotenv"
+  commit id: "Update state.json"
+  commit id: "Fix JSON syntax for ko_branch_order"
+  commit id: "Fix JSON formatting for ko_branch_order key"
 ```
 
 ## Git Log
 
 ```text
+* de4586a Fix JSON formatting for ko_branch_order key
+* 047874d Fix JSON syntax for ko_branch_order
+* 2655ecd Update state.json
+* 98494e2 chore: update results (2026-06-29)
 * abc67c0 Add uv and dotenv
 * 3efc4bc chore: update results (2026-06-29)
 *   f776e78 fix: keep full subject in gitgraph when commit message has no colon prefix (#30)
