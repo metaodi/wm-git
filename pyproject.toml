@@ -1,0 +1,10 @@
+[project]
+name = "wm-git"
+version = "0.1.0"
+description = "World Cup 2026 results in Git"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "python-dotenv>=1.2.2",
+    "requests>=2.31",
+]

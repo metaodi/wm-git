@@ -23,8 +23,11 @@ from pathlib import Path
 from pprint import pformat
 
 import requests
+from dotenv import load_dotenv, find_dotenv 
 
 # ── Config ───────────────────────────────────────────────────────────────────
+
+load_dotenv(find_dotenv()) 
 
 API_KEY = os.environ.get("FOOTBALL_DATA_API_KEY", "")
 API_BASE = "https://api.football-data.org/v4"
@@ -1242,10 +1245,10 @@ def main():
     git_log = git(git_log_cmd)
     git_output = git(git_output_cmd)
     print(f"Git Output:\n{git_output}")
-    (REPO_ROOT / "README.md").write_text(readme_md(matches, state, git_log))
+    (REPO_ROOT / "README.md").write_text(readme_md(matches, state, git_log), encoding="utf-8")
     docs_dir = REPO_ROOT / "docs"
     docs_dir.mkdir(exist_ok=True)
-    (docs_dir / "index.html").write_text(html_site(matches, standings, state))
+    (docs_dir / "index.html").write_text(html_site(matches, standings, state), encoding="utf-8")
     save_state(state, extra_files=["README.md", "docs/index.html"])
 
     print("\n✅ Done!")
