@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage, Round of 32
 - **Matches played**: 73 / 104
-- **Last updated**: 2026-06-28 21:56 UTC
+- **Last updated**: 2026-06-28 22:00 UTC
 
 ## Groups
 
@@ -79,6 +79,15 @@ gitGraph LR:
   branch group/L order: 12
   checkout main
   checkout group/A
+  commit id: "Update update_wc.py"
+  checkout main
+  commit id: "Update starting_commit to new commit hash"
+  commit id: "Update starting_commit in state.json"
+  commit id: "Allow display of chore commits in update_wc.py"
+  commit id: "Update state.json"
+  commit id: "Add commit id to gitGraph command output"
+  commit id: "Disable scheduled updates for World Cup results"
+  checkout group/A
   commit id: "initialize Group A"
   commit id: "Mexico 2-0 South Africa (2026-06-11)"
   commit id: "Korea Republic 2-1 Czechia (2026-06-"
@@ -110,6 +119,12 @@ gitGraph LR:
   merge group/C id: "BRA, MAR advance (#13)"
   commit id: "infer group branch tips from merge commit sub"
   commit id: "fetch all remote branches with wildcard refsp"
+  commit id: "Remove the merge guessing"
+  commit id: "Fix group branches missing from Mermaid GitGraph d"
+  commit id: "Refactor git log commands in update_wc.py"
+  commit id: "Fix formatting in git_output_cmd command"
+  commit id: "Add debug logging for branches and SHA mapping"
+  commit id: "Update update-results.yml"
   commit id: "prevent merging of sibling branches by only f"
   checkout group/D
   commit id: "initialize Group D"
@@ -141,6 +156,22 @@ gitGraph LR:
   commit id: "Japan 1-1 Sweden (2026-06-25)"
   checkout main
   merge group/F id: "NED, JPN, SWE advance (#16)"
+  commit id: "Add third place standings markdown file"
+  commit id: "Add Ecuador team to third place standings"
+  commit id: "Update third_place.md"
+  commit id: "Fix function definition syntax in update_wc.py"
+  commit id: "Append commit ID to all_commit_ids list"
+  commit id: "Fix type hint syntax for all_commit_ids variable"
+  commit id: "Fix typo in variable name for commit IDs"
+  commit id: "Change parallelCommits setting to false"
+  commit id: "Add Paraguay to third place standings"
+  commit id: "Add Croatia's entry to third place standings"
+  commit id: "Add Korea Republic to third place standings"
+  commit id: "Add Algeria to third place standings"
+  commit id: "Add Scotland to third place standings"
+  commit id: "Add checkmarks to teams in standings"
+  commit id: "Add new teams and update standings in third_place."
+  commit id: "Update Congo DR entry to Senegal in standings"
   commit id: "add modal to view mermaid GitGraph larger"
   commit id: "fullscreen modal for Mermaid GitGraph (#25)"
   checkout group/I
@@ -173,6 +204,13 @@ gitGraph LR:
   commit id: "Egypt 1-2 Iran (2026-06-27)"
   checkout main
   merge group/G id: "BEL, EGY advance (#17)"
+  commit id: "Mark Paraguay as qualified with a checkmark"
+  commit id: "Update group standings and match results"
+  commit id: "Add Iran's entry to the third place standings"
+  commit id: "Add Senegal's results to third place standings"
+  commit id: "Add Uruguay to third place standings"
+  commit id: "Add Congo DR to third place standings"
+  commit id: "Enable parallel commits in gitGraph configuration"
   checkout group/J
   commit id: "initialize Group J"
   commit id: "Argentina 3-0 Algeria (2026-06-17)"
@@ -203,6 +241,9 @@ gitGraph LR:
   commit id: "Croatia 2-1 Ghana (2026-06-27)"
   checkout main
   merge group/L id: "ENG, CRO, GHA advance (#22)"
+  commit id: "Update standings in third_place.md"
+  commit id: "Rearrange teams in third place standings"
+  commit id: "Update Ghana team status with checkmark"
   commit id: "support commit range in mermaid GitGraph for"
   commit id: "address code review feedback on commit range"
   commit id: "bounded commit range for Mermaid GitGraph to"
@@ -348,25 +389,37 @@ gitGraph LR:
   checkout teams/RSA
   commit id: "South Africa advances to Round of 32"
   commit id: "RSA exits at Round of 32"
+  checkout teams/CAN
+  merge teams/RSA id: "CAN advances to Round of 16"
   checkout main
   commit id: "support commit range in mermaid GitGraph for"
   commit id: "address code review feedback on commit range"
   commit id: "bounded commit range for Mermaid GitGraph to"
+  commit id: "Add ending_commit field to state.json"
   commit id: "create team branches after group stage and o"
   commit id: "create team branches post-group-stage and or"
+  commit id: "Enhance debug logging for fetched matches"
   commit id: "sort bracket order by matchday+date, add ko_"
   commit id: "sort KO bracket branches by matchday, add man"
+  commit id: "Add merged groups D to L in state.json"
+  commit id: "Fix formatting in state.json"
+  commit id: "Remove idempotency check for commit existence"
   commit id: "reset staged index when KO merge fails withou"
   commit id: "commit winner file before merge instead"
   commit id: "use '{WTLA} advances to {NEXT_STAGE}' as mer"
+  commit id: "keep full subject in gitgraph when commit mes"
 ```
 
 ## Git Log
 
 ```text
-* 861a5a9 chore: update results (2026-06-28)
-*   95fd91e fix: reset staged index when KO merge fails without entering conflict state (#29)
+*   f776e78 fix: keep full subject in gitgraph when commit message has no colon prefix (#30)
 |\  
+| * 1c2e59b fix: keep full subject in gitgraph when commit message has no colon prefix
+* | e50a935 chore: update results (2026-06-28)
+* | 861a5a9 chore: update results (2026-06-28)
+* | 95fd91e fix: reset staged index when KO merge fails without entering conflict state (#29)
+|\| 
 | * 65d1e26 feat: use '{WTLA} advances to {NEXT_STAGE}' as merge commit message
 | * fd8ae0d refactor: commit winner file before merge instead of staging it pre-merge
 | * 55ecc6b fix: reset staged index when KO merge fails without entering conflict state
