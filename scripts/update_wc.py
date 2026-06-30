@@ -15,6 +15,7 @@ import argparse
 import json
 import logging
 import os
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -596,7 +597,16 @@ def generate_mermaid_gitgraph(
         if sep and result.strip():
             subject = result.strip()
 
-        if not subject or 'update results' in subject:
+        allow_patterns = [
+            r".*exits at.*",
+            r".*advance.*",
+            r"\w+ \d+–\d+.*",
+            r"initialize Group.*",
+            r".*third place standings.*",
+            r".*World Cup 2026 Champion.*",
+        ]
+
+        if not subject or not any(re.search(pattern, subject) for pattern in allow_patterns):
             continue
 
         # prevent commits with the same id
