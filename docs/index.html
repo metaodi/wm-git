@@ -62,8 +62,8 @@
   <h1>🏆 2026 FIFA World Cup in Git <a href="https://github.com/metaodi/wm-git" style="font-size:.6em;font-weight:400;vertical-align:middle" title="View on GitHub">GitHub</a></h1>
 
   <div class="status">
-    <span class="stat">⚽ <strong>77</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-06-30 05:43 UTC</span>
+    <span class="stat">⚽ <strong>78</strong> / <strong>104</strong> matches played</span>
+    <span class="last-updated">Updated: 2026-06-30 19:15 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
@@ -143,10 +143,6 @@ gitGraph LR:
   checkout main
   branch teams/GHA order: 852
   checkout main
-  checkout teams/FRA
-  commit id: "France advances to Round of 32"
-  checkout teams/SWE
-  commit id: "Sweden advances to Round of 32"
   checkout teams/MEX
   commit id: "Mexico advances to Round of 32"
   checkout teams/ECU
@@ -215,8 +211,6 @@ gitGraph LR:
   commit id: "NED exits at Round of 32"
   checkout teams/MAR
   merge teams/NED id: "MAR advances to Round of 16"
-  checkout main
-  commit id: "use '{WTLA} advances to {NEXT_STAGE}' as mer"
   checkout teams/NOR
   commit id: "Norway advances to Round of 32"
   checkout teams/CIV
@@ -224,6 +218,15 @@ gitGraph LR:
   commit id: "CIV exits at Round of 32"
   checkout teams/NOR
   merge teams/CIV id: "NOR advances to Round of 16"
+  checkout main
+  commit id: "use '{WTLA} advances to {NEXT_STAGE}' as mer"
+  checkout teams/FRA
+  commit id: "France advances to Round of 32"
+  checkout teams/SWE
+  commit id: "Sweden advances to Round of 32"
+  commit id: "SWE exits at Round of 32"
+  checkout teams/FRA
+  merge teams/SWE id: "FRA advances to Round of 16"
       </div>
     </div>
   </details>
@@ -327,12 +330,13 @@ gitGraph LR:
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">*   47ce430 NOR advances to Round of 16
+    <pre class="git-log">*   0bbe564 FRA advances to Round of 16
 |\  
-| * 56986eb eliminated: CIV exits at Round of 32
-| * 57a304b feat: Ivory Coast advances to Round of 32
-* | 155a45b Round of 32: Ivory Coast 1-2 Norway (2026-06-30)
-* | 31d39aa feat: Norway advances to Round of 32
+| * 409567c eliminated: SWE exits at Round of 32
+| * 8b96aa3 feat: Sweden advances to Round of 32
+* | 4503455 Round of 32: France 3-0 Sweden (2026-06-30)
+* | 4a6c4ef feat: France advances to Round of 32
+| | * bab3a2d chore: update results (2026-06-30)
 | | * 574bada chore: update results (2026-06-30)
 | | * 0e1d5bf Filter commit for GitGraph
 | | * a5e98d7 chore: update results (2026-06-30)
@@ -445,11 +449,11 @@ gitGraph LR:
 | | * | | | | | d6351b3 chore: update results (2026-06-26)
 | | * | | | | |   b2474ad Group F: NED, JPN, SWE advance (#16)
 | | |\ \ \ \ \ \  
-| | * \ \ \ \ \ \   e2a060a Group E: GER, CIV, ECU advance (#15)
-| | |\ \ \ \ \ \ \  
-| | |/ / / / / / /  
-| |/| | | | | | |   
-| | * | | | | | |   6f49e3c Group D: USA, AUS advance (#14)
+| | |/ / / / / /  
+| |/| | | | | |   
+| | * | | | | |   e2a060a Group E: GER, CIV, ECU advance (#15)
+| | |\ \ \ \ \ \  
+| | * \ \ \ \ \ \   6f49e3c Group D: USA, AUS advance (#14)
 | | |\ \ \ \ \ \ \  
 | | * | | | | | | | 8aae2fe chore: update results (2026-06-26)
 | | * | | | | | | | 0bd3a04 chore: update results (2026-06-25)
@@ -507,8 +511,7 @@ gitGraph LR:
 | | * | | | | | | | | | | e37f30d chore: update results (2026-06-23)
 | | * | | | | | | | | | | f027d96 Update starting_commit in state.json
 | | * | | | | | | | | | | 9bb0204 chore: update results (2026-06-23)
-| | * | | | | | | | | | | c6254c2 Update starting_commit in state.json
-| | * | | | | | | | | | | 795f227 chore: update results (2026-06-23)</pre>
+| | * | | | | | | | | | | c6254c2 Update starting_commit in state.json</pre>
   </details>
 
   <div id="gg-modal" role="dialog" aria-modal="true" aria-label="GitGraph fullscreen view">
@@ -552,6 +555,7 @@ gitGraph LR:
 <li>✅ <strong>Germany 4-5 (pen. 3-4) Paraguay</strong> → <strong>PAR</strong> <span class='date'>(2026-06-29)</span></li>
 <li>✅ <strong>Netherlands 3-4 (pen. 2-3) Morocco</strong> → <strong>MAR</strong> <span class='date'>(2026-06-30)</span></li>
 <li>✅ <strong>Ivory Coast 1-2 Norway</strong> → <strong>NOR</strong> <span class='date'>(2026-06-30)</span></li>
+<li>✅ <strong>France 3-0 Sweden</strong> → <strong>FRA</strong> <span class='date'>(2026-06-30)</span></li>
 </ul>
 </section>
 
