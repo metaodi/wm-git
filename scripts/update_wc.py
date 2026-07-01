@@ -126,23 +126,6 @@ def commit_and_push(branch: str, message: str, files: list[str] | None = None):
     git(["push", "-u", "origin", branch])
 
 
-def sync_tag(name: str, commit: str):
-    """Point lightweight tag *name* at *commit*, (re)pushing only if it moved.
-
-    Lets the README reference a stable tag name instead of a raw SHA even
-    though `starting_commit` is periodically advanced by hand.
-    """
-    if DRY_RUN:
-        log.info("[dry-run] would tag %s -> %s", name, commit[:12])
-        return
-    current = git(["rev-parse", "-q", "--verify", f"refs/tags/{name}"], check=False)
-    if current == commit:
-        return
-    git(["tag", "-f", name, commit])
-    git(["push", "origin", f"refs/tags/{name}", "--force"])
-    log.info("Tagged %s -> %s", name, commit[:12])
-
-
 def commit_already_exists(branch: str, grep: str) -> bool:
     if not branch_exists_local(branch) and not branch_exists_remote(branch):
         return False
@@ -1269,7 +1252,6 @@ def main():
             state["ending_commit"] = git(["rev-parse", "HEAD"])
             log.info("Recorded group stage end commit: %s", state["ending_commit"])
             print(f"  📸 Group stage end recorded at {state['ending_commit'][:12]}")
-            sync_tag("ending-commit", state["ending_commit"])
 
         print(f"\n🔥 Processing {len(new_ko)} knockout match(es)...")
         for m in new_ko:
@@ -1281,8 +1263,6 @@ def main():
     print("\n💾 Saving state, updating README, and generating site...")
     checkout("main")
     starting_commit = state.get("starting_commit")
-    if starting_commit and not DRY_RUN:
-        sync_tag("starting-commit", starting_commit)
     git_log_cmd = ["log", "--graph", "--oneline", "--all"]
     sep = "\x1f"
     git_output_cmd = ["log", "--all", "--topo-order", "--reverse", f"--pretty=format:%H{sep}%P{sep}%D{sep}%s"]
