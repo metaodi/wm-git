@@ -362,6 +362,12 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
                 "\n### GitGraph — KO Stage (mermaid)\n",
                 "```mermaid",
                 ko_graph,
+                "```\n",
+                "Prefer a plain terminal view? Clone the repo and run:\n",
+                "```bash",
+                "# View just the knockout bracket as a git graph, starting from",
+                "# the commit where the group stage ended (state.json.ending_commit)",
+                'git log --graph --oneline --all "$(jq -r .ending_commit state.json)^.."',
                 "```",
             ]
     elif mermaid_graph:
