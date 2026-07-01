@@ -321,6 +321,14 @@ gitGraph LR:
   merge teams/BIH id: "USA advances to Round of 16"
 ```
 
+Prefer a plain terminal view? Clone the repo and run:
+
+```bash
+# View just the knockout bracket as a git graph, starting from
+# the commit where the group stage ended (state.json.ending_commit)
+git log --graph --oneline --all "$(jq -r .ending_commit state.json)^.."
+```
+
 ## Git Log
 
 ```text
