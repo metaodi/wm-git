@@ -375,7 +375,26 @@ gitGraph LR:
 ```
 <details open><summary>
 
+<<<<<<< HEAD
 ## Git Log</summary>
+=======
+Prefer a plain terminal view? Clone the repo (tags included) and run:
+
+```bash
+# View just the knockout bracket as a git graph, starting from
+# the commit where the group stage ended
+git log --graph --oneline --all ending-commit^..
+```
+
+## Git Log
+>>>>>>> 1bce47b (Tag starting/ending commits so the README can reference stable names)
+
+Reproduce this view locally (older history is trimmed past the
+`starting-commit` tag to keep the graph readable):
+
+```bash
+git log --graph --oneline --all starting-commit^..
+```
 
 ```text
 * 4c78cbf Fix Git log details formatting in update_wc.py
