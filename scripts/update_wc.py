@@ -353,6 +353,12 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
                 "\n## GitGraph — KO Stage (mermaid)\n",
                 "```mermaid",
                 ko_graph,
+                "```\n",
+                "Prefer a plain terminal view? Clone the repo (tags included) and run:\n",
+                "```bash",
+                "# View just the knockout bracket as a git graph, starting from",
+                "# the commit where the group stage ended",
+                "git log --graph --oneline --all ending-commit^..",
                 "```",
             ]
     elif mermaid_graph:
@@ -365,6 +371,11 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     if git_log:
         lines += [
             "\n## Git Log\n",
+            "Reproduce this view locally (older history is trimmed past the",
+            "`starting-commit` tag to keep the graph readable):\n",
+            "```bash",
+            "git log --graph --oneline --all starting-commit^..",
+            "```\n",
             "```text",
             git_log.rstrip(),
             "```",
