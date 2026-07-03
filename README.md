@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage, Round of 32
 - **Matches played**: 84 / 104
-- **Last updated**: 2026-07-03 03:07 UTC
+- **Last updated**: 2026-07-03 03:10 UTC
 
 ## Groups
 
@@ -92,27 +92,26 @@ gitGraph LR:
   checkout group/A
   commit id: "initialize Group A"
   checkout main
-  branch tag: ko-stage-start order: 200
   merge group/A id: "MEX, RSA advance (#11)"
   checkout group/B
   commit id: "initialize Group B"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/B id: "SUI, CAN advance (#12)"
   checkout group/C
   commit id: "initialize Group C"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/C id: "BRA, MAR advance (#13)"
   checkout group/D
   commit id: "initialize Group D"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/D id: "USA, AUS advance (#14)"
   checkout group/E
   commit id: "initialize Group E"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/E id: "GER, CIV, ECU advance (#15)"
   checkout group/F
   commit id: "initialize Group F"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/F id: "NED, JPN, SWE advance (#16)"
   commit id: "Add third place standings markdown file"
   commit id: "Add Ecuador team to third place standings"
@@ -123,15 +122,15 @@ gitGraph LR:
   commit id: "Add Scotland to third place standings"
   checkout group/I
   commit id: "initialize Group I"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/I id: "FRA, NOR advance (#19)"
   checkout group/H
   commit id: "initialize Group H"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/H id: "ESP, CPV advance (#18)"
   checkout group/G
   commit id: "initialize Group G"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/G id: "BEL, EGY advance (#17)"
   commit id: "Add Iran's entry to the third place standings"
   commit id: "Add Senegal's results to third place standings"
@@ -139,15 +138,15 @@ gitGraph LR:
   commit id: "Add Congo DR to third place standings"
   checkout group/J
   commit id: "initialize Group J"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/J id: "ARG, AUT, ALG advance (#20)"
   checkout group/K
   commit id: "initialize Group K"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/K id: "COL, POR, COD advance (#21)"
   checkout group/L
   commit id: "initialize Group L"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/L id: "ENG, CRO, GHA advance (#22)"
   commit id: "Rearrange teams in third place standings"
 ```
@@ -333,6 +332,11 @@ gitGraph LR:
 ## Git Log
 
 ```text
+*   a6e491a Exclude git tags from Mermaid gitgraph output (#32)
+|\  
+| * fe37b87 Filter out git tags from mermaid gitgraph generation
+|/  
+* ecd85ce chore: update results (2026-07-03)
 * 2a1827a chore: update results (2026-07-03)
 | *   32e6f40 POR advances to Round of 16
 | |\  

@@ -63,7 +63,7 @@
 
   <div class="status">
     <span class="stat">⚽ <strong>84</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-07-03 03:07 UTC</span>
+    <span class="last-updated">Updated: 2026-07-03 03:10 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
@@ -286,27 +286,26 @@ gitGraph LR:
   checkout group/A
   commit id: "initialize Group A"
   checkout main
-  branch tag: ko-stage-start order: 200
   merge group/A id: "MEX, RSA advance (#11)"
   checkout group/B
   commit id: "initialize Group B"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/B id: "SUI, CAN advance (#12)"
   checkout group/C
   commit id: "initialize Group C"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/C id: "BRA, MAR advance (#13)"
   checkout group/D
   commit id: "initialize Group D"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/D id: "USA, AUS advance (#14)"
   checkout group/E
   commit id: "initialize Group E"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/E id: "GER, CIV, ECU advance (#15)"
   checkout group/F
   commit id: "initialize Group F"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/F id: "NED, JPN, SWE advance (#16)"
   commit id: "Add third place standings markdown file"
   commit id: "Add Ecuador team to third place standings"
@@ -317,15 +316,15 @@ gitGraph LR:
   commit id: "Add Scotland to third place standings"
   checkout group/I
   commit id: "initialize Group I"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/I id: "FRA, NOR advance (#19)"
   checkout group/H
   commit id: "initialize Group H"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/H id: "ESP, CPV advance (#18)"
   checkout group/G
   commit id: "initialize Group G"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/G id: "BEL, EGY advance (#17)"
   commit id: "Add Iran's entry to the third place standings"
   commit id: "Add Senegal's results to third place standings"
@@ -333,15 +332,15 @@ gitGraph LR:
   commit id: "Add Congo DR to third place standings"
   checkout group/J
   commit id: "initialize Group J"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/J id: "ARG, AUT, ALG advance (#20)"
   checkout group/K
   commit id: "initialize Group K"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/K id: "COL, POR, COD advance (#21)"
   checkout group/L
   commit id: "initialize Group L"
-  checkout tag: ko-stage-start
+  checkout main
   merge group/L id: "ENG, CRO, GHA advance (#22)"
   commit id: "Rearrange teams in third place standings"
       </div>
@@ -349,7 +348,12 @@ gitGraph LR:
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">* 2a1827a chore: update results (2026-07-03)
+    <pre class="git-log">*   a6e491a Exclude git tags from Mermaid gitgraph output (#32)
+|\  
+| * fe37b87 Filter out git tags from mermaid gitgraph generation
+|/  
+* ecd85ce chore: update results (2026-07-03)
+* 2a1827a chore: update results (2026-07-03)
 | *   32e6f40 POR advances to Round of 16
 | |\  
 | | * 665f9ab eliminated: CRO exits at Round of 32
@@ -534,10 +538,7 @@ gitGraph LR:
 * | | | | | | | | | | | | c9ac0a0 Disable scheduled updates for World Cup results
 * | | | | | | | | | | | | 3363bd4 chore: update results (2026-06-24)
 * | | | | | | | | | | | | 33f3158 chore: update results (2026-06-24)
-* | | | | | | | | | | | | 69a9d9b chore: update results (2026-06-24)
-* | | | | | | | | | | | | e9982f7 Update update_wc.py
-* | | | | | | | | | | | | d97b331 chore: update results (2026-06-24)
-* | | | | | | | | | | | | e5a5a17 Add commit id to gitGraph command output</pre>
+* | | | | | | | | | | | | 69a9d9b chore: update results (2026-06-24)</pre>
   </details>
 
   <div id="gg-modal" role="dialog" aria-modal="true" aria-label="GitGraph fullscreen view">
