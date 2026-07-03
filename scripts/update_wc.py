@@ -461,6 +461,8 @@ def generate_mermaid_gitgraph(
             r = ref.strip()
             if not r or r == "HEAD":
                 continue
+            if r.startswith("tag:"):
+                continue
             if " -> " in r:
                 r = r.split(" -> ")[-1].strip()
             if r.startswith("origin/"):
