@@ -7,3 +7,4 @@
 - 🤝 Portugal 1-1 Congo DR — Group Stage (2026-06-17)
 - ✅ Portugal 5-0 Uzbekistan — Group Stage (2026-06-23)
 - 🤝 Colombia 0-0 Portugal — Group Stage (2026-06-27)
+- ✅ Portugal 2-1 Croatia — Round of 32 (2026-07-02)
