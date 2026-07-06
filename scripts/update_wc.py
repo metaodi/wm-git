@@ -345,7 +345,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
             stage_ms = [m for m in ko if m["stage"] == stage]
             if not stage_ms:
                 continue
-            if stage_str == stage:
+            if stage_str == STAGE_LABEL[stage]:
                 openclosed = "open"
             else:
                 openclosed = ""
