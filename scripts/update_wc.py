@@ -313,7 +313,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
         f"- **Stage**: {stage_str}",
         f"- **Matches played**: {len(finished)} / {len(matches)}",
         f"- **Last updated**: {updated} UTC\n",
-        "<details><summary>## Groups\n</summary>",
+        "<details><summary>\n\n## Groups\n</summary>\n",
     ]
 
     groups: dict[str, list] = {}
@@ -347,7 +347,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
                 openclosed = "open"
             else:
                 openclosed = ""
-            lines.append(f"<details {openclosed}><summary>### {STAGE_LABEL[stage]}</summary>\n")
+            lines.append(f"<details {openclosed}><summary>\n\n### {STAGE_LABEL[stage]}</summary>\n")
             for m in sorted(stage_ms, key=lambda x: x["utcDate"]):
                 w = winner_tla(m)
                 adv = f" → **{w}**" if w else ""
@@ -373,7 +373,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     lines.append("</details>")
     if git_log:
         lines += [
-            "<details><summary>\n## Git Log</summary>\n",
+            "<details><summary>\n\n## Git Log</summary>\n",
             "```text",
             git_log.rstrip(),
             "```",
