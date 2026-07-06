@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Round of 16
 - **Matches played**: 92 / 104
-- **Last updated**: 2026-07-06 05:34 UTC
+- **Last updated**: 2026-07-06 09:04 UTC
 
 <details><summary>
 
@@ -161,7 +161,7 @@ gitGraph LR:
 - Colombia 1-0 Ghana → **COL**
 </details>
 
-<details ><summary>
+<details open><summary>
 
 ### Round of 16</summary>
 
@@ -378,6 +378,11 @@ gitGraph LR:
 ## Git Log</summary>
 
 ```text
+*   ca30f49 Merge branch 'main' of https://github.com/metaodi/wm-git
+|\  
+| * 8967924 chore: update results (2026-07-06)
+* | b00c831 Fix comparison for stage label
+|/  
 * 785ea76 FIx stage display
 * 4f66b0b chore: update results (2026-07-06)
 * 4c78cbf Fix Git log details formatting in update_wc.py
