@@ -313,7 +313,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
         f"- **Stage**: {stage_str}",
         f"- **Matches played**: {len(finished)} / {len(matches)}",
         f"- **Last updated**: {updated} UTC\n",
-        "## Groups\n",
+        "<details><summary>## Groups\n</summary>",
     ]
 
     groups: dict[str, list] = {}
@@ -325,14 +325,29 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
         done = sum(1 for m in groups[letter] if m["status"] == "FINISHED")
         lines.append(f"- **Group {letter}**: {done}/{len(groups[letter])} played → `group/{letter}`")
 
+  if ending_commit:
+        if group_stage_graph:
+            lines += [
+                "\n### GitGraph — Group Stage (Snapshot, mermaid)\n",
+                "```mermaid",
+                group_stage_graph,
+                "```",
+            ]
+    lines.append("</details>")
+
     ko = [m for m in finished if m["stage"] in KO_STAGES]
     if ko:
         lines.append("\n## Knockout Bracket\n")
+        
         for stage in KO_STAGES:
             stage_ms = [m for m in ko if m["stage"] == stage]
             if not stage_ms:
                 continue
-            lines.append(f"### {STAGE_LABEL[stage]}\n")
+            if stage_str == stage:
+                openclosed = "open"
+            else:
+                openclosed = ""
+            lines.append(f"<details {openclosed}><summary>### {STAGE_LABEL[stage]}</summary>\n")
             for m in sorted(stage_ms, key=lambda x: x["utcDate"]):
                 w = winner_tla(m)
                 adv = f" → **{w}**" if w else ""
@@ -341,34 +356,29 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
                 )
             lines.append("")
     if ending_commit:
-        if group_stage_graph:
-            lines += [
-                "\n## GitGraph — Group Stage (Snapshot, mermaid)\n",
-                "```mermaid",
-                group_stage_graph,
-                "```",
-            ]
         if ko_graph:
             lines += [
-                "\n## GitGraph — KO Stage (mermaid)\n",
+                "\n### GitGraph — KO Stage (mermaid)\n",
                 "```mermaid",
                 ko_graph,
                 "```",
             ]
     elif mermaid_graph:
         lines += [
-            "\n## GitGraph (mermaid)\n",
+            "\n### GitGraph (mermaid)\n",
             "```mermaid",
             mermaid_graph,
             "```",
         ]
+    lines.append("</details>")
     if git_log:
         lines += [
-            "\n## Git Log\n",
+            "<details><summary>\n## Git Log</summary>\n",
             "```text",
             git_log.rstrip(),
             "```",
         ]
+    lines.append("</details>")
 
     return "\n".join(lines)
 
