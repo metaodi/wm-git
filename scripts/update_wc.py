@@ -380,6 +380,11 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     if git_log:
         lines += [
             "<details open><summary>\n\n## Git Log</summary>\n",
+            "Reproduce this view locally (older history is trimmed past the",
+            "`group-stage-start` tag to keep the graph readable):\n",
+            "```bash",
+            "git log --graph --oneline --all group-stage-start^..",
+            "```\n",
             "```text",
             git_log.rstrip(),
             "```",
