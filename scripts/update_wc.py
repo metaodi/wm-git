@@ -325,7 +325,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
         done = sum(1 for m in groups[letter] if m["status"] == "FINISHED")
         lines.append(f"- **Group {letter}**: {done}/{len(groups[letter])} played → `group/{letter}`")
 
-  if ending_commit:
+    if ending_commit:
         if group_stage_graph:
             lines += [
                 "\n### GitGraph — Group Stage (Snapshot, mermaid)\n",
