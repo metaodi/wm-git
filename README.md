@@ -20,10 +20,13 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage, Round of 16, Round of 32
 - **Matches played**: 92 / 104
-- **Last updated**: 2026-07-06 04:10 UTC
+- **Last updated**: 2026-07-06 05:27 UTC
 
-<details><summary>## Groups
+<details><summary>
+
+## Groups
 </summary>
+
 - **Group A**: 6/6 played → `group/A`
 - **Group B**: 6/6 played → `group/B`
 - **Group C**: 6/6 played → `group/C`
@@ -136,7 +139,9 @@ gitGraph LR:
 
 ## Knockout Bracket
 
-<details ><summary>### Round of 32</summary>
+<details ><summary>
+
+### Round of 32</summary>
 
 - South Africa 0-1 Canada → **CAN**
 - Brazil 2-1 Japan → **BRA**
@@ -155,7 +160,9 @@ gitGraph LR:
 - Argentina 3-2 Cape Verde → **ARG**
 - Colombia 1-0 Ghana → **COL**
 
-<details ><summary>### Round of 16</summary>
+<details ><summary>
+
+### Round of 16</summary>
 
 - Canada 0-3 Morocco → **MAR**
 - Paraguay 0-1 France → **FRA**
@@ -366,9 +373,12 @@ gitGraph LR:
 ```
 </details>
 <details><summary>
+
 ## Git Log</summary>
 
 ```text
+* d93e92d Fix formatting of details and summary tags in update_wc.py
+* 09ab11a chore: update results (2026-07-06)
 * 94b851f Fix indentation for ending_commit condition
 * aceb70e Refactor status and groups display in update_wc.py
 * ccc7d81 chore: update results (2026-07-06)
