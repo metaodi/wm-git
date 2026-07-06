@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Group Stage, Round of 16, Round of 32
 - **Matches played**: 92 / 104
-- **Last updated**: 2026-07-06 05:27 UTC
+- **Last updated**: 2026-07-06 05:30 UTC
 
 <details><summary>
 
@@ -159,6 +159,7 @@ gitGraph LR:
 - Australia 3-5 (pen. 2-4) Egypt → **EGY**
 - Argentina 3-2 Cape Verde → **ARG**
 - Colombia 1-0 Ghana → **COL**
+</details>
 
 <details ><summary>
 
@@ -168,6 +169,7 @@ gitGraph LR:
 - Paraguay 0-1 France → **FRA**
 - Brazil 1-2 Norway → **NOR**
 - Mexico 2-3 England → **ENG**
+</details>
 
 
 ### GitGraph — KO Stage (mermaid)
@@ -371,12 +373,13 @@ gitGraph LR:
   checkout teams/ENG
   merge teams/MEX id: "ENG advances to Quarter-finals"
 ```
-</details>
-<details><summary>
+<details open><summary>
 
 ## Git Log</summary>
 
 ```text
+* 4c78cbf Fix Git log details formatting in update_wc.py
+* 955aec3 chore: update results (2026-07-06)
 * d93e92d Fix formatting of details and summary tags in update_wc.py
 * 09ab11a chore: update results (2026-07-06)
 * 94b851f Fix indentation for ending_commit condition
