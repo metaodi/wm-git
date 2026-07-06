@@ -284,8 +284,10 @@ def team_md(tla: str, name: str, matches: list[dict], status: str = "") -> str:
 def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
     finished = [m for m in matches if m["status"] == "FINISHED"]
     updated = state.get("updated", "N/A")[:16].replace("T", " ")
-    active_stages = sorted({m["stage"] for m in finished})
-    stage_str = ", ".join(STAGE_LABEL.get(s, s) for s in active_stages) or "Not started"
+    stage_order = ["GROUP_STAGE"] + KO_STAGES
+    active_stages = {m["stage"] for m in finished}
+    latest_stage = max(active_stages, key=stage_order.index, default=None)
+    stage_str = STAGE_LABEL.get(latest_stage, latest_stage) if latest_stage else "Not started"
     starting_commit = state.get("starting_commit")
     ending_commit = state.get("ending_commit")
     team_order = compute_team_bracket_order(matches, state)

@@ -18,7 +18,7 @@ git log --graph --oneline --all
 
 ## Status
 
-- **Stage**: Group Stage, Round of 16, Round of 32
+- **Stage**: Round of 16
 - **Matches played**: 92 / 104
 - **Last updated**: 2026-07-06 05:30 UTC
 
