@@ -62,8 +62,8 @@
   <h1>🏆 2026 FIFA World Cup in Git <a href="https://github.com/metaodi/wm-git" style="font-size:.6em;font-weight:400;vertical-align:middle" title="View on GitHub">GitHub</a></h1>
 
   <div class="status">
-    <span class="stat">⚽ <strong>91</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-07-05 11:51 UTC</span>
+    <span class="stat">⚽ <strong>92</strong> / <strong>104</strong> matches played</span>
+    <span class="last-updated">Updated: 2026-07-05 22:18 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
@@ -143,20 +143,6 @@ gitGraph LR:
   checkout main
   branch teams/GHA order: 852
   checkout main
-  checkout teams/MEX
-  commit id: "Mexico advances to Round of 32"
-  checkout teams/ECU
-  commit id: "Ecuador advances to Round of 32"
-  commit id: "ECU exits at Round of 32"
-  checkout teams/MEX
-  merge teams/ECU id: "MEX advances to Round of 16"
-  checkout teams/ENG
-  commit id: "England advances to Round of 32"
-  checkout teams/COD
-  commit id: "Congo DR advances to Round of 32"
-  commit id: "COD exits at Round of 32"
-  checkout teams/ENG
-  merge teams/COD id: "ENG advances to Round of 16"
   checkout teams/BEL
   commit id: "Belgium advances to Round of 32"
   checkout teams/SEN
@@ -266,6 +252,23 @@ gitGraph LR:
   commit id: "BRA exits at Round of 16"
   checkout teams/NOR
   merge teams/BRA id: "NOR advances to Quarter-finals"
+  checkout teams/ENG
+  commit id: "England advances to Round of 32"
+  checkout teams/COD
+  commit id: "Congo DR advances to Round of 32"
+  commit id: "COD exits at Round of 32"
+  checkout teams/ENG
+  merge teams/COD id: "ENG advances to Round of 16"
+  checkout teams/MEX
+  commit id: "Mexico advances to Round of 32"
+  checkout teams/ECU
+  commit id: "Ecuador advances to Round of 32"
+  commit id: "ECU exits at Round of 32"
+  checkout teams/MEX
+  merge teams/ECU id: "MEX advances to Round of 16"
+  commit id: "MEX exits at Round of 16"
+  checkout teams/ENG
+  merge teams/MEX id: "ENG advances to Quarter-finals"
       </div>
     </div>
   </details>
@@ -369,22 +372,23 @@ gitGraph LR:
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">*   8a17a8c NOR advances to Quarter-finals
+    <pre class="git-log">*   4522da5 ENG advances to Quarter-finals
 |\  
-| * 4f26c72 eliminated: BRA exits at Round of 16
-| *   5d7caa6 BRA advances to Round of 16
+| * 49ae15f eliminated: MEX exits at Round of 16
+| *   8a147ed MEX advances to Round of 16
 | |\  
-| | * 126b286 eliminated: JPN exits at Round of 32
-| | * e07b324 feat: Japan advances to Round of 32
-| * | 43e8655 Round of 32: Brazil 2-1 Japan (2026-06-29)
-| * | 038f852 feat: Brazil advances to Round of 32
-* | | 21ebeea Round of 16: Brazil 1-2 Norway (2026-07-05)
-* | |   47ce430 NOR advances to Round of 16
+| | * 6a3ae53 eliminated: ECU exits at Round of 32
+| | * 09d842a feat: Ecuador advances to Round of 32
+| * | bf5fd68 Round of 32: Mexico 2-0 Ecuador (2026-07-01)
+| * | 447aabb feat: Mexico advances to Round of 32
+* | | 41cb7a6 Round of 16: Mexico 2-3 England (2026-07-06)
+* | |   a261540 ENG advances to Round of 16
 |\ \ \  
-| * | | 56986eb eliminated: CIV exits at Round of 32
-| * | | 57a304b feat: Ivory Coast advances to Round of 32
-* | | | 155a45b Round of 32: Ivory Coast 1-2 Norway (2026-06-30)
-* | | | 31d39aa feat: Norway advances to Round of 32
+| * | | 7d3165d eliminated: COD exits at Round of 32
+| * | | 5672b0b feat: Congo DR advances to Round of 32
+* | | | acacf83 Round of 32: England 2-1 Congo DR (2026-07-01)
+* | | | 8b598ba feat: England advances to Round of 32
+| | | | * 7d895ca chore: update results (2026-07-05)
 | | | | * 58dffe0 chore: update results (2026-07-05)
 | | | | * 8e2846a chore: update results (2026-07-05)
 | | | | * 447e953 chore: update results (2026-07-04)
@@ -403,54 +407,78 @@ gitGraph LR:
 | | | | |/  
 | | | | * ecd85ce chore: update results (2026-07-03)
 | | | | * 2a1827a chore: update results (2026-07-03)
-| | | | | *   567732a FRA advances to Quarter-finals
+| | | | | *   8a17a8c NOR advances to Quarter-finals
 | | | | | |\  
-| | | | | | * ce0fc71 eliminated: PAR exits at Round of 16
-| | | | | | *   5505e76 PAR advances to Round of 16
+| | | | | | * 4f26c72 eliminated: BRA exits at Round of 16
+| | | | | | *   5d7caa6 BRA advances to Round of 16
 | | | | | | |\  
-| | | | | | | * a8fd897 eliminated: GER exits at Round of 32
-| | | | | | | * c4373a3 feat: Germany advances to Round of 32
-| | |_|_|_|_|/  
-| |/| | | | |   
-| | | | | | * 67ce0af Round of 32: Germany 5-6 (pen. 5-5) Paraguay (2026-06-29)
-| | | | | | * 7803851 feat: Paraguay advances to Round of 32
-| | | | | * | bffaaf1 Round of 16: Paraguay 0-1 France (2026-07-04)
-| | | | | * |   0bbe564 FRA advances to Round of 16
-| | | | | |\ \  
-| | | | | | * | 409567c eliminated: SWE exits at Round of 32
-| | | | | | * | 8b96aa3 feat: Sweden advances to Round of 32
-| | | | |_|/ /  
-| | | |/| | |   
-| | | | | * | 4503455 Round of 32: France 3-0 Sweden (2026-06-30)
-| | | | | * | 4a6c4ef feat: France advances to Round of 32
-| |_|_|_|/ /  
-|/| | | | |   
-| | | | | | *   8f383a4 MAR advances to Quarter-finals
-| | | | | | |\  
-| | | | | | | * 7c0271c eliminated: CAN exits at Round of 16
-| | | | | | | *   c8473e6 CAN advances to Round of 16
-| | | | | | | |\  
-| | | | | | | | * 8ea328b eliminated: RSA exits at Round of 32
-| | | | | | | | * ad50414 feat: South Africa advances to Round of 32
-| | | | | | | * | 31f0f6d Round of 32: South Africa 0-1 Canada (2026-06-28)
-| | | | | | | * | 9e0d65e feat: Canada advances to Round of 32
-| | | | | | * | | 1e29076 Round of 16: Canada 0-3 Morocco (2026-07-04)
-| | | | | | * | |   4df302e MAR advances to Round of 16
-| | | | | | |\ \ \  
-| | | | | | | * | | b108d41 eliminated: NED exits at Round of 32
-| | | | | | | * | | 6f089b1 feat: Netherlands advances to Round of 32
-| | | | |_|_|/ / /  
-| | | |/| | | | |   
-| | | | | | * | | 7f486e2 Round of 32: Netherlands 3-4 (pen. 2-2) Morocco (2026-06-30)
-| | | | | | * | | b958ff3 feat: Morocco advances to Round of 32
-| | | |_|_|/ / /  
-| | |/| | | | |   
-| | | | | | | | *   be1d028 COL advances to Round of 16
+| | | | | | | * 126b286 eliminated: JPN exits at Round of 32
+| | | | | | | * e07b324 feat: Japan advances to Round of 32
+| | | | | | * | 43e8655 Round of 32: Brazil 2-1 Japan (2026-06-29)
+| | | | | | * | 038f852 feat: Brazil advances to Round of 32
+| | | | | * | | 21ebeea Round of 16: Brazil 1-2 Norway (2026-07-05)
+| | | | | * | |   47ce430 NOR advances to Round of 16
+| | | | | |\ \ \  
+| | | | | | * | | 56986eb eliminated: CIV exits at Round of 32
+| | | | | | * | | 57a304b feat: Ivory Coast advances to Round of 32
+| | | | |_|/ / /  
+| | | |/| | | |   
+| | | | | * | | 155a45b Round of 32: Ivory Coast 1-2 Norway (2026-06-30)
+| | | | | * | | 31d39aa feat: Norway advances to Round of 32
+| | | | | | | | *   567732a FRA advances to Quarter-finals
 | | | | | | | | |\  
-| | | | | | | | | * 2a9c875 eliminated: GHA exits at Round of 32
-| | | | | | | | | * be71aa7 feat: Ghana advances to Round of 32
-| | | | | | | | * | dad1f15 Round of 32: Colombia 1-0 Ghana (2026-07-04)
-| | | | | | | | * | c4fe5ae feat: Colombia advances to Round of 32
+| | | | | | | | | * ce0fc71 eliminated: PAR exits at Round of 16
+| | | | | | | | | *   5505e76 PAR advances to Round of 16
+| | | | | | | | | |\  
+| | | | | | | | | | * a8fd897 eliminated: GER exits at Round of 32
+| | | | | | | | | | * c4373a3 feat: Germany advances to Round of 32
+| | | | |_|_|_|_|_|/  
+| | | |/| | | | | |   
+| | | | | | | | | * 67ce0af Round of 32: Germany 5-6 (pen. 5-5) Paraguay (2026-06-29)
+| | | | | | | | | * 7803851 feat: Paraguay advances to Round of 32
+| | | | | | | | * | bffaaf1 Round of 16: Paraguay 0-1 France (2026-07-04)
+| | | | | | | | * |   0bbe564 FRA advances to Round of 16
+| | | | | | | | |\ \  
+| | | | | | | | | * | 409567c eliminated: SWE exits at Round of 32
+| | | | | | | | | * | 8b96aa3 feat: Sweden advances to Round of 32
+| | | | | | | | |/ /  
+| | | | | | | |/| |   
+| | | | | | | | * | 4503455 Round of 32: France 3-0 Sweden (2026-06-30)
+| | | | | | | | * | 4a6c4ef feat: France advances to Round of 32
+| | | | | | |_|/ /  
+| | | | | |/| | |   
+| | | | | | | | | *   8f383a4 MAR advances to Quarter-finals
+| | | | | | | | | |\  
+| | | | | | | | | | * 7c0271c eliminated: CAN exits at Round of 16
+| | | | | | | | | | *   c8473e6 CAN advances to Round of 16
+| | | | | | | | | | |\  
+| | | | | | | | | | | * 8ea328b eliminated: RSA exits at Round of 32
+| | | | | | | | | | | * ad50414 feat: South Africa advances to Round of 32
+| | | |_|_|_|_|_|_|_|/  
+| | |/| | | | | | | |   
+| | | | | | | | | | * 31f0f6d Round of 32: South Africa 0-1 Canada (2026-06-28)
+| | | | | | | | | | * 9e0d65e feat: Canada advances to Round of 32
+| | | | | | | | | * | 1e29076 Round of 16: Canada 0-3 Morocco (2026-07-04)
+| | | | | | | | | * |   4df302e MAR advances to Round of 16
+| | | | | | | | | |\ \  
+| | | | | | | | | | * | b108d41 eliminated: NED exits at Round of 32
+| | | | | | | | | | * | 6f089b1 feat: Netherlands advances to Round of 32
+| | | | | | | | |_|/ /  
+| | | | | | | |/| | |   
+| | | | | | | | | * | 7f486e2 Round of 32: Netherlands 3-4 (pen. 2-2) Morocco (2026-06-30)
+| | | | | | | | | * | b958ff3 feat: Morocco advances to Round of 32
+| | | | | | | |_|/ /  
+| | | | | | |/| | |   
+| | | | | | | | | | *   be1d028 COL advances to Round of 16
+| | | | | | | | | | |\  
+| | | | | | | | | | | * 2a9c875 eliminated: GHA exits at Round of 32
+| | | | | | | | | | | * be71aa7 feat: Ghana advances to Round of 32
+| |_|_|_|_|_|_|_|_|_|/  
+|/| | | | | | | | | |   
+| | | | | | | | | | * dad1f15 Round of 32: Colombia 1-0 Ghana (2026-07-04)
+| | | | | | | | | | * c4fe5ae feat: Colombia advances to Round of 32
+| | |_|_|_|_|_|_|_|/  
+| |/| | | | | | | |   
 | | | | | | | | | | *   bcfccf3 ARG advances to Round of 16
 | | | | | | | | | | |\  
 | | | | | | | | | | | * 39961c8 eliminated: CPV exits at Round of 32
@@ -461,8 +489,8 @@ gitGraph LR:
 | | | | | | | | | | | | |\  
 | | | | | | | | | | | | | * 192abc0 eliminated: AUS exits at Round of 32
 | | | | | | | | | | | | | * 42b8d83 feat: Australia advances to Round of 32
-| | | | | | |_|_|_|_|_|_|/  
-| | | | | |/| | | | | | |   
+| | | | | | | | | |_|_|_|/  
+| | | | | | | | |/| | | |   
 | | | | | | | | | | | | * 215440a Round of 32: Australia 3-5 (pen. 4-4) Egypt (2026-07-03)
 | | | | | | | | | | | | * c55e2b9 feat: Egypt advances to Round of 32
 | | | | | | | | | | | | | *   931e68b SUI advances to Round of 16
@@ -473,18 +501,18 @@ gitGraph LR:
 | | | | | | | | | | |/| | |   
 | | | | | | | | | | | | | * d0810f7 Round of 32: Switzerland 2-0 Algeria (2026-07-03)
 | | | | | | | | | | | | | * f81e0ef feat: Switzerland advances to Round of 32
-| | | | | | | |_|_|_|_|_|/  
-| | | | | | |/| | | | | |   
+| | | | | | | | | | |_|_|/  
+| | | | | | | | | |/| | |   
 | | | | | | | | | | | | | *   32e6f40 POR advances to Round of 16
 | | | | | | | | | | | | | |\  
 | | | | | | | | | | | | | | * 665f9ab eliminated: CRO exits at Round of 32
 | | | | | | | | | | | | | | * 17d2671 feat: Croatia advances to Round of 32
-| | | | | | | | | | |_|_|_|/  
-| | | | | | | | | |/| | | |   
+| |_|_|_|_|_|_|_|_|_|_|_|_|/  
+|/| | | | | | | | | | | | |   
 | | | | | | | | | | | | | * da6fbf7 Round of 32: Portugal 2-1 Croatia (2026-07-02)
 | | | | | | | | | | | | | * 1100b4d feat: Portugal advances to Round of 32
-| | | | | | | | | |_|_|_|/  
-| | | | | | | | |/| | | |   
+| | |_|_|_|_|_|_|_|_|_|_|/  
+| |/| | | | | | | | | | |   
 | | | | | | | | | | | | | *   fd3a7a2 ESP advances to Round of 16
 | | | | | | | | | | | | | |\  
 | | | | | | | | | | | | | | * 76e3812 eliminated: AUT exits at Round of 32
@@ -556,30 +584,7 @@ gitGraph LR:
 | | | | |/ / / / / / / / /  
 | | | | * | | | | | | | | f3c37a8 Update Ghana team status with checkmark
 | | | | * | | | | | | | | 8bf4695 Rearrange teams in third place standings
-| | | | * | | | | | | | | a6a2976 Update standings in third_place.md
-| | | | * | | | | | | | | 5d5cd1b chore: update results (2026-06-28)
-| | | | * | | | | | | | |   c9b1c6a Group L: ENG, CRO, GHA advance (#22)
-| | | | |\ \ \ \ \ \ \ \ \  
-| | | | | | |_|_|_|/ / / /  
-| | | | | |/| | | | | | |   
-| | | | * | | | | | | | |   3e29db3 Group K: COL, POR, COD advance (#21)
-| | | | |\ \ \ \ \ \ \ \ \  
-| | | | | | |_|_|_|/ / / /  
-| | | | | |/| | | | | | |   
-| | | | * | | | | | | | |   3d49e70 Group J: ARG, AUT, ALG advance (#20)
-| | | | |\ \ \ \ \ \ \ \ \  
-| | | | | | |_|_|_|_|/ / /  
-| | | | | |/| | | | | | |   
-| | | | | * | | | | | | | a263387 Group J, MD3: Algeria 3-3 Austria (2026-06-28)
-| | | | | * | | | | | | | f789e3c Group J, MD3: Jordan 1-3 Argentina (2026-06-28)
-| | | | | * | | | | | | | 64f56fa Group J, MD2: Jordan 1-2 Algeria (2026-06-23)
-| | | | | * | | | | | | | a04bce5 Group J, MD2: Argentina 2-0 Austria (2026-06-22)
-| | | | | * | | | | | | | d62db80 Group J, MD1: Austria 3-1 Jordan (2026-06-17)
-| | | | | * | | | | | | | 555de8f Group J, MD1: Argentina 3-0 Algeria (2026-06-17)
-| | | | | * | | | | | | | 26d1524 feat: initialize Group J
-| | | | * | | | | | | | | 122e90f chore: update results (2026-06-28)
-| | | | * | | | | | | | | 2c38269 chore: update results (2026-06-27)
-| | | | * | | | | | | | | d17b313 Enable parallel commits in gitGraph configuration</pre>
+| | | | * | | | | | | | | a6a2976 Update standings in third_place.md</pre>
   </details>
 
   <div id="gg-modal" role="dialog" aria-modal="true" aria-label="GitGraph fullscreen view">
@@ -639,6 +644,7 @@ gitGraph LR:
 <li>✅ <strong>Canada 0-3 Morocco</strong> → <strong>MAR</strong> <span class='date'>(2026-07-04)</span></li>
 <li>✅ <strong>Paraguay 0-1 France</strong> → <strong>FRA</strong> <span class='date'>(2026-07-04)</span></li>
 <li>✅ <strong>Brazil 1-2 Norway</strong> → <strong>NOR</strong> <span class='date'>(2026-07-05)</span></li>
+<li>✅ <strong>Mexico 2-3 England</strong> → <strong>ENG</strong> <span class='date'>(2026-07-06)</span></li>
 </ul>
 </section>
 
