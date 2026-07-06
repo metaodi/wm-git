@@ -354,6 +354,7 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
                 lines.append(
                     f"- {tname(m['homeTeam'])} {fmt_score(m)} {tname(m['awayTeam'])}{adv}"
                 )
+            lines.append("</details>")
             lines.append("")
     if ending_commit:
         if ko_graph:
@@ -370,10 +371,9 @@ def readme_md(matches: list[dict], state: dict, git_log: str = "") -> str:
             mermaid_graph,
             "```",
         ]
-    lines.append("</details>")
     if git_log:
         lines += [
-            "<details><summary>\n\n## Git Log</summary>\n",
+            "<details open><summary>\n\n## Git Log</summary>\n",
             "```text",
             git_log.rstrip(),
             "```",
