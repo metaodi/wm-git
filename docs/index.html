@@ -62,8 +62,8 @@
   <h1>🏆 2026 FIFA World Cup in Git <a href="https://github.com/metaodi/wm-git" style="font-size:.6em;font-weight:400;vertical-align:middle" title="View on GitHub">GitHub</a></h1>
 
   <div class="status">
-    <span class="stat">⚽ <strong>95</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-07-07 18:10 UTC</span>
+    <span class="stat">⚽ <strong>96</strong> / <strong>104</strong> matches played</span>
+    <span class="last-updated">Updated: 2026-07-07 18:29 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
@@ -143,20 +143,6 @@ gitGraph LR:
   checkout main
   branch teams/GHA order: 852
   checkout main
-  checkout teams/SUI
-  commit id: "Switzerland advances to Round of 32"
-  checkout teams/ALG
-  commit id: "Algeria advances to Round of 32"
-  commit id: "ALG exits at Round of 32"
-  checkout teams/SUI
-  merge teams/ALG id: "SUI advances to Round of 16"
-  checkout teams/COL
-  commit id: "Colombia advances to Round of 32"
-  checkout teams/GHA
-  commit id: "Ghana advances to Round of 32"
-  commit id: "GHA exits at Round of 32"
-  checkout teams/COL
-  merge teams/GHA id: "COL advances to Round of 16"
   checkout teams/MAR
   commit id: "Morocco advances to Round of 32"
   checkout teams/NED
@@ -259,8 +245,6 @@ gitGraph LR:
   commit id: "USA exits at Round of 16"
   checkout teams/BEL
   merge teams/USA id: "BEL advances to Quarter-finals"
-  checkout main
-  commit id: "use '{WTLA} advances to {NEXT_STAGE}' as mer"
   checkout teams/ARG
   commit id: "Argentina advances to Round of 32"
   checkout teams/CPV
@@ -278,6 +262,25 @@ gitGraph LR:
   commit id: "EGY exits at Round of 16"
   checkout teams/ARG
   merge teams/EGY id: "ARG advances to Quarter-finals"
+  checkout main
+  commit id: "use '{WTLA} advances to {NEXT_STAGE}' as mer"
+  checkout teams/SUI
+  commit id: "Switzerland advances to Round of 32"
+  checkout teams/ALG
+  commit id: "Algeria advances to Round of 32"
+  commit id: "ALG exits at Round of 32"
+  checkout teams/SUI
+  merge teams/ALG id: "SUI advances to Round of 16"
+  checkout teams/COL
+  commit id: "Colombia advances to Round of 32"
+  checkout teams/GHA
+  commit id: "Ghana advances to Round of 32"
+  commit id: "GHA exits at Round of 32"
+  checkout teams/COL
+  merge teams/GHA id: "COL advances to Round of 16"
+  commit id: "COL exits at Round of 16"
+  checkout teams/SUI
+  merge teams/COL id: "SUI advances to Quarter-finals"
       </div>
     </div>
   </details>
@@ -381,22 +384,24 @@ gitGraph LR:
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">*   fe896e2 ARG advances to Quarter-finals
+    <pre class="git-log">*   a841ec9 SUI advances to Quarter-finals
 |\  
-| * e14977f eliminated: EGY exits at Round of 16
-| *   1dc3ab5 EGY advances to Round of 16
+| * ec8aee3 eliminated: COL exits at Round of 16
+| *   be1d028 COL advances to Round of 16
 | |\  
-| | * 192abc0 eliminated: AUS exits at Round of 32
-| | * 42b8d83 feat: Australia advances to Round of 32
-| * | 215440a Round of 32: Australia 3-5 (pen. 4-4) Egypt (2026-07-03)
-| * | c55e2b9 feat: Egypt advances to Round of 32
-* | | 0229362 Round of 16: Argentina 3-2 Egypt (2026-07-07)
-* | |   bcfccf3 ARG advances to Round of 16
+| | * 2a9c875 eliminated: GHA exits at Round of 32
+| | * be71aa7 feat: Ghana advances to Round of 32
+| * | dad1f15 Round of 32: Colombia 1-0 Ghana (2026-07-04)
+| * | c4fe5ae feat: Colombia advances to Round of 32
+* | | 089152c Round of 16: Switzerland 4-3 (pen. 3-3) Colombia (2026-07-07)
+* | |   931e68b SUI advances to Round of 16
 |\ \ \  
-| * | | 39961c8 eliminated: CPV exits at Round of 32
-| * | | cbdbe9d feat: Cape Verde advances to Round of 32
-* | | | 89dde02 Round of 32: Argentina 3-2 Cape Verde (2026-07-03)
-* | | | 50d9b3a feat: Argentina advances to Round of 32
+| * | | 47a0b03 eliminated: ALG exits at Round of 32
+| * | | 1625e5c feat: Algeria advances to Round of 32
+* | | | d0810f7 Round of 32: Switzerland 2-0 Algeria (2026-07-03)
+* | | | f81e0ef feat: Switzerland advances to Round of 32
+| | | | * 1ce83fe Change penalty score retrieval to fullTime
+| | | | * 446aed3 chore: update results (2026-07-07)
 | | | | * 737f596 chore: update results (2026-07-07)
 | | | | * ca63580 chore: update results (2026-07-07)
 | | | | * e5326b4 chore: update results (2026-07-06)
@@ -494,30 +499,30 @@ gitGraph LR:
 | | | | * 5d5cd1b chore: update results (2026-06-28)
 | | | | *   c9b1c6a Group L: ENG, CRO, GHA advance (#22)
 | | | | |\  
-| | | | * \   3e29db3 Group K: COL, POR, COD advance (#21)
+| | | | |/  
+| | | |/|   
+| | | | *   3e29db3 Group K: COL, POR, COD advance (#21)
+| | | | |\  
+| | | |_|/  
+| | |/| |   
+| | | | *   3d49e70 Group J: ARG, AUT, ALG advance (#20)
+| | | | |\  
+| | |_|_|/  
+| |/| | |   
+| | | | * 122e90f chore: update results (2026-06-28)
+| | | | * 2c38269 chore: update results (2026-06-27)
+| | | | * d17b313 Enable parallel commits in gitGraph configuration
+| | | | * e845a12 Add Congo DR to third place standings
+| | | | * 1ee9c12 Add Uruguay to third place standings
+| | | | * a7ed900 Update third_place.md
+| | | | * d36044a Add Senegal's results to third place standings
+| | | | * ff1eee7 Add Iran's entry to the third place standings
+| | | | * fc045de Update group standings and match results
+| | | | * 66a20dd Mark Paraguay as qualified with a checkmark
+| | | | *   35e2cf4 Group G: BEL, EGY advance (#17)
+| | | | |\  
+| | | | * \   e3bea87 Group H: ESP, CPV advance (#18)
 | | | | |\ \  
-| | | | * \ \   3d49e70 Group J: ARG, AUT, ALG advance (#20)
-| | | | |\ \ \  
-| |_|_|_|/ / /  
-|/| | | | | |   
-| | | | * | | 122e90f chore: update results (2026-06-28)
-| | | | * | | 2c38269 chore: update results (2026-06-27)
-| | | | * | | d17b313 Enable parallel commits in gitGraph configuration
-| | | | * | | e845a12 Add Congo DR to third place standings
-| | | | * | | 1ee9c12 Add Uruguay to third place standings
-| | | | * | | a7ed900 Update third_place.md
-| | | | * | | d36044a Add Senegal's results to third place standings
-| | | | * | | ff1eee7 Add Iran's entry to the third place standings
-| | | | * | | fc045de Update group standings and match results
-| | | | * | | 66a20dd Mark Paraguay as qualified with a checkmark
-| | | | * | |   35e2cf4 Group G: BEL, EGY advance (#17)
-| | | | |\ \ \  
-| | | |_|/ / /  
-| | |/| | | |   
-| | | | * | |   e3bea87 Group H: ESP, CPV advance (#18)
-| | | | |\ \ \  
-| | |_|_|/ / /  
-| |/| | | | |   
 | | | | * | | bf25afa chore: update results (2026-06-27)
 | | | | * | | 0f51768 chore: update results (2026-06-27)
 | | | | * | |   7cd5b66 Group I: FRA, NOR advance (#19)
@@ -561,11 +566,7 @@ gitGraph LR:
 | | | | |\ \ \ \ \  
 | | | | * \ \ \ \ \   6f49e3c Group D: USA, AUS advance (#14)
 | | | | |\ \ \ \ \ \  
-| | | | |/ / / / / /  
-| | | |/| | | | | |   
-| | | | * | | | | | 8aae2fe chore: update results (2026-06-26)
-| | | | * | | | | | 0bd3a04 chore: update results (2026-06-25)
-| | | | * | | | | | 9985da4 Update update_wc.py</pre>
+| | | | * | | | | | | 8aae2fe chore: update results (2026-06-26)</pre>
   </details>
 
   <div id="gg-modal" role="dialog" aria-modal="true" aria-label="GitGraph fullscreen view">
@@ -629,6 +630,7 @@ gitGraph LR:
 <li>✅ <strong>Portugal 0-1 Spain</strong> → <strong>ESP</strong> <span class='date'>(2026-07-06)</span></li>
 <li>✅ <strong>USA 1-4 Belgium</strong> → <strong>BEL</strong> <span class='date'>(2026-07-07)</span></li>
 <li>✅ <strong>Argentina 3-2 Egypt</strong> → <strong>ARG</strong> <span class='date'>(2026-07-07)</span></li>
+<li>✅ <strong>Switzerland 4-3 (pen. 3-3) Colombia</strong> → <strong>SUI</strong> <span class='date'>(2026-07-07)</span></li>
 </ul>
 </section>
 
