@@ -217,7 +217,7 @@ def fmt_score(m: dict) -> str:
 
 
 def winner_tla(m: dict) -> str | None:
-    pen = m["score"].get("penalties") or {}
+    pen = m["score"].get("fullTime") or {}
     if pen.get("home") is not None:
         return m["homeTeam"]["tla"] if pen["home"] > pen["away"] else m["awayTeam"]["tla"]
     w = m["score"].get("winner", "")
@@ -229,7 +229,7 @@ def winner_tla(m: dict) -> str | None:
 
 
 def result_icon(m: dict, tla: str) -> str:
-    pen = m["score"].get("penalties") or {}
+    pen = m["score"].get("fullTime") or {}
     w = m["score"].get("winner", "")
     if pen.get("home") is not None:
         w = "HOME_TEAM" if pen["home"] > pen["away"] else "AWAY_TEAM"
