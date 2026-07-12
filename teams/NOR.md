@@ -1,6 +1,6 @@
 # Norway (NOR) — 2026 FIFA World Cup
 
-**Round of 16**
+**❌ Eliminated in Quarter-finals**
 
 ## Results
 
@@ -9,3 +9,4 @@
 - ❌ Norway 1-4 France — Group Stage (2026-06-26)
 - ✅ Ivory Coast 1-2 Norway — Round of 32 (2026-06-30)
 - ✅ Brazil 1-2 Norway — Round of 16 (2026-07-05)
+- ❌ Norway 1-2 England — Quarter-finals (2026-07-11)
