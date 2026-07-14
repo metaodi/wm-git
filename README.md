@@ -20,7 +20,7 @@ git log --graph --oneline --all
 
 - **Stage**: Quarter-finals
 - **Matches played**: 100 / 104
-- **Last updated**: 2026-07-12 03:53 UTC
+- **Last updated**: 2026-07-14 10:12 UTC
 
 <details><summary>
 
@@ -416,6 +416,7 @@ gitGraph LR:
 ## Git Log</summary>
 
 ```text
+* 14de13d chore: update results (2026-07-14)
 * 219362d chore: update results (2026-07-12)
 * 1928723 chore: update results (2026-07-12)
 * 20eaf8d chore: update results (2026-07-12)
