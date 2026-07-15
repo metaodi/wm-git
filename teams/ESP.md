@@ -1,6 +1,6 @@
 # Spain (ESP) — 2026 FIFA World Cup
 
-**Quarter-finals**
+**Semi-finals**
 
 ## Results
 
@@ -10,3 +10,4 @@
 - ✅ Spain 3-0 Austria — Round of 32 (2026-07-02)
 - ✅ Portugal 0-1 Spain — Round of 16 (2026-07-06)
 - ✅ Spain 2-1 Belgium — Quarter-finals (2026-07-10)
+- ✅ France 0-2 Spain — Semi-finals (2026-07-14)
