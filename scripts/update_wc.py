@@ -613,7 +613,7 @@ def generate_mermaid_gitgraph(
 
         allow_patterns = [
             r".*exits at.*",
-            r".*advance.*",
+            r".*advance[^{]*$",
             r"\w+ \d+–\d+.*",
             r"initialize Group.*",
             r".*third place standings.*",
