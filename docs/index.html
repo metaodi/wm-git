@@ -63,7 +63,7 @@
 
   <div class="status">
     <span class="stat">⚽ <strong>102</strong> / <strong>104</strong> matches played</span>
-    <span class="last-updated">Updated: 2026-07-15 21:07 UTC</span>
+    <span class="last-updated">Updated: 2026-07-16 04:11 UTC</span>
     <span class="stat" style="margin-left:auto"><code>git clone https://github.com/metaodi/wm-git.git && git log --graph --oneline --all</code></span>
   </div>
 
@@ -220,8 +220,6 @@ gitGraph LR:
   commit id: "FRA exits at Semi-finals"
   checkout teams/ESP
   merge teams/FRA id: "ESP advances to Final"
-  checkout main
-  commit id: "use '{WTLA} advances to {NEXT_STAGE}' as mer"
   checkout teams/ARG
   commit id: "Argentina advances to Round of 32"
   checkout teams/CPV
@@ -402,187 +400,177 @@ gitGraph LR:
   </details>
   <details>
     <summary>ASCII Git Log</summary>
-    <pre class="git-log">*   3ba9226 ARG advances to Final
+    <pre class="git-log">* 14edc37 Update update_wc.py
+* 1b5d213 chore: update results (2026-07-16)
+* e9a0528 chore: update results (2026-07-15)
+* a6f521a chore: update results (2026-07-15)
+* d406d49 chore: update results (2026-07-15)
+* 0529c1b chore: update results (2026-07-15)
+* 231b61a chore: update results (2026-07-14)
+* 3a02357 chore: update results (2026-07-14)
+* 14de13d chore: update results (2026-07-14)
+* 219362d chore: update results (2026-07-12)
+* 1928723 chore: update results (2026-07-12)
+* 20eaf8d chore: update results (2026-07-12)
+* 2d78cde chore: update results (2026-07-12)
+* fe59630 chore: update results (2026-07-12)
+* dd2a922 chore: update results (2026-07-10)
+* 5758c95 chore: update results (2026-07-10)
+* ea30c67 chore: update results (2026-07-10)
+* ecce1e4 chore: update results (2026-07-09)
+* 3283138 chore: update results (2026-07-07)
+* 1ce83fe Change penalty score retrieval to fullTime
+* 446aed3 chore: update results (2026-07-07)
+* 737f596 chore: update results (2026-07-07)
+* ca63580 chore: update results (2026-07-07)
+* e5326b4 chore: update results (2026-07-06)
+* f7963e9 chore: update results (2026-07-06)
+*   ca30f49 Merge branch 'main' of https://github.com/metaodi/wm-git
 |\  
-| * 1489377 eliminated: ENG exits at Semi-finals
-| *   8e30a4c ENG advances to Semi-finals
-| |\  
-| | * 9f8a4ce eliminated: NOR exits at Quarter-finals
-| | *   8a17a8c NOR advances to Quarter-finals
-| | |\  
-| | | * 4f26c72 eliminated: BRA exits at Round of 16
-| | | *   5d7caa6 BRA advances to Round of 16
-| | | |\  
-| | | | * 126b286 eliminated: JPN exits at Round of 32
-| | | | * e07b324 feat: Japan advances to Round of 32
-| | | * | 43e8655 Round of 32: Brazil 2-1 Japan (2026-06-29)
-| | | * | 038f852 feat: Brazil advances to Round of 32
-| | * | | 21ebeea Round of 16: Brazil 1-2 Norway (2026-07-05)
-| | * | |   47ce430 NOR advances to Round of 16
-| | |\ \ \  
-| | | * | | 56986eb eliminated: CIV exits at Round of 32
-| | | * | | 57a304b feat: Ivory Coast advances to Round of 32
-| | * | | | 155a45b Round of 32: Ivory Coast 1-2 Norway (2026-06-30)
-| | * | | | 31d39aa feat: Norway advances to Round of 32
-| * | | | | b028305 Quarter-finals: Norway 1-2 England (2026-07-11)
-| * | | | |   4522da5 ENG advances to Quarter-finals
-| |\ \ \ \ \  
-| | * | | | | 49ae15f eliminated: MEX exits at Round of 16
-| | * | | | |   8a147ed MEX advances to Round of 16
-| | |\ \ \ \ \  
-| | | * | | | | 6a3ae53 eliminated: ECU exits at Round of 32
-| | | * | | | | 09d842a feat: Ecuador advances to Round of 32
-| | | | |/ / /  
-| | | |/| | |   
-| | * | | | | bf5fd68 Round of 32: Mexico 2-0 Ecuador (2026-07-01)
-| | * | | | | 447aabb feat: Mexico advances to Round of 32
-| * | | | | | 41cb7a6 Round of 16: Mexico 2-3 England (2026-07-06)
-| * | | | | |   a261540 ENG advances to Round of 16
-| |\ \ \ \ \ \  
-| | * | | | | | 7d3165d eliminated: COD exits at Round of 32
-| | * | | | | | 5672b0b feat: Congo DR advances to Round of 32
-| * | | | | | | acacf83 Round of 32: England 2-1 Congo DR (2026-07-01)
-| * | | | | | | 8b598ba feat: England advances to Round of 32
-* | | | | | | | e2ef481 Semi-finals: England 1-2 Argentina (2026-07-15)
-* | | | | | | |   c9b80d0 ARG advances to Semi-finals
-|\ \ \ \ \ \ \ \  
-| * | | | | | | | 35cdeed eliminated: SUI exits at Quarter-finals
-| * | | | | | | |   a841ec9 SUI advances to Quarter-finals
-| |\ \ \ \ \ \ \ \  
-| | * | | | | | | | ec8aee3 eliminated: COL exits at Round of 16
-| | * | | | | | | |   be1d028 COL advances to Round of 16
-| | |\ \ \ \ \ \ \ \  
-| | | * | | | | | | | 2a9c875 eliminated: GHA exits at Round of 32
-| | | * | | | | | | | be71aa7 feat: Ghana advances to Round of 32
-| | | |/ / / / / / /  
-| | * | | | | | | | dad1f15 Round of 32: Colombia 1-0 Ghana (2026-07-04)
-| | * | | | | | | | c4fe5ae feat: Colombia advances to Round of 32
-| | | |/ / / / / /  
-| | |/| | | | | |   
-| * | | | | | | | 089152c Round of 16: Switzerland 4-3 (pen. 3-3) Colombia (2026-07-07)
-| * | | | | | | |   931e68b SUI advances to Round of 16
-| |\ \ \ \ \ \ \ \  
-| | * | | | | | | | 47a0b03 eliminated: ALG exits at Round of 32
-| | * | | | | | | | 1625e5c feat: Algeria advances to Round of 32
-| * | | | | | | | | d0810f7 Round of 32: Switzerland 2-0 Algeria (2026-07-03)
-| * | | | | | | | | f81e0ef feat: Switzerland advances to Round of 32
-* | | | | | | | | | 9349a77 Quarter-finals: Argentina 3-1 Switzerland (2026-07-12)
-* | | | | | | | | |   fe896e2 ARG advances to Quarter-finals
-|\ \ \ \ \ \ \ \ \ \  
-| * | | | | | | | | | e14977f eliminated: EGY exits at Round of 16
-| * | | | | | | | | |   1dc3ab5 EGY advances to Round of 16
-| |\ \ \ \ \ \ \ \ \ \  
-| | * | | | | | | | | | 192abc0 eliminated: AUS exits at Round of 32
-| | * | | | | | | | | | 42b8d83 feat: Australia advances to Round of 32
-| * | | | | | | | | | | 215440a Round of 32: Australia 3-5 (pen. 4-4) Egypt (2026-07-03)
-| * | | | | | | | | | | c55e2b9 feat: Egypt advances to Round of 32
-* | | | | | | | | | | | 0229362 Round of 16: Argentina 3-2 Egypt (2026-07-07)
-* | | | | | | | | | | |   bcfccf3 ARG advances to Round of 16
-|\ \ \ \ \ \ \ \ \ \ \ \  
-| * | | | | | | | | | | | 39961c8 eliminated: CPV exits at Round of 32
-| * | | | | | | | | | | | cbdbe9d feat: Cape Verde advances to Round of 32
-* | | | | | | | | | | | | 89dde02 Round of 32: Argentina 3-2 Cape Verde (2026-07-03)
-* | | | | | | | | | | | | 50d9b3a feat: Argentina advances to Round of 32
-| |_|_|_|/ / / / / / / /  
-|/| | | | | | | | | | |   
-| | | | | | | | | | | | * e9a0528 chore: update results (2026-07-15)
-| | | | | | | | | | | | * a6f521a chore: update results (2026-07-15)
-| | | | | | | | | | | | * d406d49 chore: update results (2026-07-15)
-| | | | | | | | | | | | * 0529c1b chore: update results (2026-07-15)
-| | | | | | | | | | | | * 231b61a chore: update results (2026-07-14)
-| | | | | | | | | | | | * 3a02357 chore: update results (2026-07-14)
-| | | | | | | | | | | | * 14de13d chore: update results (2026-07-14)
-| | | | | | | | | | | | * 219362d chore: update results (2026-07-12)
-| | | | | | | | | | | | * 1928723 chore: update results (2026-07-12)
-| | | | | | | | | | | | * 20eaf8d chore: update results (2026-07-12)
-| | | | | | | | | | | | * 2d78cde chore: update results (2026-07-12)
-| | | | | | | | | | | | * fe59630 chore: update results (2026-07-12)
-| | | | | | | | | | | | * dd2a922 chore: update results (2026-07-10)
-| | | | | | | | | | | | * 5758c95 chore: update results (2026-07-10)
-| | | | | | | | | | | | * ea30c67 chore: update results (2026-07-10)
-| | | | | | | | | | | | * ecce1e4 chore: update results (2026-07-09)
-| | | | | | | | | | | | * 3283138 chore: update results (2026-07-07)
-| | | | | | | | | | | | * 1ce83fe Change penalty score retrieval to fullTime
-| | | | | | | | | | | | * 446aed3 chore: update results (2026-07-07)
-| | | | | | | | | | | | * 737f596 chore: update results (2026-07-07)
-| | | | | | | | | | | | * ca63580 chore: update results (2026-07-07)
-| | | | | | | | | | | | * e5326b4 chore: update results (2026-07-06)
-| | | | | | | | | | | | * f7963e9 chore: update results (2026-07-06)
-| | | | | | | | | | | | *   ca30f49 Merge branch 'main' of https://github.com/metaodi/wm-git
-| | | | | | | | | | | | |\  
-| | | | | | | | | | | | | * 8967924 chore: update results (2026-07-06)
-| | | | | | | | | | | | * | b00c831 Fix comparison for stage label
-| | | | | | | | | | | | |/  
-| | | | | | | | | | | | * 785ea76 FIx stage display
-| | | | | | | | | | | | * 4f66b0b chore: update results (2026-07-06)
-| | | | | | | | | | | | * 4c78cbf Fix Git log details formatting in update_wc.py
-| | | | | | | | | | | | * 955aec3 chore: update results (2026-07-06)
-| | | | | | | | | | | | * d93e92d Fix formatting of details and summary tags in update_wc.py
-| | | | | | | | | | | | * 09ab11a chore: update results (2026-07-06)
-| | | | | | | | | | | | * 94b851f Fix indentation for ending_commit condition
-| | | | | | | | | | | | * aceb70e Refactor status and groups display in update_wc.py
-| | | | | | | | | | | | * ccc7d81 chore: update results (2026-07-06)
-| | | | | | | | | | | | * 7d895ca chore: update results (2026-07-05)
-| | | | | | | | | | | | * 58dffe0 chore: update results (2026-07-05)
-| | | | | | | | | | | | * 8e2846a chore: update results (2026-07-05)
-| | | | | | | | | | | | * 447e953 chore: update results (2026-07-04)
-| | | | | | | | | | | | * f4d41cf chore: update results (2026-07-04)
-| | | | | | | | | | | | * 14dd158 chore: update results (2026-07-03)
-| | | | | | | | | | | | * 4951602 chore: update results (2026-07-03)
-| | | | | | | | | | | | * bc3f620 chore: update results (2026-07-03)
-| | | | | | | | | | | | * 395e428 chore: update results (2026-07-03)
-| | | | | | | | | | | | * 894d63c chore: update results (2026-07-03)
-| | | | | | | | | | | | * e1a8ec7 chore: update results (2026-07-03)
-| | | | | | | | | | | | * b8144ed chore: update results (2026-07-03)
-| | | | | | | | | | | | * 2bf19fc chore: update results (2026-07-03)
-| | | | | | | | | | | | *   a6e491a Exclude git tags from Mermaid gitgraph output (#32)
-| | | | | | | | | | | | |\  
-| | | | | | | | | | | | | * fe37b87 Filter out git tags from mermaid gitgraph generation
-| | | | | | | | | | | | |/  
-| | | | | | | | | | | | * ecd85ce chore: update results (2026-07-03)
-| | | | | | | | | | | | * 2a1827a chore: update results (2026-07-03)
-| | | | | | | | | | | | * 82b85d7 chore: update results (2026-07-02)
-| | | | | | | | | | | | * bdd9e3b chore: update results (2026-07-01)
-| | | | | | | | | | | | * b9bfce5 chore: update results (2026-07-01)
-| | | | | | | | | | | | * d9df1ce chore: update results (2026-07-01)
-| | | | | | | | | | | | * f0ca2bd chore: update results (2026-07-01)
-| | | | | | | | | | | | * 3a54a4e chore: update results (2026-06-30)
-| | | | | | | | | | | | * bab3a2d chore: update results (2026-06-30)
-| | | | | | | | | | | | * 574bada chore: update results (2026-06-30)
-| | | | | | | | | | | | * 0e1d5bf Filter commit for GitGraph
-| | | | | | | | | | | | * a5e98d7 chore: update results (2026-06-30)
-| | | | | | | | | | | | * 812fbe8 chore: update results (2026-06-29)
-| | | | | | | | | | | | * 2ebd9c9 chore: update results (2026-06-29)
-| | | | | | | | | | | | * 8b3ad41 chore: update results (2026-06-29)
-| | | | | | | | | | | | * de4586a Fix JSON formatting for ko_branch_order key
-| | | | | | | | | | | | * 047874d Fix JSON syntax for ko_branch_order
-| | | | | | | | | | | | * 2655ecd Update state.json
-| | | | | | | | | | | | * 98494e2 chore: update results (2026-06-29)
-| | | | | | | | | | | | * abc67c0 Add uv and dotenv
-| | | | | | | | | | | | * 3efc4bc chore: update results (2026-06-29)
-| | | | | | | | | | | | *   f776e78 fix: keep full subject in gitgraph when commit message has no colon prefix (#30)
-| | | | | | | | | | | | |\  
-| | | | | | | | | | | | | * 1c2e59b fix: keep full subject in gitgraph when commit message has no colon prefix
-| | | | | | | | | | | | * | e50a935 chore: update results (2026-06-28)
-| | | | | | | | | | | | * | 861a5a9 chore: update results (2026-06-28)
-| | | | | | | | | | | | * | 95fd91e fix: reset staged index when KO merge fails without entering conflict state (#29)
-| | | | | | | | | | | | |\| 
-| | | | | | | | | | | | | * 65d1e26 feat: use '{WTLA} advances to {NEXT_STAGE}' as merge commit message
-| | | | | | | | | | | | | * fd8ae0d refactor: commit winner file before merge instead of staging it pre-merge
-| | | | | | | | | | | | | * 55ecc6b fix: reset staged index when KO merge fails without entering conflict state
-| | | | | | | | | | | | * | 06ea7d8 Remove idempotency check for commit existence
-| | | | | | | | | | | | * | e6202aa Fix formatting in state.json
-| | | | | | | | | | | | * | 51850dc Add merged groups D to L in state.json
-| | | | | | | | | | | | * | 3c35299 chore: update results (2026-06-28)
-| | | | | | | | | | | | |/  
-| | | | | | | | | | | | * 1804e17 chore: update results (2026-06-28)
-| | | | | | | | | | | | *   cb138d9 fix: sort KO bracket branches by matchday, add manual order override (#28)
-| | | | | | | | | | | | |\  
-| | | | | | | | | | | | | * 0f8cd76 feat: sort bracket order by matchday+date, add ko_branch_order override
-| | | | | | | | | | | | |/  
-| | | | | | | | | | | | * 85f6868 chore: update results (2026-06-28)
-| | | | | | | | | | | | * facc459 Enhance debug logging for fetched matches
-| | | | | | | | | | | | * c2b9053 chore: update results (2026-06-28)</pre>
+| * 8967924 chore: update results (2026-07-06)
+* | b00c831 Fix comparison for stage label
+|/  
+* 785ea76 FIx stage display
+* 4f66b0b chore: update results (2026-07-06)
+* 4c78cbf Fix Git log details formatting in update_wc.py
+* 955aec3 chore: update results (2026-07-06)
+* d93e92d Fix formatting of details and summary tags in update_wc.py
+* 09ab11a chore: update results (2026-07-06)
+* 94b851f Fix indentation for ending_commit condition
+* aceb70e Refactor status and groups display in update_wc.py
+* ccc7d81 chore: update results (2026-07-06)
+* 7d895ca chore: update results (2026-07-05)
+* 58dffe0 chore: update results (2026-07-05)
+* 8e2846a chore: update results (2026-07-05)
+* 447e953 chore: update results (2026-07-04)
+* f4d41cf chore: update results (2026-07-04)
+* 14dd158 chore: update results (2026-07-03)
+* 4951602 chore: update results (2026-07-03)
+* bc3f620 chore: update results (2026-07-03)
+* 395e428 chore: update results (2026-07-03)
+* 894d63c chore: update results (2026-07-03)
+* e1a8ec7 chore: update results (2026-07-03)
+* b8144ed chore: update results (2026-07-03)
+* 2bf19fc chore: update results (2026-07-03)
+*   a6e491a Exclude git tags from Mermaid gitgraph output (#32)
+|\  
+| * fe37b87 Filter out git tags from mermaid gitgraph generation
+|/  
+* ecd85ce chore: update results (2026-07-03)
+* 2a1827a chore: update results (2026-07-03)
+* 82b85d7 chore: update results (2026-07-02)
+* bdd9e3b chore: update results (2026-07-01)
+* b9bfce5 chore: update results (2026-07-01)
+* d9df1ce chore: update results (2026-07-01)
+* f0ca2bd chore: update results (2026-07-01)
+* 3a54a4e chore: update results (2026-06-30)
+* bab3a2d chore: update results (2026-06-30)
+* 574bada chore: update results (2026-06-30)
+* 0e1d5bf Filter commit for GitGraph
+* a5e98d7 chore: update results (2026-06-30)
+* 812fbe8 chore: update results (2026-06-29)
+* 2ebd9c9 chore: update results (2026-06-29)
+* 8b3ad41 chore: update results (2026-06-29)
+* de4586a Fix JSON formatting for ko_branch_order key
+* 047874d Fix JSON syntax for ko_branch_order
+* 2655ecd Update state.json
+* 98494e2 chore: update results (2026-06-29)
+* abc67c0 Add uv and dotenv
+* 3efc4bc chore: update results (2026-06-29)
+*   f776e78 fix: keep full subject in gitgraph when commit message has no colon prefix (#30)
+|\  
+| * 1c2e59b fix: keep full subject in gitgraph when commit message has no colon prefix
+* | e50a935 chore: update results (2026-06-28)
+* | 861a5a9 chore: update results (2026-06-28)
+* | 95fd91e fix: reset staged index when KO merge fails without entering conflict state (#29)
+|\| 
+| * 65d1e26 feat: use '{WTLA} advances to {NEXT_STAGE}' as merge commit message
+| * fd8ae0d refactor: commit winner file before merge instead of staging it pre-merge
+| * 55ecc6b fix: reset staged index when KO merge fails without entering conflict state
+* | 06ea7d8 Remove idempotency check for commit existence
+* | e6202aa Fix formatting in state.json
+* | 51850dc Add merged groups D to L in state.json
+* | 3c35299 chore: update results (2026-06-28)
+|/  
+* 1804e17 chore: update results (2026-06-28)
+*   cb138d9 fix: sort KO bracket branches by matchday, add manual order override (#28)
+|\  
+| * 0f8cd76 feat: sort bracket order by matchday+date, add ko_branch_order override
+|/  
+* 85f6868 chore: update results (2026-06-28)
+* facc459 Enhance debug logging for fetched matches
+* c2b9053 chore: update results (2026-06-28)
+*   bc27e9a feat: create team branches post-group-stage and order GitGraph by bracket (#27)
+|\  
+| * 19a1d7b feat: create team branches after group stage and order them by bracket in GitGraph
+|/  
+* c1b4427 chore: update results (2026-06-28)
+* 6b629d8 Add ending_commit field to state.json
+* f18185d chore: update results (2026-06-28)
+*   6bba9dc feat: bounded commit range for Mermaid GitGraph to preserve group stage snapshot (#26)
+|\  
+| * b29ac47 fix: address code review feedback on commit range GitGraph feature
+| * 73c3da7 feat: support commit range in mermaid GitGraph for group stage snapshot
+|/  
+* f3c37a8 Update Ghana team status with checkmark
+* 8bf4695 Rearrange teams in third place standings
+* a6a2976 Update standings in third_place.md
+* 5d5cd1b chore: update results (2026-06-28)
+*   c9b1c6a Group L: ENG, CRO, GHA advance (#22)
+|\  
+* \   3e29db3 Group K: COL, POR, COD advance (#21)
+|\ \  
+* \ \   3d49e70 Group J: ARG, AUT, ALG advance (#20)
+|\ \ \  
+* | | | 122e90f chore: update results (2026-06-28)
+* | | | 2c38269 chore: update results (2026-06-27)
+* | | | d17b313 Enable parallel commits in gitGraph configuration
+* | | | e845a12 Add Congo DR to third place standings
+* | | | 1ee9c12 Add Uruguay to third place standings
+* | | | a7ed900 Update third_place.md
+* | | | d36044a Add Senegal's results to third place standings
+* | | | ff1eee7 Add Iran's entry to the third place standings
+* | | | fc045de Update group standings and match results
+* | | | 66a20dd Mark Paraguay as qualified with a checkmark
+* | | |   35e2cf4 Group G: BEL, EGY advance (#17)
+|\ \ \ \  
+* \ \ \ \   e3bea87 Group H: ESP, CPV advance (#18)
+|\ \ \ \ \  
+* | | | | | bf25afa chore: update results (2026-06-27)
+* | | | | | 0f51768 chore: update results (2026-06-27)
+* | | | | |   7cd5b66 Group I: FRA, NOR advance (#19)
+|\ \ \ \ \ \  
+* | | | | | | 4393b31 chore: update results (2026-06-26)
+* | | | | | | 9265497 chore: update results (2026-06-26)
+* | | | | | |   aeeb1f6 feat: fullscreen modal for Mermaid GitGraph (#25)
+|\ \ \ \ \ \ \  
+| * | | | | | | 7ea859d feat: add modal to view mermaid GitGraph larger
+|/ / / / / / /  
+* | | | | | | 991535c chore: update results (2026-06-26)
+* | | | | | | 76c0d15 Update Congo DR entry to Senegal in standings
+* | | | | | | 3cbda12 Add new teams and update standings in third_place.md
+* | | | | | | 4c2d875 Add checkmarks to teams in standings
+* | | | | | | c05297f Add Scotland to third place standings
+* | | | | | | a795492 Add Algeria to third place standings
+* | | | | | | ca6b833 Add Korea Republic to third place standings
+* | | | | | | 78cb5f9 Add Croatia's entry to third place standings
+* | | | | | | f8348b0 Add Paraguay to third place standings
+* | | | | | | 7293832 chore: update results (2026-06-26)
+* | | | | | | c3a80fa Change parallelCommits setting to false
+* | | | | | | 622fb7b chore: update results (2026-06-26)
+* | | | | | | 4c84768 Fix typo in variable name for commit IDs
+* | | | | | | 3279c6c Fix type hint syntax for all_commit_ids variable
+* | | | | | | bc49820 Append commit ID to all_commit_ids list
+* | | | | | | dddd7fc Fix function definition syntax in update_wc.py
+* | | | | | | 332da53 Update update_wc.py
+* | | | | | | fd70bea chore: update results (2026-06-26)
+* | | | | | | 80722e0 Update update_wc.py
+* | | | | | | 2e5027e chore: update results (2026-06-26)
+* | | | | | | fe06e7d Update starting_commit in state.json
+* | | | | | | 387fa14 chore: update results (2026-06-26)
+* | | | | | | 9acabe8 chore: update results (2026-06-26)
+* | | | | | | 1ae3674 Update third_place.md
+* | | | | | | b48e1cc Add Ecuador team to third place standings</pre>
   </details>
 
   <div id="gg-modal" role="dialog" aria-modal="true" aria-label="GitGraph fullscreen view">
