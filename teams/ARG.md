@@ -1,6 +1,6 @@
 # Argentina (ARG) — 2026 FIFA World Cup
 
-**Quarter-finals**
+**Semi-finals**
 
 ## Results
 
@@ -10,3 +10,4 @@
 - ✅ Argentina 3-2 Cape Verde — Round of 32 (2026-07-03)
 - ✅ Argentina 3-2 Egypt — Round of 16 (2026-07-07)
 - ✅ Argentina 3-1 Switzerland — Quarter-finals (2026-07-12)
+- ✅ England 1-2 Argentina — Semi-finals (2026-07-15)
