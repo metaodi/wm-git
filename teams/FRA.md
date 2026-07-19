@@ -1,6 +1,6 @@
 # France (FRA) — 2026 FIFA World Cup
 
-**❌ Eliminated in Semi-finals**
+**❌ Eliminated in Third Place Play-off**
 
 ## Results
 
@@ -11,3 +11,4 @@
 - ✅ Paraguay 0-1 France — Round of 16 (2026-07-04)
 - ✅ France 2-0 Morocco — Quarter-finals (2026-07-09)
 - ❌ France 0-2 Spain — Semi-finals (2026-07-14)
+- ❌ France 4-6 England — Third Place Play-off (2026-07-18)
