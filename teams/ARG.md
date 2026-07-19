@@ -1,6 +1,6 @@
 # Argentina (ARG) — 2026 FIFA World Cup
 
-**Semi-finals**
+**❌ Eliminated in Final**
 
 ## Results
 
@@ -11,3 +11,4 @@
 - ✅ Argentina 3-2 Egypt — Round of 16 (2026-07-07)
 - ✅ Argentina 3-1 Switzerland — Quarter-finals (2026-07-12)
 - ✅ England 1-2 Argentina — Semi-finals (2026-07-15)
+- ❌ Spain 1-0 Argentina — Final (2026-07-19)
