@@ -1,6 +1,6 @@
 # England (ENG) — 2026 FIFA World Cup
 
-**❌ Eliminated in Semi-finals**
+**Third Place Play-off**
 
 ## Results
 
@@ -11,3 +11,4 @@
 - ✅ Mexico 2-3 England — Round of 16 (2026-07-06)
 - ✅ Norway 1-2 England — Quarter-finals (2026-07-11)
 - ❌ England 1-2 Argentina — Semi-finals (2026-07-15)
+- ✅ France 4-6 England — Third Place Play-off (2026-07-18)
