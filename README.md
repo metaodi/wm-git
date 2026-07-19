@@ -440,6 +440,8 @@ gitGraph LR:
   commit id: "ARG exits at Final"
   checkout teams/ESP
   merge teams/ARG id: "ESP advances to Champion"
+  checkout main
+  merge teams/ESP id: "🏆 World Cup 2026 Champion: Spain!"
 ```
 <details open><summary>
 
