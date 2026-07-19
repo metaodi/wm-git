@@ -617,14 +617,16 @@ def generate_mermaid_gitgraph(
             r"\w+ \d+–\d+.*",
             r"initialize Group.*",
             r".*third place standings.*",
-            r".*World Cup 2026 Champion.*",
+            r".*🏆 World Cup 2026 Champion.*",
         ]
 
         if not subject or not any(re.search(pattern, subject) for pattern in allow_patterns):
+            log.debug(f"Skip commit '{subject}' (not allowed)")
             continue
 
         # prevent commits with the same id
         if subject in all_commit_ids:
+            log.debug(f"Skip commit '{subject}' (duplicate)")
             continue
 
         par_branch = sha_to_branch.get(parents[0]) if parents else None
